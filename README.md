@@ -4,7 +4,7 @@
 
 > 需要提前安装全局的 Node 环境
 
-默认访问地址：http://127.0.0.1:3000/iuap_walsin_fe/singletable-query
+默认访问地址：http://127.0.0.1:3000/iuap-pap-training-fe/singletable-query
 
 ```
 $ git clone http://git.yonyou.com/iuap_walsin/fe.git

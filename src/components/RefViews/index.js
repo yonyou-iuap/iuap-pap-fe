@@ -57,11 +57,11 @@ function RefWalsinLevel(props){
                     refCode:'post_level',//test_common||test_grid||test_tree||test_treeTable
                 }}
             refModelUrl = {{
-                tableBodyUrl:'/iuap_walsin_demo/common-ref/blobRefTreeGrid',//表体请求
-                refInfo:'/iuap_walsin_demo/common-ref/refInfo',//表头请求
+                tableBodyUrl:'/iuap-pap-training-be/common-ref/blobRefTreeGrid',//表体请求
+                refInfo:'/iuap-pap-training-be/common-ref/refInfo',//表头请求
             }}
-            matchUrl='/iuap_walsin_demo/common-ref/matchPKRefJSON'
-            filterUrl='/iuap_walsin_demo/common-ref/filterRefJSON'
+            matchUrl='/iuap-pap-training-be/common-ref/matchPKRefJSON'
+            filterUrl='/iuap-pap-training-be/common-ref/filterRefJSON'
             valueField="refpk"
             displayField="{refcode}"
             {...props}
@@ -79,13 +79,13 @@ function RefWalsinComboLevel(props){
             onClickItem={(record) =>{
                 console.log(record)
             }}
-            matchUrl = '/iuap_walsin_demo/common-ref/matchPKRefJSON'
-            filterUrl = '/iuap_walsin_demo/common-ref/filterRefJSON'
+            matchUrl = '/iuap-pap-training-be/common-ref/matchPKRefJSON'
+            filterUrl = '/iuap-pap-training-be/common-ref/filterRefJSON'
             { ...props }
         >
             <ComboStore 
                 ajax = {{
-                    url: '/iuap_walsin_demo/common-ref/blobRefTreeGrid',
+                    url: '/iuap-pap-training-be/common-ref/blobRefTreeGrid',
                     params: {
                         refCode: 'post_level'
                     },

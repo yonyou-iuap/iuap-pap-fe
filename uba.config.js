@@ -8,7 +8,7 @@ const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const pathUrl = ''; //http://127.0.0.1:8080 设置host，可选
-const context = '/iuap_walsin_fe';//工程节点名称
+const context = '/iuap-pap-training-fe';//工程节点名称
 const contentBase = './build' + context;//打包目录
 
 
@@ -30,15 +30,27 @@ const proxyConfig = [
     },
     //要代理访问的对方路由
     router: [
-      '/iuap_walsin_demo', '/wbalone', '/iuap-saas-message-center/', '/iuap-saas-filesystem-service/', '/eiap-plus/', '/newref/', '/print_service/', '/iuap-print/'
+     '/wbalone', '/iuap-saas-message-center/', '/iuap-saas-filesystem-service/', '/eiap-plus/', '/newref/', '/print_service/', '/iuap-print/'
     ],
     url: 'http://172.20.52.215:8888'
+  },
+  {
+    enable: true,
+    headers: {
+      // 与下方url一致
+      "Referer": "http://127.0.0.1:8180"
+    },
+    //要代理访问的对方路由
+    router: [
+      '/iuap-pap-training-be'
+    ],
+    url: 'http://127.0.0.1:8180'
   }
 ];
 
 const globalEnvConfig = new webpack.DefinePlugin({
   __MODE__: JSON.stringify(process.env.NODE_ENV),
-  GROBAL_HTTP_CTX: JSON.stringify("/iuap_walsin_demo"),
+  GROBAL_HTTP_CTX: JSON.stringify("/iuap-pap-training-be"),
   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
 })
 

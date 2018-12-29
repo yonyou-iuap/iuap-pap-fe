@@ -19,7 +19,7 @@ const publishConfig = {
 };
 
 gulp.task("ftp", function () {
-  return gulp.src('build/iuap_walsin_fe/**').pipe(ftp({
+  return gulp.src('build/iuap-pap-training-fe/**').pipe(ftp({
     host: '172.20.53.202',
     port: 21,
     user: 'user',
@@ -29,11 +29,11 @@ gulp.task("ftp", function () {
 });
 
 gulp.task("sftp", function () {
-  return gulp.src('build/iuap_walsin_fe/**').pipe(sftp({
+  return gulp.src('build/iuap-pap-training-fe/**').pipe(sftp({
     host: '172.20.52.215',
     user: 'root',
     pass: 'MHF7ekNbtJ',
-    remotePath: "/data/iuap_walsin_fe"
+    remotePath: "/data/iuap-pap-training-fe"
   }));
 });
 
