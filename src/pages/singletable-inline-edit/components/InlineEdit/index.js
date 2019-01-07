@@ -569,7 +569,7 @@ class InlineEdit extends Component {
      *
      */
     onClickDownloadTemplate = () => {
-        window.open(`${GROBAL_HTTP_CTX}/allowances/excelTemplateDownload`);
+        window.open(`${GROBAL_HTTP_CTX}/inline_allowances/excelTemplateDownload`);
     }
 
     /**
