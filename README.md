@@ -7,8 +7,8 @@
 默认访问地址：http://127.0.0.1:3000/iuap-pap-training-fe/singletable-query
 
 ```
-$ git clone http://git.yonyou.com/iuap_walsin/fe.git
-$ cd fe
+$ git clone https://github.com/yonyou-iuap/iuap-pap-training-fe.git
+$ cd iuap-pap-training-fe
 $ npm i
 $ npm run dev
 ```
@@ -25,7 +25,7 @@ const proxyConfig = [
       "Referer": "http://0.0.0.0:0000"//后端服务校验的referer地址，和url地址一致
     },
     router: [
-      '/allowances'//代理到对方服务器的路由
+      '/iuap-pap-training-be'//代理到对方服务器的路由
     ],
     url: 'http://0.0.0.0:0000'//修改为自己的后端服务地址
   }
