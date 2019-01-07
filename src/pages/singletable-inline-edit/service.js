@@ -8,12 +8,12 @@ import { deepClone } from 'utils';
 
 //定义接口地址
 const URL = {
-    "GET_LIST": `${GROBAL_HTTP_CTX}/allowances/list`,
-    "GET_ADD": `${GROBAL_HTTP_CTX}/allowances/saveMultiple`,
-    "GET_UPDATE": `${GROBAL_HTTP_CTX}/allowances/updateMultiple`,
-    "GET_DELETE": `${GROBAL_HTTP_CTX}/allowances/deleteBatch`,
-    "GET_LIST_BY_COL": `${GROBAL_HTTP_CTX}/allowances/listByColumn`,
-    "GET_TOEXPORTEXCEL": `${GROBAL_HTTP_CTX}/allowances/toExportExcel`
+    "GET_LIST": `${GROBAL_HTTP_CTX}/inline_allowances/list`,
+    "GET_ADD": `${GROBAL_HTTP_CTX}/inline_allowances/saveMultiple`,
+    "GET_UPDATE": `${GROBAL_HTTP_CTX}/inline_allowances/updateMultiple`,
+    "GET_DELETE": `${GROBAL_HTTP_CTX}/inline_allowances/deleteBatch`,
+    "GET_LIST_BY_COL": `${GROBAL_HTTP_CTX}/inline_allowances/listByColumn`,
+    "GET_TOEXPORTEXCEL": `${GROBAL_HTTP_CTX}/inline_allowances/toExportExcel`
 }
 
 /**
