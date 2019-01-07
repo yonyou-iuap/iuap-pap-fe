@@ -4,7 +4,13 @@
 
 > 需要提前安装全局的 Node 环境
 
-默认访问地址：http://127.0.0.1:3000/iuap-pap-training-fe/singletable-query
+默认访问地址：
+http://127.0.0.1:3000/iuap-pap-training-fe/singletable-query#/
+http://127.0.0.1:3000/iuap-pap-training-fe/singletable-inline-edit#/
+http://127.0.0.1:3000/iuap-pap-training-fe/singletable-popup-edit#/
+http://127.0.0.1:3000/iuap-pap-training-fe/tree#/
+http://127.0.0.1:3000/iuap-pap-training-fe/masterdetail-one#/
+http://127.0.0.1:3000/iuap-pap-training-fe/masterdetail-many#/
 
 ```
 $ git clone https://github.com/yonyou-iuap/iuap-pap-training-fe.git
