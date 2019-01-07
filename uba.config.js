@@ -8,7 +8,7 @@ const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const pathUrl = ''; //http://127.0.0.1:8080 设置host，可选
-const context = '/iuap-pap-training-fe';//工程节点名称
+const context = '/iuap_train_example';//工程节点名称
 const contentBase = './build' + context;//打包目录
 
 
@@ -26,25 +26,25 @@ const proxyConfig = [
     enable: true,
     headers: {
       // 与下方url一致
-      "Referer": "http://172.20.52.215:8888"
+      "Referer": "http://10.170.192.155:8888"
     },
     //要代理访问的对方路由
     router: [
      '/wbalone', '/iuap-saas-message-center/', '/iuap-saas-filesystem-service/', '/eiap-plus/', '/newref/', '/print_service/', '/iuap-print/'
     ],
-    url: 'http://172.20.52.215:8888'
+    url: 'http://10.170.192.155:8888'
   },
   {
     enable: true,
     headers: {
       // 与下方url一致
-      "Referer": "http://127.0.0.1:8180"
+      "Referer": "http://10.170.192.155:8888"
     },
     //要代理访问的对方路由
     router: [
-      '/iuap-pap-training-be'
+      '/iuap_walsin_demo'
     ],
-    url: 'http://127.0.0.1:8180'
+    url: 'http://10.170.192.155:8888'
   }
 ];
 
