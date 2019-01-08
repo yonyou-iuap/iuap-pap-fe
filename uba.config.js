@@ -26,25 +26,27 @@ const proxyConfig = [
     enable: true,
     headers: {
       // 与下方url一致
-      "Referer": "http://10.170.192.155:8888"
+      "Referer": "http://10.190.252.42:80"
     },
     //要代理访问的对方路由
     router: [
-     '/wbalone', '/iuap-saas-message-center/', '/iuap-saas-filesystem-service/', '/eiap-plus/', '/newref/', '/print_service/', '/iuap-print/'
+      '/wbalone', 
+      '/iuap-saas-message-center/', 
+      '/iuap-saas-filesystem-service/', 
+      '/eiap-plus/', '/newref/', '/print_service/', '/iuap-print/','/pap_basedoc/'
     ],
-    url: 'http://10.170.192.155:8888'
-  },
-  {
+    url: 'http://10.190.252.42:80'
+  },{
     enable: true,
     headers: {
       // 与下方url一致
-      "Referer": "http://10.170.192.155:8888"
+      "Referer": "http://127.0.0.1:8180"
     },
     //要代理访问的对方路由
     router: [
       '/iuap-pap-training-be'
     ],
-    url: 'http://10.170.192.155:8888'
+    url: 'http://127.0.0.1:8180'
   }
 ];
 
