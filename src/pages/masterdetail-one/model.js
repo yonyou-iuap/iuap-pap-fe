@@ -172,7 +172,8 @@ export default {
                 if (content.length > 0) { // 获取子表数据
                     const {search_id: search_orderId} = param;
                     const {pageSize} = getState().masterDetailOne.queryDetailObj;
-                    const paramObj = {pageSize, pageIndex: 0, search_orderId};
+                    // const paramObj = {pageSize, pageIndex: 0, search_orderId};
+                    const paramObj = {pageSize:10, pageIndex: 0, search_orderId};
                     actions.masterDetailOne.queryChild(paramObj);
                 } else {
                     throw new Error(`错误:${resParent.data.msg}`);
