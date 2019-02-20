@@ -53,7 +53,8 @@ export default {
         async loadList(param = {}, getState) {
             // 正在加载数据，显示加载 Loading 图标
             actions.query.updateState({showLoading: true});
-            const res = processData(await api.getList(param));  // 调用 getList 请求数据
+            const {result} = processData(await api.getList(param));  // 调用 getList 请求数据
+            const {data:res}=result;
             actions.query.updateState({showLoading: false});
             if (res) {
                 const {pageParams} = param;

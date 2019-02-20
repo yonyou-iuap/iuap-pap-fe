@@ -23,31 +23,40 @@ export const Info = (msg) => {
  * @param {*} successMsg 成功提示
  */
 export const processData = (response, successMsg) => {
-    if (typeof response != 'object') {
-        Error('数据返回出错：1、请确保服务运行正常；2、请确保您的前端工程代理服务正常；3、请确认您已在本地登录过应用平台');
-        throw new Error('数据返回出错：1、请确保服务运行正常；2、请确保您的前端工程代理服务正常；3、请确认您已在本地登录过应用平台')
-    }
-    if (response.status == '401') {
-        Error(`错误:${(response.data.msg)}`);
-        throw new Error(`错误:${(response.data.msg)}`);
-    }
-    if (response.status == '200') {
-        let data = response.data;
-        let repMsg = data.success;
-        if (repMsg == 'success') {
-            if (successMsg) {
-                success(successMsg);
-            }
-            return data.detailMsg.data;
-        } else if (repMsg == 'fail_field') {
-            Error(`错误:${(data && data.detailMsg && convert(data.detailMsg.msg)) || '数据返回出错'}`);
-            throw new Error(`错误:${(data && data.detailMsg && convert(data.detailMsg.msg)) || '数据返回出错'}`)
-        } else {
-            Error(`错误:${convert(data.message)}`);
-            throw new Error(`错误:${convert(data.message)}`);
+    let result={};
+    try {
+        if (typeof response != 'object') {
+            Error('数据返回出错：1、请确保服务运行正常；2、请确保您的前端工程代理服务正常；3、请确认您已在本地登录过应用平台');
+            throw new Error('数据返回出错：1、请确保服务运行正常；2、请确保您的前端工程代理服务正常；3、请确认您已在本地登录过应用平台')
         }
-    } else {
-        Error('请求错误');
+        if (response.status == '401') {
+            Error(`错误:${(response.data.msg)}`);
+            throw new Error(`错误:${(response.data.msg)}`);
+        }
+        if (response.status == '200') {
+            let data = response.data;
+            let repMsg = data.success;
+            if (repMsg == 'success') {
+                if (successMsg) {
+                    success(successMsg);
+                }
+                result.status = repMsg;
+                // 删除成功没有 data 值
+                result.data = data.detailMsg.data || {};
+                return {result};
+            } else if (repMsg == 'fail_field') {
+                Error(`错误:${(data && data.detailMsg && convert(data.detailMsg.msg)) || '数据返回出错'}`);
+                throw new Error(`错误:${(data && data.detailMsg && convert(data.detailMsg.msg)) || '数据返回出错'}`)
+            } else {
+                Error(`错误:${convert(data.message)}`);
+                throw new Error(`错误:${convert(data.message)}`);
+            }
+        } else {
+            Error('请求错误');
+        }
+
+    } catch (e) {
+        return {result};
     }
 }
 
@@ -570,7 +579,7 @@ export function getHeight() {
  * @param {*} sortParam 排序参数对象数组
  * @returns {Array} 返回排序属性
  */
-export function getSortMap(sortParam){
+export function getSortMap(sortParam) {
     // 升排序
     const orderSortParam = sortParam.sort((a, b) => {
         return a["orderNum"] - b["orderNum"];
@@ -591,19 +600,19 @@ export function getSortMap(sortParam){
 }
 
 /**
- *@description 获取分页数据 
+ *@description 获取分页数据
  *
- * @param {*} value 
+ * @param {*} value
  * @param {*} type type为0标识为pageIndex,为1标识pageSize
  */
-export function getPageParam (value, type,pageParams){
-    let { pageIndex, pageSize } = pageParams;
+export function getPageParam(value, type, pageParams) {
+    let {pageIndex, pageSize} = pageParams;
     if (type === 0) {
         pageIndex = value - 1;
     } else {
         pageSize = value.toLowerCase() !== 'all' && value || 1;
         pageIndex = 0;
     }
-    return { pageIndex, pageSize }
-       
- }
+    return {pageIndex, pageSize}
+
+}
