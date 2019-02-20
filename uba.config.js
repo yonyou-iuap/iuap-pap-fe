@@ -26,31 +26,32 @@ const proxyConfig = [
     enable: true,
     headers: {
       // 与下方url一致
-      "Referer": "http://10.170.192.155:8888"
+      "Referer": "http://172.20.52.198"
     },
     //要代理访问的对方路由
     router: [
      '/wbalone', '/iuap-saas-message-center/', '/iuap-saas-filesystem-service/', '/eiap-plus/', '/newref/', '/print_service/', '/iuap-print/'
     ],
-    url: 'http://10.170.192.155:8888'
+    url: 'http://172.20.52.198'
   },
   {
     enable: true,
     headers: {
       // 与下方url一致
-      "Referer": "http://10.170.192.155:8888"
+      "Referer": "http://172.20.52.198"
     },
     //要代理访问的对方路由
     router: [
-      '/iuap-pap-training-be'
+      '/iuap_walsin_demo'
     ],
-    url: 'http://10.170.192.155:8888'
+    
+    url: 'http://172.20.52.198'
   }
 ];
 
 const globalEnvConfig = new webpack.DefinePlugin({
   __MODE__: JSON.stringify(process.env.NODE_ENV),
-  GROBAL_HTTP_CTX: JSON.stringify("/iuap-pap-training-be"),
+  GROBAL_HTTP_CTX: JSON.stringify("/iuap_walsin_demo"),
   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
 })
 
