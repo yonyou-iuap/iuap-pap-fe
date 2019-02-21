@@ -1,5 +1,5 @@
 const zh_CN = {
-	"ht.table.query.0001": "A1单标查询示例",
+	"ht.table.query.0001": "A1单表查询示例",
 
 	"js.table.query.0001": "数据",
 	"js.table.query.0002": "员工编号",
@@ -58,6 +58,13 @@ const zh_CN = {
 	"js.search.panel.0003": "查询",
 	"js.search.panel.0004": "收起",
 	"js.search.panel.0005": "展开",
+	// 行编辑多语 开始
+	"ht.inline.title.0001": "A2单表行内编辑示例",
 
+	"js.inline.search.0001": "员工编号",
+
+	"js.inline.search.placeholder.0001": "精确查询",
+	
+	// 行编辑多语 结束
 }
 export default zh_CN;

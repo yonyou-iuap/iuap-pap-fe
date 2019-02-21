@@ -157,8 +157,8 @@ class SearchAreaForm extends Component {
                 <Row>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>员工编号</Label>
-                            <FormControl placeholder="精确查询" {...getFieldProps('code', { initialValue: '' })} />
+                            <Label>{<FormattedMessage id="js.inline.search.0001" defaultMessage="员工编号"/>}</Label>
+                            <FormControl placeholder={this.props.intl.formatMessage({id:"js.inline.search.placeholder.0001", defaultMessage:'精确查询'})} {...getFieldProps('code', { initialValue: '' })} />
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>

@@ -58,6 +58,9 @@ const zh_TW = {
 	"js.search.panel.0003": "査詢",
 	"js.search.panel.0004": "收起",
 	"js.search.panel.0005": "展開",
+	// 行编辑多语 开始
+	"ht.inline.title.0001": "A2單表行內編輯示例"
+	// 行编辑多语 结束
 
 }
 export default zh_TW;

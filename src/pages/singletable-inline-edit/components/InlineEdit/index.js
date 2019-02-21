@@ -33,7 +33,7 @@ import Alert from 'components/Alert';
 import ButtonRoleGroup from 'components/ButtonRoleGroup';
 
 //搜索区组件
-import SearchAreaForm from '../Search-area';
+import SearchArea from '../SearchArea';
 //行编辑组件工厂
 import FactoryComp from './FactoryComp';
 
@@ -740,8 +740,8 @@ class InlineEdit extends Component {
         }
         return (
             <div className='inline-edit'>
-                <Header title='A2单表行内编辑示例' />
-                <SearchAreaForm
+                <Header title={this.props.intl.formatMessage({ id: "ht.inline.title.0001", defaultMessage: "A2单表行内编辑示例" })} />
+                <SearchArea
                     queryParam={queryParam}
                     status={status}
                     pageSize={pageSize}
