@@ -204,8 +204,10 @@ class Query extends Component {
             let {queryParam, cacheFilter} = deepClone(this.props);
             queryParam.whereParams = cacheFilter;
             actions.query.updateState({queryParam}); //缓存查询条件
+            actions.query.loadList(queryParam); // 查询默认条件
         }
         this.setState({filterable: status});
+
     }
 
 
@@ -348,7 +350,10 @@ class Query extends Component {
                     let param = {
                         distinctParams: ['dept']
                     }
-                    actions.query.getListByCol(param); //获取所有部门
+                    const {colFilterSelectdept}=this.props;
+                    if(!(colFilterSelectdept && colFilterSelectdept.length)) {
+                        actions.query.getListByCol(param); //获取所有部门
+                    }
                 },
                 render: (text, record, index) => {
                     return (<span>{record.deptName}</span>)
