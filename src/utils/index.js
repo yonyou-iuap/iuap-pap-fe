@@ -1,21 +1,25 @@
-import {Message} from 'tinper-bee';
+/**
+ * 公共函数库
+ */
+
+import { Message } from 'tinper-bee';
 import axios from "axios";
 
 
 export const success = (msg) => {
-    Message.create({content: msg, color: 'success', duration: 3});
+    Message.create({ content: msg, color: 'success', duration: 3 });
 }
 
 export const Error = (msg) => {
-    Message.create({content: msg, color: 'danger'});
+    Message.create({ content: msg, color: 'danger' });
 }
 
 export const Warning = (msg) => {
-    Message.create({content: msg, color: 'warning', duration: 3});
+    Message.create({ content: msg, color: 'warning', duration: 3 });
 }
 
 export const Info = (msg) => {
-    Message.create({content: msg, color: 'info', duration: 3});
+    Message.create({ content: msg, color: 'info', duration: 3 });
 }
 /**
  * 数据返回统一处理函数
@@ -23,7 +27,7 @@ export const Info = (msg) => {
  * @param {*} successMsg 成功提示
  */
 export const processData = (response, successMsg) => {
-    let result={};
+    let result = {};
     try {
         if (typeof response != 'object') {
             Error('数据返回出错：1、请确保服务运行正常；2、请确保您的前端工程代理服务正常；3、请确认您已在本地登录过应用平台');
@@ -43,7 +47,7 @@ export const processData = (response, successMsg) => {
                 result.status = repMsg;
                 // 删除成功没有 data 值
                 result.data = data.detailMsg.data || {};
-                return {result};
+                return { result };
             } else if (repMsg == 'fail_field') {
                 Error(`错误:${(data && data.detailMsg && convert(data.detailMsg.msg)) || '数据返回出错'}`);
                 throw new Error(`错误:${(data && data.detailMsg && convert(data.detailMsg.msg)) || '数据返回出错'}`)
@@ -56,7 +60,7 @@ export const processData = (response, successMsg) => {
         }
 
     } catch (e) {
-        return {result};
+        return { result };
     }
 }
 
@@ -313,7 +317,7 @@ export function deepClone(data) {
  */
 export function resultDataAdditional(arrayobject) {
     if (Array.isArray(arrayobject)) {
-        return Array.from(arrayobject, (x, i) => ({...x, key: i}))
+        return Array.from(arrayobject, (x, i) => ({ ...x, key: i }))
 
     } else {
         return [];
@@ -358,8 +362,8 @@ export function deepAssign(preData, nextData) {
  * @returns {{list: *, pageIndex: *, totalPages: *, total: *, pageSize: *}}
  */
 export function structureObj(obj, param) {
-    const {content, number, totalPages, totalElements, size} = obj;
-    let {pageSize} = param;
+    const { content, number, totalPages, totalElements, size } = obj;
+    let { pageSize } = param;
     if (!pageSize) {
         pageSize = size;
     }
@@ -379,7 +383,7 @@ export function structureObj(obj, param) {
  * @returns {{list: Array, pageIndex: number, totalPages: number, total: number, pageSize: *}}
  */
 export function initStateObj(obj) {
-    const {pageSize} = obj;
+    const { pageSize } = obj;
     return {
         list: [],
         pageIndex: 0,
@@ -586,7 +590,7 @@ export function getSortMap(sortParam) {
     })
     let sortMap = [];
     sortMap = orderSortParam.map((sortItem, index) => {
-        const {order, field} = sortItem,
+        const { order, field } = sortItem,
             tempObj = {}; // order 排序方式，field排序字段
         const direction = (order === 'ascend' ? "ASC" : "DESC"); //  前后端约定
         let property = field;
@@ -606,13 +610,139 @@ export function getSortMap(sortParam) {
  * @param {*} type type为0标识为pageIndex,为1标识pageSize
  */
 export function getPageParam(value, type, pageParams) {
-    let {pageIndex, pageSize} = pageParams;
+    let { pageIndex, pageSize } = pageParams;
     if (type === 0) {
         pageIndex = value - 1;
     } else {
         pageSize = value.toLowerCase() !== 'all' && value || 1;
         pageIndex = 0;
     }
-    return {pageIndex, pageSize}
+    return { pageIndex, pageSize }
 
+}
+
+
+/**
+ * 根据key关联对应数据后校验
+ *
+ * @param {array} data 要关联数据
+ * @param {array} list 被关联数据
+ * @returns
+ */
+export function filterListKey(data, list) {
+    let _list = list.slice();
+    data.forEach((_data, _index) => {
+        _list.forEach((item, i) => {
+            if (_data['key'] == item['key']) {
+                _list[i]['_validate'] = true;
+            }
+        });
+    });
+    return _list;
+}
+
+/**
+ * 根据id关联对应数据后校验
+ *
+ * @param {array} data 要关联数据
+ * @param {array} list 被关联数据
+ * @returns {array}
+ */
+export function filterListId(data, list) {
+    let _list = list.slice();
+    data.forEach((_data, _index) => {
+        _list.forEach((item, i) => {
+            if (_data['id'] == item['id']) {
+                _list[i]['_validate'] = true;
+            }
+        });
+    });
+    return _list;
+}
+
+/**
+ * 过滤左侧check选中后的数据
+ *
+ * @param {array} data 新增数据
+ * @param {array} list 数据
+ * @returns 选中后的数据
+ */
+export function filterChecked(data, list) {
+    let result = [];
+    data.forEach((_data, _index) => {
+        list.forEach((item) => {
+            if (_data['key'] == item['key'] && item['_checked']) {
+                result.push(_data);
+            }
+        });
+    });
+    return result;
+}
+
+/**
+ * 验证数据否正确
+ *
+ * @param {array} data 欲验证的数据
+ * @returns {bool}
+ */
+export function isVerifyData(data) {
+    let flag = true;
+    let pattern = /Validate\b/;//校验的正则结尾
+    data.forEach((item, index) => {
+        let keys = Object.keys(item);
+        //如果标准为false直接不参与计算说明已经出现了错误
+        if (flag) {
+            for (let i = 0; i < keys.length; i++) {
+                if (pattern.test(keys[i])) {
+                    if (data[index][keys[i]]) {
+                        flag = true;
+                    } else {
+                        flag = false;
+                        break;
+                    }
+                }
+            }
+        }
+    });
+    return flag
+}
+
+/**
+ * 过滤选择的数据根据ID关联
+ *
+ * @param {array} data 新增数据
+ * @param {array} selected 选择后的数据
+ * @returns
+ */
+export function filterSelectedById(data, selected) {
+    let result = [];
+    data.forEach((_data, _index) => {
+        selected.forEach((item) => {
+            if (_data['id'] == item['id'] && item['_checked']) {
+                _data['_checked'] = true;
+                result.push(_data);
+            }
+        });
+    });
+    return result;
+}
+
+/**
+ * 过滤表格内的数据与左侧check同步数据根据id
+ *
+ * @param {array} data 数据
+ * @param {array} list 来源数据
+ * @returns 关联好的数据
+ */
+export function filterSelectedListById(data, list) {
+    let result = [];
+    data.forEach((_data, _index) => {
+        list.forEach((item) => {
+            if (_data['id'] == item['id'] && item['_checked']) {
+                _data['_checked'] = true;
+                result.push(_data);
+            }
+        });
+    });
+    return result;
 }
