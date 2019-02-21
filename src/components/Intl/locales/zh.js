@@ -58,12 +58,39 @@ const zh_CN = {
 	"js.search.panel.0003": "查询",
 	"js.search.panel.0004": "收起",
 	"js.search.panel.0005": "展开",
+
 	// 行编辑多语 开始
+	// 标题
 	"ht.inline.title.0001": "A2单表行内编辑示例",
-
+	//搜索字段
 	"js.inline.search.0001": "员工编号",
-
+	"js.inline.search.0002": "员工姓名",
+	"js.inline.search.0003": "部门",
+	"js.inline.search.0004": "年份",
+	"js.inline.search.0005": "月份",
+	"js.inline.search.0006": "是否超标",
+	// 搜索字段输入提示
 	"js.inline.search.placeholder.0001": "精确查询",
+	"js.inline.search.placeholder.0002": "模糊查询",
+	"js.inline.search.placeholder.0003": "选择部门",
+	"js.inline.search.placeholder.0004": "选择年",
+	"js.inline.search.placeholder.0005": "请选择",
+	"js.inline.search.placeholder.0006": "请选择",
+	// 搜索下拉
+	"js.inline.search.sel.0001": "请选择",
+	"js.inline.search.sel.0002": "未超标",
+	"js.inline.search.sel.0003": "超标",
+	// 按钮
+	"js.inline.btn.0001": "新增",
+	"js.inline.btn.0002": "修改",
+	"js.inline.btn.0003": "删除",
+	"js.inline.btn.0004": "下载模板",
+	"js.inline.btn.0005": "导入",
+	"js.inline.btn.0006": "导出",
+	"js.inline.btn.0007": "保存",
+	"js.inline.btn.0008": "取消",
+
+	
 	
 	// 行编辑多语 结束
 }

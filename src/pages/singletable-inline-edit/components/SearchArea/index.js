@@ -38,7 +38,7 @@ const format = "YYYY";
 const { YearPicker } = DatePicker;
 
 
-class SearchAreaForm extends Component {
+class SearchArea extends Component {
 
     constructor(props) {
         super(props);
@@ -163,40 +163,43 @@ class SearchAreaForm extends Component {
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>员工姓名</Label>
-                            <FormControl placeholder="模糊查询" {...getFieldProps('name', { initialValue: '' })} />
+                            <Label>{<FormattedMessage id="js.inline.search.0002" defaultMessage="员工姓名"/>}</Label>
+                            <FormControl placeholder={this.props.intl.formatMessage({id:"js.inline.search.placeholder.0002", defaultMessage:'模糊查询'})} {...getFieldProps('name', { initialValue: '' })} />
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem >
-                            <Label>部门</Label>
-                            <RefIuapDept {...getFieldProps('dept', { initialValue: '' })} />
+                            <Label>{<FormattedMessage id="js.inline.search.0003" defaultMessage="部门"/>}</Label>
+                            <RefIuapDept
+                                placeholder={this.props.intl.formatMessage({id:"js.inline.search.placeholder.0003", defaultMessage:'选择部门'})}
+                                {...getFieldProps('dept', { initialValue: '' })} 
+                            />
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem className='time'>
-                            <Label>年份</Label>
+                            <Label>{<FormattedMessage id="js.inline.search.0004" defaultMessage="年份"/>}</Label>
                             <YearPicker
                                 {...getFieldProps('year', { initialValue: '' })}
                                 format={format}
                                 locale={zhCN}
-                                placeholder="选择年"
+                                placeholder={this.props.intl.formatMessage({id:"js.inline.search.placeholder.0004", defaultMessage:'选择年'})}
                             />
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>月份</Label>
+                            <Label>{<FormattedMessage id="js.inline.search.0005" defaultMessage="月份"/>}</Label>
                             <SelectMonth  {...getFieldProps('month', { initialValue: '' })} />
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>是否超标</Label>
+                            <Label>{<FormattedMessage id="js.inline.search.0006" defaultMessage="是否超标"/>}</Label>
                             <Select {...getFieldProps('exdeeds', { initialValue: '' })}>
-                                <Option value="">请选择</Option>
-                                <Option value="0">未超标</Option>
-                                <Option value="1">超标</Option>
+                                <Option value="">{<FormattedMessage id="js.inline.search.sel.0001" defaultMessage="请选择"/>}</Option>
+                                <Option value="0">{<FormattedMessage id="js.inline.search.sel.0002" defaultMessage="未超标"/>}</Option>
+                                <Option value="1">{<FormattedMessage id="js.inline.search.sel.0003" defaultMessage="超标"/>}</Option>
                             </Select>
                         </FormItem>
                     </Col>
@@ -207,4 +210,4 @@ class SearchAreaForm extends Component {
     }
 }
 
-export default Form.createForm()(SearchAreaForm)
+export default Form.createForm()(SearchArea)

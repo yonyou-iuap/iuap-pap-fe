@@ -760,7 +760,7 @@ class InlineEdit extends Component {
                             className="ml8"
                             onClick={this.handlerNew}
                         >
-                            新增
+                            {<FormattedMessage id="js.inline.btn.0001" defaultMessage="新增"/>}
                         </Button>
                         <Button
                             role="update"
