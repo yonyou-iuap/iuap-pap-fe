@@ -1,5 +1,5 @@
 const zh_CN = {
-	"ht.table.query.0001": "A1單錶査詢示例",
+	"ht.table.query.0001": "A1单标查询示例",
 
 	"js.table.query.0001": "数据",
 	"js.table.query.0002": "员工编号",

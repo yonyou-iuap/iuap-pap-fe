@@ -19,6 +19,7 @@ import {
     filterListId, filterChecked, isVerifyData,
     filterSelectedById, filterSelectedListById
 } from "utils";
+import { FormattedMessage } from 'react-intl';
 
 //Grid组件
 import Grid from 'components/Grid';
@@ -727,7 +728,7 @@ class InlineEdit extends Component {
     render() {
         const _this = this;
         let { showPop, showPopCancel, tableHeight } = _this.state;
-        let { list, showLoading, pageIndex, pageSize, totalPages, total, status, rowEditStatus, queryParam } = _this.props;
+        let { list, showLoading, pageIndex, pageSize, totalPages, total, status, rowEditStatus, queryParam, intl } = _this.props;
         //分页条数据
         const paginationObj = {
             activePage: pageIndex,//当前页
@@ -746,6 +747,7 @@ class InlineEdit extends Component {
                     pageSize={pageSize}
                     searchOpen={true}
                     onCallback={this.resetTableHeight}
+                    intl={intl}
                 />
                 <div className='table-header'>
                     <ButtonRoleGroup

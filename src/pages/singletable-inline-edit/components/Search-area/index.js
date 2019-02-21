@@ -19,6 +19,7 @@ import zhCN from "rc-calendar/lib/locale/zh_CN";
 
 //加载工具类
 import { deepClone } from "utils";
+import { FormattedMessage} from 'react-intl';
 //部门参照组件
 import { RefIuapDept } from 'components/RefViews';
 //其他
@@ -143,9 +144,10 @@ class SearchAreaForm extends Component {
 
     render() {
         const { getFieldProps } = this.props.form;
-        const { form, searchOpen, onCallback } = this.props;
+        const { form, searchOpen, onCallback,intl } = this.props;
         return (
             <SearchPanel
+                intl = {intl}
                 className='edlin-form'
                 form={form}
                 searchOpen={searchOpen}
