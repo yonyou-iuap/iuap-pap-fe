@@ -9,6 +9,7 @@ import Button from 'components/Button';
 import PopDialog from 'components/Pop';
 import SearchArea from '../SearchArea'
 
+import { FormattedMessage } from 'react-intl';
 import {deepClone, getHeight, getSortMap} from "utils";
 
 import 'bee-complex-grid/build/Grid.css';
@@ -245,7 +246,7 @@ class Query extends Component {
 
     render() {
         const _this = this;
-        const {queryObj, showLoading, queryParam} = _this.props;
+        const {queryObj, showLoading, queryParam, intl} = _this.props;
         const {pageIndex, total, totalPages} = queryObj;
         const {filterable, record, tableHeight} = _this.state;
 
@@ -265,7 +266,7 @@ class Query extends Component {
 
         const column = [
             {
-                title: "数据",
+                title: <FormattedMessage id="js.table.query.0001" defaultMessage="数据" />,
                 width: 80,
                 dataIndex: "k",
                 key: "k",
@@ -278,9 +279,9 @@ class Query extends Component {
                     const menu = (
                         <Menu
                             onClick={e => this.onRelevance(record, e.key)}>
-                            <Item key='code'>模态弹出</Item>
-                            <Item key='year'>链接跳转</Item>
-                            <Item key='name'>打开新页</Item>
+                            <Item key='code'><FormattedMessage id="js.table.query.0001" defaultMessage="模态弹出" /></Item>
+                            <Item key='year'><FormattedMessage id="js.table.query.0002" defaultMessage="链接跳转" /></Item>
+                            <Item key='name'><FormattedMessage id="js.table.query.0003" defaultMessage="打开新页" /></Item>
                         </Menu>
                     );
                     return (
@@ -297,13 +298,13 @@ class Query extends Component {
                 }
             },
             {
-                title: "员工编号",
+                title: <FormattedMessage id="js.table.query.0002" defaultMessage="员工编号"/>,
                 dataIndex: "code",
                 key: "code",
                 width: 160,
             },
             {
-                title: "员工姓名",
+                title: <FormattedMessage id="js.table.query.0003" defaultMessage="员工姓名"/>,
                 dataIndex: "name",
                 key: "name",
                 width: 120,
@@ -320,7 +321,7 @@ class Query extends Component {
                 }
             },
             {
-                title: "员工性别",
+                title: <FormattedMessage id="js.table.query.0004" defaultMessage="员工性别"/>,
                 dataIndex: "sex",
                 key: "sex",
                 exportKey: 'sexEnumValue',
@@ -335,7 +336,7 @@ class Query extends Component {
 
             },
             {
-                title: "部门",
+                title: <FormattedMessage id="js.table.query.0005" defaultMessage="部门"/>,
                 dataIndex: "dept",
                 key: "dept",
                 exportKey: "deptName",
@@ -355,13 +356,13 @@ class Query extends Component {
                 }
             },
             {
-                title: "职级",
+                title: <FormattedMessage id="js.table.query.0006" defaultMessage="职级"/>,
                 dataIndex: "levelName",
                 key: "levelName",
                 width: 120,
             },
             {
-                title: "工龄",
+                title: <FormattedMessage id="js.table.query.0007" defaultMessage="工龄"/>,
                 dataIndex: "serviceYears",
                 key: "serviceYears",
                 width: 180,
@@ -378,7 +379,7 @@ class Query extends Component {
                 sorter: (a, b) => a.serviceYears - b.serviceYears,
             },
             {
-                title: "司龄",
+                title: <FormattedMessage id="js.table.query.0008" defaultMessage="司龄"/>,
                 dataIndex: "serviceYearsCompany",
                 key: "serviceYearsCompany",
                 width: 130,
@@ -386,7 +387,7 @@ class Query extends Component {
                 sorter: (a, b) => a.serviceYearsCompany - b.serviceYearsCompany,
             },
             {
-                title: "年份",
+                title: <FormattedMessage id="js.table.query.0009" defaultMessage="年份"/>,
                 dataIndex: "year",
                 key: "year",
                 width: 100,
@@ -396,7 +397,7 @@ class Query extends Component {
                 }
             },
             {
-                title: "月份",
+                title: <FormattedMessage id="js.table.query.0010" defaultMessage="月份"/>,
                 dataIndex: "monthEnumValue",
                 key: "monthEnumValue",
                 width: 100,
@@ -404,13 +405,13 @@ class Query extends Component {
                 sorter: (a, b) => a.month - b.month,
             },
             {
-                title: "补贴类别",
+                title: <FormattedMessage id="js.table.query.0011" defaultMessage="补贴类别"/>,
                 dataIndex: "allowanceTypeEnumValue",
                 key: "allowanceTypeEnumValue",
                 width: 120,
             },
             {
-                title: "补贴标准",
+                title: <FormattedMessage id="js.table.query.0012" defaultMessage="补贴标准"/>,
                 dataIndex: "allowanceStandard",
                 key: "allowanceStandard",
                 width: 120,
@@ -421,7 +422,7 @@ class Query extends Component {
 
             },
             {
-                title: "实际补贴",
+                title: <FormattedMessage id="js.table.query.0013" defaultMessage="实际补贴"/>,
                 dataIndex: "allowanceActual",
                 key: "allowanceActual",
                 width: 120,
@@ -432,13 +433,13 @@ class Query extends Component {
 
             },
             {
-                title: "是否超标",
+                title: <FormattedMessage id="js.table.query.0014" defaultMessage="是否超标"/>,
                 dataIndex: "exdeedsEnumValue",
                 key: "exdeedsEnumValue",
                 width: 120,
             },
             {
-                title: "申请时间",
+                title: <FormattedMessage id="js.table.query.0015" defaultMessage="申请时间"/>,
                 dataIndex: "applyTime",
                 key: "applyTime",
                 width: 300,
@@ -451,13 +452,13 @@ class Query extends Component {
                 }
             },
             {
-                title: "领取方式",
+                title: <FormattedMessage id="js.table.query.0016" defaultMessage="领取方式"/>,
                 dataIndex: "pickTypeEnumValue",
                 key: "pickTypeEnumValue",
                 width: 120,
             },
             {
-                title: "领取时间",
+                title: <FormattedMessage id="js.table.query.0017" defaultMessage="领取时间"/>,
                 dataIndex: "pickTime",
                 key: "pickTime",
                 width: 150,
@@ -466,7 +467,7 @@ class Query extends Component {
                 }
             },
             {
-                title: "备注",
+                title: <FormattedMessage id="js.table.query.0018" defaultMessage="备注"/>,
                 dataIndex: "remark",
                 key: "remark",
                 width: 100,
@@ -476,15 +477,16 @@ class Query extends Component {
         return (
             <div className='single-table-query'>
                 <Loading showBackDrop={true} loadingType="line" show={showLoading} fullScreen={true}/>
-                <Header title='A1单表查询示例'/>
+                <Header title={this.props.intl.formatMessage({id:"ht.table.query.0001", defaultMessage:"A1单表查询示例"})}/>
                 <SearchArea
-                queryParam={queryParam}
-                clearRowFilter={this.clearRowFilter}
-                onCallback={this.resetTableHeight}
+                    queryParam={queryParam}
+                    clearRowFilter={this.clearRowFilter}
+                    onCallback={this.resetTableHeight}
+                    intl = {intl}
                 />
                 <div className='table-header'>
                     <Button iconType="uf-export" className="ml8" onClick={_this.export}>
-                        导出
+                        <FormattedMessage id="js.query.btn.0001" defaultMessage="导出" />
                     </Button>
                 </div>
                 <div className="gird-parent">
@@ -509,24 +511,24 @@ class Query extends Component {
 
                 <PopDialog
                     show={this.state.showModal}
-                    title={"模态弹出"}
+                    title={this.props.intl.formatMessage({id:"js.query.menu.0001", defaultMessage:"模态弹出"})}
                     close={this.close}
                     btns={[]}
                 >
                     <div>
-                        <span>员工编号：</span>
+                        <span><FormattedMessage id="js.query.pop.0001" defaultMessage="员工编号：" /></span>
                         <span>{record.code}</span>
                     </div>
                     <div>
-                        <span>员工姓名：</span>
+                        <span><FormattedMessage id="js.query.pop.0002" defaultMessage="员工姓名：" /></span>
                         <span>{record.name}</span>
                     </div>
                     <div>
-                        <span>员工性别：</span>
+                        <span><FormattedMessage id="js.query.pop.0003" defaultMessage="员工性别：" /></span>
                         <span>{record.sexEnumValue}</span>
                     </div>
                     <div>
-                        <span>职级：</span>
+                        <span><FormattedMessage id="js.query.pop.0004" defaultMessage="职级：" /></span>
                         <span>{record.levelName}</span>
                     </div>
                 </PopDialog>

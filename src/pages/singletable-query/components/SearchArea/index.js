@@ -9,6 +9,7 @@ import {RefIuapDept} from 'components/RefViews';
 import SearchPanel from 'components/SearchPanel';
 import SelectMonth from 'components/SelectMonth';
 
+import { FormattedMessage} from 'react-intl';
 import {deepClone, mergeListObj, delListObj} from "utils";
 import zhCN from "rc-calendar/lib/locale/zh_CN";
 
@@ -120,27 +121,27 @@ class SearchAreaForm extends Component {
                 <Row>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>员工编号</Label>
-                            <FormControl placeholder='精确查询' {...getFieldProps('code', {initialValue: ''})}/>
+                            <Label>{<FormattedMessage id="js.table.query.0002" defaultMessage="员工编号"/>}</Label>
+                            <FormControl placeholder={this.props.intl.formatMessage({id:"js.search.prompt.0001", defaultMessage:'精确查询'})} {...getFieldProps('code', {initialValue: ''})}/>
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>员工姓名</Label>
-                            <FormControl placeholder='模糊查询' {...getFieldProps('name', {initialValue: ''})}/>
+                            <Label>{<FormattedMessage id="js.table.query.0003" defaultMessage="员工姓名"/>}</Label>
+                            <FormControl placeholder={this.props.intl.formatMessage({id:"js.search.prompt.0002", defaultMessage:'模糊查询'})} {...getFieldProps('name', {initialValue: ''})}/>
                         </FormItem>
                     </Col>
 
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>部门</Label>
+                            <Label>{<FormattedMessage id="js.table.query.0005" defaultMessage="部门"/>}</Label>
                             <RefIuapDept {...getFieldProps('dept', {initialValue: ''})}/>
                         </FormItem>
                     </Col>
 
                     <Col md={4} xs={6}>
                         <FormItem className="time">
-                            <Label>司龄≥</Label>
+                            <Label>{<FormattedMessage id="js.table.query.0008" defaultMessage="司龄"/>}≥</Label>
                             <InputNumber min={0} iconStyle="one"
                                          {...getFieldProps('serviceYearsCompany', {
                                              initialValue: "",
@@ -152,29 +153,29 @@ class SearchAreaForm extends Component {
 
                     <Col md={4} xs={6}>
                         <FormItem className="time">
-                            <Label>年份</Label>
+                            <Label>{<FormattedMessage id="js.table.query.0009" defaultMessage="年份"/>}</Label>
                             <YearPicker
                                 {...getFieldProps('year', {initialValue: ''})}
                                 format={format}
                                 locale={zhCN}
-                                placeholder="选择年"
+                                placeholder={this.props.intl.formatMessage({id:"js.search.sel1.0001", defaultMessage:'选择年'})}
                             />
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>月份</Label>
+                            <Label>{<FormattedMessage id="js.table.query.0010" defaultMessage="月份"/>}</Label>
                             <SelectMonth {...getFieldProps('month', {initialValue: ''})} />
                         </FormItem>
                     </Col>
 
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>是否超标</Label>
+                            <Label>{<FormattedMessage id="js.table.query.0014" defaultMessage="是否超标"/>}</Label>
                             <Select {...getFieldProps('exdeeds', {initialValue: ''})}>
-                                <Option value="">请选择</Option>
-                                <Option value="0">未超标</Option>
-                                <Option value="1">超标</Option>
+                                <Option value="">{<FormattedMessage id="js.search.sel.0001" defaultMessage="请选择"/>}</Option>
+                                <Option value="0">{<FormattedMessage id="js.search.sel.0002" defaultMessage="未超标"/>}</Option>
+                                <Option value="1">{<FormattedMessage id="js.search.sel.0003" defaultMessage="超标"/>}</Option>
                             </Select>
                         </FormItem>
                     </Col>

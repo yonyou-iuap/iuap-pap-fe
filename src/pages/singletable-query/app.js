@@ -5,7 +5,7 @@
 import React from "react";
 import mirror, { render,Router } from "mirrorx";
 import logger from "redux-logger";
-
+import Intl from 'components/Intl/index.js';
 import Routes from './routes'
 
 import 'core-js/es6/map';
@@ -24,6 +24,6 @@ mirror.defaults({
     middlewares: MiddlewareConfig
 });
 
-render(<Router>
+render(<Intl><Router>
     <Routes />
-</Router>, document.querySelector("#app"));
+</Router></Intl>, document.querySelector("#app"));

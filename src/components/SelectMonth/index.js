@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { FormattedMessage} from 'react-intl';
 import Select from "bee-select";
 
 const {Option} = Select;
@@ -7,7 +8,7 @@ class SelectMonth extends Component {
     render() {
         return (
             <Select {...this.props}>
-                <Option value="">请选择</Option>
+                <Option value="">{<FormattedMessage id="js.search.sel.0001" defaultMessage="请选择"/>}</Option>
                 <Option value={1}>一月</Option>
                 <Option value={2}>二月</Option>
                 <Option value={3}>三月</Option>
