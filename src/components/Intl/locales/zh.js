@@ -37,7 +37,27 @@ const zh_CN = {
 
 	"js.search.sel1.0001": "选择年",
 
+	"js.search.sel2.0001": "一月",
+	"js.search.sel2.0002": "二月",
+	"js.search.sel2.0003": "三月",
+	"js.search.sel2.0004": "四月",
+	"js.search.sel2.0005": "五月",
+	"js.search.sel2.0006": "六月",
+	"js.search.sel2.0007": "七月",
+	"js.search.sel2.0008": "八月",
+	"js.search.sel2.0009": "九月",
+	"js.search.sel2.0010": "十月",
+	"js.search.sel2.0011": "十一月",
+	"js.search.sel2.0012": "十二月",
+
 	"js.search.prompt.0001": "精确查询",
 	"js.search.prompt.0002": "模糊查询",
+
+	"js.search.panel.0001": "查询与筛选",
+	"js.search.panel.0002": "清除查询",
+	"js.search.panel.0003": "查询",
+	"js.search.panel.0004": "收起",
+	"js.search.panel.0005": "展开",
+
 }
 export default zh_CN;

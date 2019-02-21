@@ -7,6 +7,9 @@ import PropTypes from 'prop-types';
 import { Panel } from 'tinper-bee';
 import Button from 'components/Button';
 import classnames from 'classnames';
+
+import { FormattedMessage} from 'react-intl';
+
 import './index.less';
 
 /**
@@ -71,7 +74,7 @@ class SearchPanel extends Component {
                         {this.props.title}
                     </span> */}
                     <span className={'search-panel-icon'}>
-                        {this.state.searchOpen ? '收起' : '展开'}
+                        {this.state.searchOpen ? this.props.intl.formatMessage({id:"js.search.panel.0004", defaultMessage:"收起"}) : this.props.intl.formatMessage({id:"js.search.panel.0005", defaultMessage:"展开"})}
                         <i className={classnames({
                             'uf': true,
                             'uf-arrow-down': this.state.searchOpen,
@@ -92,8 +95,8 @@ class SearchPanel extends Component {
             >
                 {children}
                 <div className='search-panel-btn'>
-                    <Button className='submit-btn' iconType="uf-search" onClick={this.search}>{searchName}</Button>
-                    <Button className='reset-btn' onClick={this.reset}>{resetName}</Button>
+                    <Button className='submit-btn' iconType="uf-search" onClick={this.search}>{<FormattedMessage id="js.search.panel.0003" defaultMessage={searchName}/>}</Button>
+                    <Button className='reset-btn' onClick={this.reset}>{<FormattedMessage id="js.search.panel.0002" defaultMessage={resetName}/>}</Button>
                 </div>
             </Panel>
         )

@@ -110,10 +110,11 @@ class SearchAreaForm extends Component {
 
     render() {
         const _this = this;
-        const {form,onCallback} = _this.props;
+        const {form,onCallback, intl} = _this.props;
         const {getFieldProps} = form;
         return (
             <SearchPanel
+                intl = {intl}
                 form={form}
                 reset={this.reset}
                 onCallback={onCallback}

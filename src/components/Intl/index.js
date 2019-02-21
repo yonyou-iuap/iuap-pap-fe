@@ -36,8 +36,8 @@ function chooseLocale(locale){
 }
 
 console.log('getCookie', getCookie('u_locale'))
-// let locale =  (getCookie('u_locale')||navigator.language.split('_')[0].replace(/-/,'_')||"en_US")
-let locale = 'zh_TW';
+let locale =  (getCookie('u_locale')||navigator.language.split('_')[0].replace(/-/,'_')||"en_US")
+// let locale = 'zh_TW';
 let intlModel = {
     name: "intl",
     initialState: {

@@ -37,8 +37,27 @@ const zh_TW = {
 
 	"js.search.sel1.0001": "選擇年",
 
+	"js.search.sel2.0001": "一月",
+	"js.search.sel2.0002": "二月",
+	"js.search.sel2.0003": "三月",
+	"js.search.sel2.0004": "四月",
+	"js.search.sel2.0005": "五月",
+	"js.search.sel2.0006": "六月",
+	"js.search.sel2.0007": "七月",
+	"js.search.sel2.0008": "八月",
+	"js.search.sel2.0009": "九月",
+	"js.search.sel2.0010": "十月",
+	"js.search.sel2.0011": "十一月",
+	"js.search.sel2.0012": "十二月",
+
 	"js.search.prompt.0001": "精確查詢",
 	"js.search.prompt.0002": "模糊查詢",
+
+	"js.search.panel.0001": "査詢與篩選",
+	"js.search.panel.0002": "清除査詢",
+	"js.search.panel.0003": "査詢",
+	"js.search.panel.0004": "收起",
+	"js.search.panel.0005": "展開",
 
 }
 export default zh_TW;
