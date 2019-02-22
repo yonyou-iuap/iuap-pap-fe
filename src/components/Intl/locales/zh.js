@@ -167,5 +167,145 @@ const zh_CN = {
 	
 
 	/* 行编辑多语 结束 */
+
+
+	/* 一主多子多语 开始 */
+
+	"ht.many.0000": "B3 一主多子示例",
+    "ht.many.0001": "费用小计",
+    "ht.many.0002": "确定删除这条记录吗？",
+    "ht.many.0003": "确定删除文件吗？",
+
+    "js.many.search.0001": "乘客编号",
+    "js.many.search.0002": "乘客姓名",
+    "js.many.search.0003": "手机号",
+    "js.many.search.0004": "联系人姓名",
+    "js.many.search.0005": "联系人电话",
+    "js.many.search.0006": "与乘客关系",
+
+    "js.many.btn.0001": "新增",
+    "js.many.btn.0002": "修改",
+    "js.many.btn.0003": "详情",
+    "js.many.btn.0004": "删除",
+    "js.many.btn.0005": "汇出",
+    "js.many.btn.0006": "打印",
+    "js.many.btn.0007": "确定",
+    "js.many.btn.0008": "取消",
+
+    "js.many.table.0001": "乘客编号",
+    "js.many.table.0002": "乘客姓名",
+    "js.many.table.0003": "乘客性别",
+    "js.many.table.0004": "所属部门",
+    "js.many.table.0005": "手机号",
+    "js.many.table.0006": "是否会员",
+    "js.many.table.0007": "会员等级",
+    "js.many.table.0008": "会员到期日期",
+
+    "js.many.table.0009": "联系人姓名",
+    "js.many.table.0010": "联系人电话",
+    "js.many.table.0011": "与乘客关系",
+    "js.many.table.0012": "备注",
+    "js.many.table.0013": "乘车路线",
+    "js.many.table.0014": "上车站点",
+    "js.many.table.0015": "下车站点",
+    "js.many.table.0016": "费用",
+    "js.many.table.0017": "支付状态",
+
+    "js.many.tab.0001": "紧急联系人",
+    "js.many.tab.0002": "订票信息",
+
+    "js.many.message.0001": "请输入乘车路线",
+    "js.many.message.0002": "请输入上车站点",
+    "js.many.message.0003": "请输入下车站点",
+    "js.many.message.0004": "请选择支付状态",
+
+    "js.many.message.0005": "请选择支付状态",
+    "js.many.message.0006": "请选择部门",
+    "js.many.message.0007": "请选择乘客性别",
+    "js.many.message.0008": "请正确输入手机号",
+    "js.many.message.0009": "请选择会员等级",
+    "js.many.message.0010": "请选择会员到期日期",
+
+    "js.many.message.0011": "请输入联系人姓名",
+    "js.many.message.0012": "请输入联系人电话",
+    "js.many.message.0013": "请输入与乘客关系",
+
+    "js.many.switch.0001": "是",
+    "js.many.switch.0002": "否",
+
+    "js.many.option.0001": "未支付",
+    "js.many.option.0002": "已支付",
+    "js.many.option.0003": "初级会员",
+    "js.many.option.0004": "中级会员",
+    "js.many.option.0005": "高级会员",
+
+    "ht.one.0001": "B2 壹主壹子示例",
+    "ht.one.0002": "是否要删除 ?",
+    "ht.one.0003": "未获取到单据信息",
+    "ht.one.0004": "警告",
+    "ht.one.0005": "数据未保存，确定离开 ?",
+    "ht.one.0006": "流程图",
+
+    "js.one.btn.0001": "新增",
+    "js.one.btn.0002": "修改",
+    "js.one.btn.0003": "详情",
+    "js.one.btn.0004": "删除",
+    "js.one.btn.0005": "汇出",
+    "js.one.btn.0006": "打印",
+    "js.one.btn.0007": "确定",
+    "js.one.btn.0008": "取消",
+    "js.one.btn.0009": "提交",
+    "js.one.btn.0010": "收回",
+    "js.one.btn.0011": "是",
+    "js.one.btn.0012": "保存",
+
+
+    "js.one.search.prompt.0001": "精确查询",
+    "js.one.search.prompt.0002": "模糊查询",
+
+    "js.one.search.0001": "编号",
+    "js.one.search.0002": "名称",
+    "js.one.search.0003": "类型",
+    "js.one.search.0004": "流程状态",
+    "js.one.search.0005": "部门",
+    "js.one.search.0006": "价格",
+    "js.one.search.0007": "申请人",
+    "js.one.search.0008": "申请日期",
+
+
+    "js.one.option.0001": "请选择",
+    "js.one.option.0002": "普通采购",
+    "js.one.option.0003": "委托代销",
+    "js.one.option.0004": "直运采购",
+    "js.one.option.0005": "全部",
+    "js.one.option.0006": "待确认",
+    "js.one.option.0007": "执行中",
+    "js.one.option.0008": "已办结",
+    "js.one.option.0009": "终止",
+
+    "js.one.table.0001": "编号",
+    "js.one.table.0002": "名称",
+    "js.one.table.0003": "类型",
+    "js.one.table.0004": "价格",
+    "js.one.table.0005": "申请人",
+    "js.one.table.0006": "申请部门",
+    "js.one.table.0007": "申请日期",
+    "js.one.table.0008": "流程状态",
+
+    "js.one.table.0009": "物料名称",
+    "js.one.table.0010": "物料型号",
+    "js.one.table.0011": "物料数量",
+    "js.one.table.0012": "需求日期",
+
+    "js.one.table.0013": "物料名称",
+    "js.one.table.0014": "物料型号",
+    "js.one.table.0015": "物料数量",
+    "js.one.table.0016": "需求日期",
+
+    "js.one.message.0001": "请输入名称",
+    "js.one.message.0002": "请选择部门",
+	"js.one.message.0003": "请选择申请日期",
+	
+	/* 一主多子多语 结束 */
 }
 export default zh_CN;
