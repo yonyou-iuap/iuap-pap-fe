@@ -7,6 +7,7 @@ import Select from 'bee-select';
 import InputNumber from "bee-input-number";
 import PopDialog from 'components/Pop';
 
+import { FormattedMessage } from 'react-intl';
 import {success, Error} from "utils";
 import {actions, connect} from "mirrorx";
 
@@ -16,13 +17,17 @@ import './index.less';
 const {FormItem} = Form;
 const {Option} = Select;
 
-const titleArr = ["新增", "修改", "详情"];
-
 class CommonPop extends Component {
     constructor(props) {
-        super(props);
+		super(props);
         this.state = {};
-    }
+	}
+	
+	titleArr = [
+		this.props.intl.formatMessage({id:"js.tree.btn.0001", defaultMessage:"新增"}), 
+		this.props.intl.formatMessage({id:"js.tree.btn.0002", defaultMessage:"修改"}), 
+		this.props.intl.formatMessage({id:"js.tree.btn.0003", defaultMessage:"详情"}), 
+	];
 
     /**
 	 * @description 关闭modal回调函数
@@ -158,7 +163,7 @@ class CommonPop extends Component {
         return (
 			<PopDialog
 				show={showModal}
-				title={titleArr[btnFlag]}
+				title={this.titleArr[btnFlag]}
 				size='lg'
 				btns={btns}
 				close={_this.onCloseEdit}
@@ -167,7 +172,7 @@ class CommonPop extends Component {
 					<Row className='form-panel'>
 						<Col md={6} xs={12} sm={10}>
 							<FormItem>
-								<Label className="mast">员工姓名</Label>
+								<Label className="mast"><FormattedMessage id="js.tree.table.0004" defaultMessage="员工姓名" /></Label>
 								<FormControl
 									disabled = {btnFlag == 2}
 									{...getFieldProps('name', {

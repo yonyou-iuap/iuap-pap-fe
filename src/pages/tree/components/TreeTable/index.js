@@ -9,6 +9,7 @@ import Alert from 'components/Alert';
 import ButtonRoleGroup from 'components/ButtonRoleGroup';
 
 // 导入自定义工具类
+import { FormattedMessage } from 'react-intl';
 import {deepClone, success, Error, Warning,getPageParam} from 'utils';
 
 // 导入样式
@@ -25,19 +26,19 @@ class TreeTable extends Component {
 		this.grid = null;
 		this.column = [
 			{
-				title: "姓名",
+				title: <FormattedMessage id="js.tree.table.0001" defaultMessage="姓名" />,
 				dataIndex: "name",
 				key: "name",
 				width:200,
 			},
 			{
-				title: "性别",
+				title: <FormattedMessage id="js.tree.table.0002" defaultMessage="性别" />,
 				dataIndex: "sexEnumValue",
 				key: "sexEnumValue",
 				width:200,
 			},
 			{
-				title: "年龄",
+				title: <FormattedMessage id="js.tree.table.0003" defaultMessage="年龄" />,
 				dataIndex: "age",
 				key: "age",
 				width: 200,
@@ -135,7 +136,7 @@ class TreeTable extends Component {
 			if (Array.isArray(tableSelValue) && len) {
 
 				if (len > 1) {
-					Warning("请选择单条表数据");
+					Warning(this.props.intl.formatMessage({id:"js.tree.prompt.0001", defaultMessage:"请选择单条表数据"}));
 					return;
 				}
 
@@ -145,7 +146,7 @@ class TreeTable extends Component {
 					btnFlag
 				})
 			} else {
-				Warning("请选择表数据");
+				Warning(this.props.intl.formatMessage({id:"js.tree.prompt.0002", defaultMessage:"请选择表数据"}));
 				return ;
 			}
 		} else {
@@ -159,7 +160,7 @@ class TreeTable extends Component {
 					initEditValue : {}
 				}
 			} else {
-				Warning("请选择表数据所属树节点");
+				Warning(this.props.intl.formatMessage({id:"js.tree.prompt.0003", defaultMessage:"请选择表数据所属树节点"}));
 			}
 
 		}
@@ -177,7 +178,7 @@ class TreeTable extends Component {
 			});
 
 		} else {
-			Warning("请选择数据");
+			Warning(this.props.intl.formatMessage({id:"js.tree.prompt.0002", defaultMessage:"请选择表数据"}));
 		}
 	}
 
@@ -291,7 +292,7 @@ class TreeTable extends Component {
 
 	render() {
 		let _this = this;
-		let { tableData = [], paginationParam, delModal } = _this.props;
+		let { tableData = [], paginationParam, delModal, intl } = _this.props;
 		let {pageIndex} = paginationParam.reqParam || {};
 		let {totalPages = 0, total = 0,} = paginationParam.resParam || {}
 		const paginationObj = {   // 分页
@@ -313,21 +314,21 @@ class TreeTable extends Component {
 							onClick={ _this.onCommonClick(0)}
 							role = 'add'
 							disabled = {showObj[0]}
-						>新增</Button>
+						><FormattedMessage id="js.tree.btn.0001" defaultMessage="新增" /></Button>
 						<Button style={{"margin" : 8}} iconType = 'uf-pencil'
 							onClick={ _this.onCommonClick(1)}
 							role = 'update'
 							disabled = {showObj[1]}
-						>修改</Button>
+						><FormattedMessage id="js.tree.btn.0002" defaultMessage="修改" /></Button>
 						<Button colors="primary" style={{"margin" : 8}} iconType = 'uf-list-s-o'
 							onClick={ _this.onCommonClick(2)}
 							disabled = {showObj[2]}
-						>详情</Button>
+						><FormattedMessage id="js.tree.btn.0003" defaultMessage="详情" /></Button>
 						<Button colors="primary" style={{"margin" : 8}} iconType = 'uf-del'
 							onClick={_this.onDelete}
 							role = 'delete'
 							disabled = {showObj[3]}
-						>删除</Button>
+						><FormattedMessage id="js.tree.btn.0004" defaultMessage="删除" /></Button>
 					</ButtonRoleGroup>
 					<Button
 						style = {{"margin" : 8}}
@@ -335,7 +336,7 @@ class TreeTable extends Component {
 						onClick = {_this.onExport}
 						iconType = "uf uf-export"
 					>
-						导出
+						<FormattedMessage id="js.tree.btn.0005" defaultMessage="导出" />
 					</Button>
 				</div>
 				<Grid
@@ -348,12 +349,13 @@ class TreeTable extends Component {
 					multiSelect={{ type: "checkbox" }}
 					scroll={{y: tableHeight}}
                 />
-				<CommonPop />
+				<CommonPop intl={intl}/>
 				<Alert
 					show = {delModal}
-					context = "是否要删除 ?"
+					context = {this.props.intl.formatMessage({id:"js.tree.prompt.0004", defaultMessage:"是否要删除 ?"})}
 					confirmFn = {() => this.onModalDel(true)}
 					cancelFn = {() => this.onModalDel(false)}
+					intl = {intl}
 				/>
 			</div>
 		);
