@@ -18,7 +18,7 @@ import {FormattedMessage} from "react-intl";
 const {FormItem} = Form;
 const {Option} = Select;
 const format = "YYYY-MM-DD";
-let titleArr = ["新增", "修改", "详情"];
+
 
 class AddEditPassenger extends Component {
     constructor(props) {
@@ -30,6 +30,13 @@ class AddEditPassenger extends Component {
 
         }
     }
+
+    titleArr = [
+        this.props.intl.formatMessage({id:"js.tree.btn.0001", defaultMessage:"新增"}),
+        this.props.intl.formatMessage({id:"js.tree.btn.0002", defaultMessage:"修改"}),
+        this.props.intl.formatMessage({id:"js.tree.btn.0003", defaultMessage:"详情"}),
+    ];
+
 
     async componentWillReceiveProps(nextProps) {
         const {btnFlag, currentIndex} = this.props;
@@ -153,7 +160,7 @@ class AddEditPassenger extends Component {
                 show={modalVisible}
                 size='lg'
                 close={this.onCloseEdit}
-                title={titleArr[btnFlag]}
+                title={this.titleArr[btnFlag]}
                 btns={btns}
                 className='passenger-modal'
             >

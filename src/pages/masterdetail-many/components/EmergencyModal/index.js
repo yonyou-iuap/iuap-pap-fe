@@ -12,7 +12,7 @@ import 'bee-datepicker/build/DatePicker.css';
 import './index.less'
 
 const {FormItem} = Form;
-let titleArr = ["新增", "修改", "详情"];
+
 
 class AddEditEmergency extends Component {
 
@@ -23,6 +23,12 @@ class AddEditEmergency extends Component {
             btnFlag: 0,
         }
     }
+    titleArr = [
+        this.props.intl.formatMessage({id:"js.tree.btn.0001", defaultMessage:"新增"}),
+        this.props.intl.formatMessage({id:"js.tree.btn.0002", defaultMessage:"修改"}),
+        this.props.intl.formatMessage({id:"js.tree.btn.0003", defaultMessage:"详情"}),
+    ];
+
 
     async componentWillReceiveProps(nextProps) {
         const {btnFlag, currentIndex} = this.props;
@@ -127,7 +133,7 @@ class AddEditEmergency extends Component {
                 show={modalVisible}
                 size='lg'
                 close={this.onCloseEdit}
-                title={titleArr[btnFlag]}
+                title={this.titleArr[btnFlag]}
                 btns={btns}
                 className='emergency-modal'
             >

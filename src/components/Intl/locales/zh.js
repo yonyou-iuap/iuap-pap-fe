@@ -285,6 +285,8 @@ const zh_CN = {
 	"js.one.option.0008": "已办结",
 	"js.one.option.0009": "终止",
 
+	"js.one.info.0001": "请勾选数据后再删除",
+
 	"js.one.table.0001": "编号",
 	"js.one.table.0002": "名称",
 	"js.one.table.0003": "类型",

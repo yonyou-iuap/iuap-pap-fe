@@ -280,6 +280,8 @@ const zh_TW = {
     "js.one.option.0008": "已辦結",
     "js.one.option.0009": "終止",
 
+    "js.one.info.0001": "請勾選數據後再刪除",
+
     "js.one.table.0001": "編號",
     "js.one.table.0002": "名稱",
     "js.one.table.0003": "類型",
@@ -385,22 +387,22 @@ const zh_TW = {
 	"js.group.search.0005":"月份",
 	"js.group.search.0006":"年份",
 	"js.group.search.0007":"選擇年份",
-	
-	
-	
+
+
+
 	// 是否超標
 	"js.group.search.sel1.0001": "是否超標",
 	"js.group.search.sel1.0002": "請選擇",
 	"js.group.search.sel1.0003": "未超標",
 	"js.group.search.sel1.0004": "超標",
 
-	
-	
-	
 
-	// 
-	
-	
+
+
+
+	//
+
+
 
 	/* 分組聚合 結束 */
 

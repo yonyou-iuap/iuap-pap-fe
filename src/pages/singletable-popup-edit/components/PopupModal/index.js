@@ -21,7 +21,7 @@ const {YearPicker} = DatePicker;
 const {FormItem} = Form;
 const format = "YYYY-MM-DD HH:mm:ss";
 const formatYYYY = "YYYY";
-let titleArr = ["新增", "修改", "详情"];
+
 
 class PopupModal extends Component {
     constructor(props) {
@@ -32,6 +32,12 @@ class PopupModal extends Component {
             cancelFlag: false
         }
     }
+
+    titleArr = [
+        this.props.intl.formatMessage({id:"js.tree.btn.0001", defaultMessage:"新增"}),
+        this.props.intl.formatMessage({id:"js.tree.btn.0002", defaultMessage:"修改"}),
+        this.props.intl.formatMessage({id:"js.tree.btn.0003", defaultMessage:"详情"}),
+    ];
 
     async componentWillReceiveProps(nextProps) {
         let _this = this;
@@ -171,7 +177,7 @@ class PopupModal extends Component {
         return (
 
             <PopDialog show={editModelVisible}
-                       title={titleArr[btnFlag]}
+                       title={this.titleArr[btnFlag]}
                        size='lg'
                        btns={btns}
                        autoFocus={false}

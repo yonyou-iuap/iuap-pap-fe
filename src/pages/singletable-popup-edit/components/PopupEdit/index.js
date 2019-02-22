@@ -406,6 +406,7 @@ class PopupEdit extends Component {
                     currentIndex={selectedIndex}
                     btnFlag={btnFlag}
                     list={list}
+                    intl={intl}
                 />
             </div>
         )

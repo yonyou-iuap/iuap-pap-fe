@@ -21,7 +21,6 @@ import 'bee-pagination/build/Pagination.css';
 import 'bee-datepicker/build/DatePicker.css';
 import './index.less'
 
-let titleArr = ["新增", "修改", "详情"];
 
 class Order extends Component {
     constructor(props) {
@@ -33,6 +32,13 @@ class Order extends Component {
             selectData: [],
         }
     }
+
+    titleArr = [
+        this.props.intl.formatMessage({id:"js.tree.btn.0001", defaultMessage:"新增"}),
+        this.props.intl.formatMessage({id:"js.tree.btn.0002", defaultMessage:"修改"}),
+        this.props.intl.formatMessage({id:"js.tree.btn.0003", defaultMessage:"详情"}),
+    ];
+
 
     //缓存数据
     oldData = []
@@ -230,7 +236,7 @@ class Order extends Component {
     onClickDel = () => {
         const {selectData} = this.state;
         if (selectData.length === 0) {
-            Info('请勾选数据后再删除');
+            Info(this.props.intl.formatMessage({id:"js.one.info.0001", defaultMessage:"请勾选sss数据后再删除"}));
             return
         }
 
@@ -601,7 +607,7 @@ class Order extends Component {
                     cancelFn={() => {
                         _this.confirmGoBack(2)
                     }}/>
-                <Header title={titleArr[btnFlag]}>
+                <Header title={this.titleArr[btnFlag]}>
                     <div className='head-btn'>
                         {(btnFlag !== 2) &&
                         <Button iconType="uf-correct" className="ml8" onClick={_this.onClickSave}>

@@ -379,7 +379,7 @@ export default class One extends Component {
                         >
                             {<FormattedMessage id="js.one.btn.0004" defaultMessage="删除"/>}
                         </Button>
-                        <Alert show={delModalVisible} context= {<FormattedMessage id="ht.one.btn.0002" defaultMessage="是否要删除 ?"/>}
+                        <Alert show={delModalVisible}
                                confirmFn={() => _this.confirmGoBack(1)}
                                cancelFn={() => _this.confirmGoBack(2)}
                         />
