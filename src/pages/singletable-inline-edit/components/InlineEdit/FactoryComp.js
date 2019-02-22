@@ -5,7 +5,9 @@
 
 //React所需导入
 import React, { Component } from 'react';
-
+//多语
+import { injectIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 //文本输入组件
 import TextField from 'components/RowField/TextField';
 //下拉选择组件
@@ -43,14 +45,14 @@ class FactoryComp extends Component {
                 </div>);
             case 'sex'://性别
                 const sexData = [{
-                    key: "请选择",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.sex.0001", defaultMessage: '请选择' }),
                     value: '',
                     disabled: true
                 }, {
-                    key: "男",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.sex.0002", defaultMessage: '男' }),
                     value: 1
                 }, {
-                    key: "女",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.sex.0003", defaultMessage: '女' }),
                     value: 0
                 }];
                 return (<div>
@@ -87,44 +89,44 @@ class FactoryComp extends Component {
                 </div>);
             case 'month'://月份
                 const monthData = [{
-                    key: "请选择",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0001", defaultMessage: '请选择' }),
                     value: "",
                     disabled: true
                 }, {
-                    key: "一月",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0002", defaultMessage: '一月' }),
                     value: 1
                 }, {
-                    key: "二月",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0003", defaultMessage: "二月" }),
                     value: 2
                 }, {
-                    key: "三月",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0004", defaultMessage: "三月" }),
                     value: 3
                 }, {
-                    key: "四月",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0005", defaultMessage: "四月" }),
                     value: 4
                 }, {
-                    key: "五月",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0006", defaultMessage: "五月" }),
                     value: 5
                 }, {
-                    key: "六月",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0007", defaultMessage: "六月" }),
                     value: 6
                 }, {
-                    key: "七月",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0008", defaultMessage: "七月" }),
                     value: 7
                 }, {
-                    key: "八月",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0009", defaultMessage: "八月" }),
                     value: 8
                 }, {
-                    key: "九月",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0010", defaultMessage: "九月" }),
                     value: 9
                 }, {
-                    key: "十月",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0011", defaultMessage: "十月" }),
                     value: 10
                 }, {
-                    key: "十一月",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0012", defaultMessage: "十一月" }),
                     value: 11
                 }, {
-                    key: "十二月",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.month.0013", defaultMessage: "十二月" }),
                     value: 12
                 }];
                 return (<div>
@@ -137,17 +139,17 @@ class FactoryComp extends Component {
                 </div>);
             case 'allowanceType'://补助类别
                 const allowanceTypeData = [{
-                    key: "请选择",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.allowance.0001", defaultMessage: "请选择" }),
                     value: "",
                     disabled: true
                 }, {
-                    key: "电脑补助",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.allowance.0002", defaultMessage: "电脑补助" }),
                     value: 1
                 }, {
-                    key: "住宿补助",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.allowance.0003", defaultMessage: "住宿补助" }),
                     value: 2
                 }, {
-                    key: "交通补助",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.allowance.0004", defaultMessage: "交通补助" }),
                     value: 3
                 }];
                 return (<div>
@@ -186,14 +188,14 @@ class FactoryComp extends Component {
                 </div>);
             case 'exdeeds'://是否超标
                 const exdeedsData = [{
-                    key: "请选择",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.exdeeds.0001", defaultMessage: "请选择" }),
                     value: "",
                     disabled: true
                 }, {
-                    key: "未超标",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.exdeeds.0002", defaultMessage: "未超标" }),
                     value: 0
                 }, {
-                    key: "超标",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.exdeeds.0003", defaultMessage: "超标" }),
                     value: 1
                 }];
                 return (<div>
@@ -206,14 +208,14 @@ class FactoryComp extends Component {
                 </div>);
             case 'pickType'://领取类别
                 const pickTypeData = [{
-                    key: "请选择",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.pick.0001", defaultMessage: "请选择" }),
                     value: "",
                     disabled: true
                 }, {
-                    key: "转账",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.pick.0002", defaultMessage: "转账" }),
                     value: 1
                 }, {
-                    key: "现金",
+                    key: this.props.intl.formatMessage({ id: "js.inline.factory.pick.0003", defaultMessage: "现金" }),
                     value: 2
                 }];
                 return (<div>
@@ -264,8 +266,6 @@ class FactoryComp extends Component {
                             validate={record['_validate']}//启用验证
                         /> : <div>{record.levelName}</div>}
                 </div>);
-            default:
-                return (<div>组件类型错误</div>)
         }
     }
     render() {
@@ -275,4 +275,4 @@ class FactoryComp extends Component {
     }
 }
 
-export default FactoryComp;
+export default injectIntl(FactoryComp);

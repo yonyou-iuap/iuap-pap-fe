@@ -1,4 +1,9 @@
 const zh_TW = {
+	/* 公共组件多语 开始 */
+
+
+	/* 公共组件多语 开始 */
+
 	"ht.table.query.0001": "A1單錶査詢示例",
 
 	"js.table.query.0001": "數據",
@@ -121,6 +126,38 @@ const zh_TW = {
 	"js.inline.table.0015": "領取方式",
 	"js.inline.table.0016": "領取時間",
 	"js.inline.table.0017": "備注",
+
+	// 行編輯字段工廠
+	"js.inline.factory.sex.0001": "請選擇",
+	"js.inline.factory.sex.0002": "男",
+	"js.inline.factory.sex.0003": "女",
+	// 月份
+	"js.inline.factory.month.0001": "請選擇",
+	"js.inline.factory.month.0002": "壹月",
+	"js.inline.factory.month.0003": "二月",
+	"js.inline.factory.month.0004": "三月",
+	"js.inline.factory.month.0005": "四月",
+	"js.inline.factory.month.0006": "五月",
+	"js.inline.factory.month.0007": "六月",
+	"js.inline.factory.month.0008": "七月",
+	"js.inline.factory.month.0009": "八月",
+	"js.inline.factory.month.0010": "九月",
+	"js.inline.factory.month.0011": "十月",
+	"js.inline.factory.month.0012": "十壹月",
+	"js.inline.factory.month.0013": "十二月",
+	// 補貼類型
+	"js.inline.factory.allowance.0001":"請選擇",
+	"js.inline.factory.allowance.0002":"電腦補助",
+	"js.inline.factory.allowance.0003":"住宿補助",
+	"js.inline.factory.allowance.0004":"交通補助",
+	// 是否超標
+	"js.inline.factory.exdeeds.0001":"請選擇",
+	"js.inline.factory.exdeeds.0002":"未超標",
+	"js.inline.factory.exdeeds.0003":"超標",
+	// 領取類別
+	"js.inline.factory.pick.0001":"請選擇",
+	"js.inline.factory.pick.0002":"轉賬",
+	"js.inline.factory.pick.0003":"現金",
 
 	/* 行編輯多語 結束 */
 

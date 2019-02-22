@@ -1,6 +1,11 @@
 const zh_CN = {
-	// 单边查询 开始
-	
+	/* 公共组件多语 开始 */
+
+
+	/* 公共组件多语 开始 */
+
+	/* 单表查询 开始 */
+
 	"ht.table.query.0001": "A1单表查询示例",
 	// column字段
 	"js.table.query.0001": "数据",
@@ -61,11 +66,11 @@ const zh_CN = {
 	"js.search.panel.0004": "收起",
 	"js.search.panel.0005": "展开",
 
-	// 单表查询结束
+	/* 单表查询 结束 */
 
 
 	/* 行编辑多语 开始 */
-	
+
 	// 标题
 	"ht.inline.title.0001": "A2单表行内编辑示例",
 
@@ -107,8 +112,7 @@ const zh_CN = {
 	"js.inline.alert.0004": "请勾选数据后再删除",
 	"js.inline.alert.0005": "是否要删除 ?",
 	"js.inline.alert.0006": "数据未保存，确定查询 ?",
-	
-	
+
 	// 表格字段
 	"js.inline.table.0001": "员工编号",
 	"js.inline.table.0002": "员工姓名",
@@ -127,6 +131,40 @@ const zh_CN = {
 	"js.inline.table.0015": "领取方式",
 	"js.inline.table.0016": "领取时间",
 	"js.inline.table.0017": "备注",
+
+	// 行编辑字段工厂
+	// 性别
+	"js.inline.factory.sex.0001": "请选择",
+	"js.inline.factory.sex.0002": "男",
+	"js.inline.factory.sex.0003": "女",
+	// 月份
+	"js.inline.factory.month.0001": "请选择",
+	"js.inline.factory.month.0002": "一月",
+	"js.inline.factory.month.0003": "二月",
+	"js.inline.factory.month.0004": "三月",
+	"js.inline.factory.month.0005": "四月",
+	"js.inline.factory.month.0006": "五月",
+	"js.inline.factory.month.0007": "六月",
+	"js.inline.factory.month.0008": "七月",
+	"js.inline.factory.month.0009": "八月",
+	"js.inline.factory.month.0010": "九月",
+	"js.inline.factory.month.0011": "十月",
+	"js.inline.factory.month.0012": "十一月",
+	"js.inline.factory.month.0013": "十二月",
+	// 补贴类型
+	"js.inline.factory.allowance.0001":"请选择",
+	"js.inline.factory.allowance.0002":"电脑补助",
+	"js.inline.factory.allowance.0003":"住宿补助",
+	"js.inline.factory.allowance.0004":"交通补助",
+	// 是否超标
+	"js.inline.factory.exdeeds.0001":"请选择",
+	"js.inline.factory.exdeeds.0002":"未超标",
+	"js.inline.factory.exdeeds.0003":"超标",
+	// 领取类别
+	"js.inline.factory.pick.0001":"请选择",
+	"js.inline.factory.pick.0002":"转账",
+	"js.inline.factory.pick.0003":"现金",
+	
 
 	/* 行编辑多语 结束 */
 }
