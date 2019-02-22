@@ -163,7 +163,7 @@ const zh_TW = {
 
 
 	/* 一主多子多语 开始 */
-	
+
     "ht.many.0000": "B3 壹主多子示例",
     "ht.many.0001": "費用小計",
     "ht.many.0002": "確定刪除這條記錄嗎？",
@@ -232,6 +232,10 @@ const zh_TW = {
     "js.many.option.0004": "中級會員",
     "js.many.option.0005": "高級會員",
 
+    /* 一主多子多语 结束 */
+
+    /* 一主一子多语 开始 */
+
     "ht.one.0001": "B2 壹主壹子示例",
     "ht.one.0002": "是否要刪除 ?",
     "ht.one.0003": "未獲取到單據信息",
@@ -298,8 +302,72 @@ const zh_TW = {
     "js.one.message.0001": "請輸入名稱",
     "js.one.message.0002": "請選擇部門",
 	"js.one.message.0003": "請選擇申請日期",
-	
-	/* 一主多子多语 结束 */
+
+    /* 一主一子多语 结束 */
+
+    /* 弹框编辑 开始 */
+    "ht.popup.0001": "A3 單表彈框編輯示例",
+    "ht.popup.0002": "是否要刪除 ?",
+
+
+    "js.popup.search.prompt.0001": "精確查詢",
+    "js.popup.search.prompt.0002": "模糊查詢",
+    "js.popup.search.prompt.0003": "選擇年",
+
+
+    "js.popup.btn.0001": "新增",
+    "js.popup.btn.0002": "修改",
+    "js.popup.btn.0003": "詳情",
+    "js.popup.btn.0004": "刪除",
+    "js.popup.btn.0005": "導出",
+    "js.popup.btn.0006": "確定",
+    "js.popup.btn.0007": "取消",
+
+    "js.popup.table.0001": "員工編號",
+    "js.popup.table.0002": "員工姓名",
+    "js.popup.table.0003": "員工性別",
+    "js.popup.table.0004": "所屬部門",
+    "js.popup.table.0005": "職級",
+    "js.popup.table.0006": "工齡",
+    "js.popup.table.0007": "司齡",
+    "js.popup.table.0008": "年份",
+    "js.popup.table.0009": "月份",
+    "js.popup.table.0010": "補貼類別",
+    "js.popup.table.0011": "補貼標準",
+    "js.popup.table.0012": "實際補貼",
+    "js.popup.table.0013": "是否超標",
+    "js.popup.table.0014": "申請時間",
+    "js.popup.table.0015": "領取方式",
+    "js.popup.table.0016": "領取時間",
+    "js.popup.table.0017": "備註",
+
+    "js.popup.option.0001": "請選擇",
+    "js.popup.option.0002": "未超標",
+    "js.popup.option.0003": "超標",
+
+    "js.popup.option.0004": "女",
+    "js.popup.option.0005": "男",
+    "js.popup.option.0006": "電腦補助",
+    "js.popup.option.0007": "住宿補助",
+    "js.popup.option.0008": "交通補助",
+
+
+    "js.popup.message.0001": "請輸入員工姓名",
+    "js.popup.message.0002": "請選擇員工性別",
+    "js.popup.message.0003": "請選擇部門",
+    "js.popup.message.0004": "請選擇職級",
+    "js.popup.message.0005": "請選擇申請時間",
+    "js.popup.message.0006": "請選擇月份",
+    "js.popup.message.0007": "請選擇補貼類別",
+    "js.popup.message.0008": "請選擇是否超標",
+    "js.popup.message.0009": "請選擇申請時間",
+    "js.popup.message.0010": "請選擇領取方式",
+    "js.popup.message.0011": "請選擇領取時間",
+
+
+
+
+
 
 
 }
