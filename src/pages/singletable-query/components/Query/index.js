@@ -18,15 +18,21 @@ import 'bee-table/build/Table.css';
 import 'bee-input-number/build/InputNumber.css';
 import './index.less';
 
+import {getCookie} from "utils";
+
 const {Item} = Menu;
 const format = "YYYY-MM-DD HH:mm:ss";
 const beginFormat = "YYYY-MM-DD 00:00:00";
 const endFormat = "YYYY-MM-DD 23:59:59";
 
-
+let locale_serial = "";
 class Query extends Component {
     constructor(props) {
         super(props);
+        locale_serial = getCookie("locale_serial");
+        if(locale_serial == 1) {
+            locale_serial = "";
+        }
         this.state = {
             tableHeight: 0,
             filterable: false,
@@ -307,7 +313,7 @@ class Query extends Component {
             },
             {
                 title: <FormattedMessage id="js.table.query.0003" defaultMessage="员工姓名"/>,
-                dataIndex: "name",
+                dataIndex: `name${locale_serial}`,
                 key: "name",
                 width: 120,
                 filterType: "text",
