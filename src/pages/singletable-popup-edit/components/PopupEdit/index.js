@@ -9,6 +9,8 @@ import Alert from 'components/Alert';
 import ButtonRoleGroup from 'components/ButtonRoleGroup';
 import SearchArea from '../SearchArea';
 import PopupModal from '../PopupModal';
+import { FormattedMessage } from 'react-intl';
+
 
 import {deepClone, Info, success,getHeight,getPageParam} from "utils";
 
@@ -122,13 +124,13 @@ class PopupEdit extends Component {
 
     column = [
         {
-            title: "员工编号",
+            title:<FormattedMessage id="js.popup.table.0001" defaultMessage="员工编号" />,
             dataIndex: "code",
             key: "code",
             width: 150,
         },
         {
-            title: "员工姓名",
+            title: <FormattedMessage id="js.popup.table.0002" defaultMessage="员工姓名" />,
             dataIndex: "name",
             key: "name",
             width: 120,
@@ -143,39 +145,39 @@ class PopupEdit extends Component {
             }
         },
         {
-            title: "员工性别",
+            title: <FormattedMessage id="js.popup.table.0003" defaultMessage="员工性别" />,
             dataIndex: "sexEnumValue",
             key: "sexEnumValue",
             width: 150,
         },
         {
-            title: "所属部门",
+            title: <FormattedMessage id="js.popup.table.0004" defaultMessage="所属部门" />,
             dataIndex: "deptName",
             key: "deptName",
             width: 120,
         },
         {
-            title: "职级",
+            title: <FormattedMessage id="js.popup.table.0005" defaultMessage="职级" />,
             dataIndex: "levelName",
             key: "levelName",
             width: 140,
         },
         {
-            title: "工龄",
+            title: <FormattedMessage id="js.popup.table.0006" defaultMessage="工龄" />,
             dataIndex: "serviceYears",
             key: "serviceYears",
             width: 130,
             className: 'column-number-right ', // 靠右对齐
         },
         {
-            title: "司龄",
+            title: <FormattedMessage id="js.popup.table.0007" defaultMessage="司龄" />,
             dataIndex: "serviceYearsCompany",
             key: "serviceYearsCompany",
             width: 130,
             className: 'column-number-right ', // 靠右对齐
         },
         {
-            title: "年份",
+            title: <FormattedMessage id="js.popup.table.0008" defaultMessage="年份" />,
             dataIndex: "year",
             key: "year",
             width: 100,
@@ -187,19 +189,19 @@ class PopupEdit extends Component {
             }
         },
         {
-            title: "月份",
+            title: <FormattedMessage id="js.popup.table.0009" defaultMessage="月份" />,
             dataIndex: "monthEnumValue",
             key: "monthEnumValue",
             width: 100,
         },
         {
-            title: "补贴类别",
+            title: <FormattedMessage id="js.popup.table.0010" defaultMessage="补贴类别" />,
             dataIndex: "allowanceTypeEnumValue",
             key: "allowanceTypeEnumValue",
             width: 120,
         },
         {
-            title: "补贴标准",
+            title: <FormattedMessage id="js.popup.table.0011" defaultMessage="补贴标准" />,
             dataIndex: "allowanceStandard",
             key: "allowanceStandard",
             width: 120,
@@ -209,7 +211,7 @@ class PopupEdit extends Component {
             }
         },
         {
-            title: "实际补贴",
+            title: <FormattedMessage id="js.popup.table.0012" defaultMessage="实际补贴" />,
             dataIndex: "allowanceActual",
             key: "allowanceActual",
             width: 120,
@@ -219,13 +221,13 @@ class PopupEdit extends Component {
             }
         },
         {
-            title: "是否超标",
+            title: <FormattedMessage id="js.popup.table.0013" defaultMessage="是否超标" />,
             dataIndex: "exdeedsEnumValue",
             key: "exdeedsEnumValue",
             width: 120,
         },
         {
-            title: "申请时间",
+            title: <FormattedMessage id="js.popup.table.0014" defaultMessage="申请时间" />,
             dataIndex: "applyTime",
             key: "applyTime",
             width: 150,
@@ -237,13 +239,13 @@ class PopupEdit extends Component {
 
         },
         {
-            title: "领取方式",
+            title: <FormattedMessage id="js.popup.table.0015" defaultMessage="领取方式" />,
             dataIndex: "pickTypeEnumValue",
             key: "pickTypeEnumValue",
             width: 120,
         },
         {
-            title: "领取时间",
+            title: <FormattedMessage id="js.popup.table.0016" defaultMessage="领取时间" />,
             dataIndex: "pickTime",
             key: "pickTime",
             width: 150,
@@ -254,7 +256,7 @@ class PopupEdit extends Component {
             }
         },
         {
-            title: "备注",
+            title: <FormattedMessage id="js.popup.table.0017" defaultMessage="备注" />,
             dataIndex: "remark",
             key: "remark",
             width: 100,
@@ -286,7 +288,7 @@ class PopupEdit extends Component {
 
     render() {
         const _this = this;
-        let {list, showLoading, pageIndex, totalPages, total} = _this.props;
+        let {list, showLoading, pageIndex, totalPages, total,intl} = _this.props;
         let {editModelVisible, selectedIndex, btnFlag, delModalVisible,tableHeight} = _this.state;
         const paginationObj = {   // 分页
             activePage: pageIndex,//当前页
@@ -305,11 +307,12 @@ class PopupEdit extends Component {
 
         return (
             <div className='single-table-popup'>
-                <Header title='A3 单表弹框编辑示例'/>
+                <Header title={<FormattedMessage id="ht.popup.0001" defaultMessage="A3 单表弹框编辑示例" />}/>
                 <SearchArea
                 {...this.props}
                 onCloseEdit={this.onCloseEdit}
                 onCallback={this.resetTableHeight}
+                intl = {intl}
                 />
                 <div className='table-header'>
 				<ButtonRoleGroup funcCode="singletable-popupedit">
@@ -320,7 +323,9 @@ class PopupEdit extends Component {
                             onClick={() => {
                                 _this.onClickShowModel(0);
                             }}
-                        >新增</Button>
+                        >
+                            <FormattedMessage id="js.popup.btn.0001" defaultMessage="新增" />
+                        </Button>
                         <Button
                             role="update"
                             iconType="uf uf-pencil"
@@ -329,7 +334,10 @@ class PopupEdit extends Component {
                             onClick={() => {
                                 _this.onClickShowModel(1);
                             }}
-                        >修改</Button>
+                        >
+
+                            <FormattedMessage id="js.popup.btn.0002" defaultMessage="修改" />
+                        </Button>
                         <Button
                             iconType="uf uf-list-s-o"
                             className="ml8"
@@ -337,16 +345,23 @@ class PopupEdit extends Component {
                             onClick={() => {
                                 _this.onClickShowModel(2);
                             }}
-                        >详情</Button>
+                        >
+                            <FormattedMessage id="js.popup.btn.0003" defaultMessage="详情" />
+
+                        </Button>
                         <Button
                             role="delete"
                             iconType="uf-del"
                             className="ml8"
                             disabled={btnForbid}
-                            onClick={_this.onClickDel}>删除</Button>
+                            onClick={_this.onClickDel}>
+
+                            <FormattedMessage id="js.popup.btn.0004" defaultMessage="删除" />
+                        </Button>
 				</ButtonRoleGroup>
 
-                    <Alert show={delModalVisible} context="是否要删除 ?"
+                    <Alert show={delModalVisible}
+                           context={<FormattedMessage id="ht.popup.0002" defaultMessage="是否要删除 ?" />}
                            confirmFn={() => {
                                _this.confirmGoBack(1);
                            }}
@@ -355,7 +370,7 @@ class PopupEdit extends Component {
                            }}
                     />
                     <Button iconType="uf uf-export" className="ml8" onClick={_this.export}>
-                        导出
+                        <FormattedMessage id="js.popup.btn.0005" defaultMessage="导出" />
                     </Button>
                 </div>
                 <div className="gird-parent">

@@ -13,6 +13,7 @@ import zhCN from "rc-calendar/lib/locale/zh_CN";
 
 import 'bee-datepicker/build/DatePicker.css';
 import './index.less'
+import {FormattedMessage} from "react-intl";
 
 const {FormItem} = Form;
 const {Option} = Select;
@@ -88,11 +89,12 @@ class SearchAreaForm extends Component {
 
 
     render() {
-        const {form,onCallback} = this.props;
+        const {form,onCallback,intl} = this.props;
         const {getFieldProps} = form;
 
         return (
             <SearchPanel
+                intl = {intl}
                 className='search-area-form'
                 form={form}
                 reset={this.reset}
@@ -101,20 +103,28 @@ class SearchAreaForm extends Component {
                 <Row>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>员工编号</Label>
-                            <FormControl placeholder='精确查询' {...getFieldProps('code', {initialValue: ''})}/>
+                            <Label>
+                                <FormattedMessage id="js.popup.table.0001" defaultMessage="员工编号"/>
+                                </Label>
+                            <FormControl  placeholder={this.props.intl.formatMessage({id:"js.popup.search.prompt.0001", defaultMessage:'精确查询'})}
+                                         {...getFieldProps('code', {initialValue: ''})}/>
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>员工姓名</Label>
-                            <FormControl placeholder='模糊查询' {...getFieldProps('name', {initialValue: ''})}/>
+                            <Label>
+                                <FormattedMessage id="js.popup.table.0002" defaultMessage="员工姓名"/>
+                            </Label>
+                            <FormControl  placeholder={this.props.intl.formatMessage({id:"js.popup.search.prompt.0002", defaultMessage:'模糊查询'})}
+                                         {...getFieldProps('name', {initialValue: ''})}/>
                         </FormItem>
                     </Col>
 
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>部门</Label>
+                            <Label>
+                                <FormattedMessage id="js.popup.table.0004" defaultMessage="部门"/>
+                            </Label>
                             <RefIuapDept
                                 {...getFieldProps('dept', {initialValue: ''})}
                             />
@@ -123,28 +133,38 @@ class SearchAreaForm extends Component {
 
                     <Col md={4} xs={6}>
                         <FormItem className="time">
-                            <Label>年份</Label>
+                            <Label>
+                                <FormattedMessage id="js.popup.table.0008" defaultMessage="年份"/></Label>
                             <YearPicker
                                 {...getFieldProps('year', {initialValue: ''})}
                                 format={format}
                                 locale={zhCN}
-                                placeholder="选择年"
+                                placeholder={this.props.intl.formatMessage({id:"js.popup.search.prompt.0003", defaultMessage:'选择年'})}
                             />
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>月份</Label>
+                            <Label>
+                                <FormattedMessage id="js.popup.table.0009" defaultMessage="月份"/></Label>
                             <SelectMonth  {...getFieldProps('month', {initialValue: ''})} />
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>是否超标</Label>
+                            <Label>
+                                <FormattedMessage id="js.popup.table.0013" defaultMessage="是否超标"/>
+                            </Label>
                             <Select {...getFieldProps('exdeeds', {initialValue: ''})}>
-                                <Option value="">请选择</Option>
-                                <Option value="0">未超标</Option>
-                                <Option value="1">超标</Option>
+                                <Option value="">
+                                    <FormattedMessage id="js.popup.option.0001" defaultMessage="请选择"/>
+                                </Option>
+                                <Option value="0">
+                                    <FormattedMessage id="js.popup.option.0002" defaultMessage="未超标"/>
+                                </Option>
+                                <Option value="1">
+                                    <FormattedMessage id="js.popup.option.0003" defaultMessage="超标"/>
+                                </Option>
                             </Select>
                         </FormItem>
                     </Col>

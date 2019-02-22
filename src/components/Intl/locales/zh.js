@@ -161,9 +161,11 @@ const zh_CN = {
 	"js.inline.factory.exdeeds.0002": "未超标",
 	"js.inline.factory.exdeeds.0003": "超标",
 	// 领取类别
-	"js.inline.factory.pick.0001": "请选择",
-	"js.inline.factory.pick.0002": "转账",
-	"js.inline.factory.pick.0003": "现金",
+	"js.inline.factory.pick.0001":"请选择",
+	"js.inline.factory.pick.0002":"转账",
+	"js.inline.factory.pick.0003":"现金",
+
+
 
 
 	/* 行编辑多语 结束 */
@@ -308,6 +310,63 @@ const zh_CN = {
 
 	/* 一主多子多语 结束 */
 
+    /* 弹框编辑 开始 */
+    "ht.popup.0001": "A3 单表弹框编辑示例",
+    "ht.popup.0002": "是否要删除 ?",
+
+    "js.popup.search.prompt.0001": "精确查询",
+    "js.popup.search.prompt.0002": "模糊查询",
+    "js.popup.search.prompt.0003": "选择年",
+    "js.popup.search.prompt.0004": "请选择部门",
+    "js.popup.search.prompt.0005": "请选择职级",
+
+    "js.popup.btn.0001": "新增",
+    "js.popup.btn.0002": "修改",
+    "js.popup.btn.0003": "详情",
+    "js.popup.btn.0004": "删除",
+    "js.popup.btn.0005": "导出",
+
+    "js.popup.table.0001": "员工编号",
+    "js.popup.table.0002": "员工姓名",
+    "js.popup.table.0003": "员工性别",
+    "js.popup.table.0004": "所属部门",
+    "js.popup.table.0005": "职级",
+    "js.popup.table.0006": "工龄",
+    "js.popup.table.0007": "司龄",
+    "js.popup.table.0008": "年份",
+    "js.popup.table.0009": "月份",
+    "js.popup.table.0010": "补贴类别",
+    "js.popup.table.0011": "补贴标准",
+    "js.popup.table.0012": "实际补贴",
+    "js.popup.table.0013": "是否超标",
+    "js.popup.table.0014": "申请时间",
+    "js.popup.table.0015": "领取方式",
+    "js.popup.table.0016": "领取时间",
+    "js.popup.table.0017": "备注",
+
+    "js.popup.option.0001": "请选择",
+    "js.popup.option.0002": "未超标",
+    "js.popup.option.0003": "超标",
+    "js.popup.option.0004": "女",
+    "js.popup.option.0005": "男",
+    "js.popup.option.0006": "电脑补助",
+    "js.popup.option.0007": "住宿补助",
+    "js.popup.option.0008": "交通补助",
+
+    "js.popup.message.0001": "请输入员工姓名",
+    "js.popup.message.0002": "请选择员工性别",
+    "js.popup.message.0003": "请选择部门",
+    "js.popup.message.0004": "请选择职级",
+    "js.popup.message.0005": "请选择申请时间",
+    "js.popup.message.0006": "请选择月份",
+    "js.popup.message.0007": "请选择补贴类别",
+    "js.popup.message.0008": "请选择是否超标",
+    "js.popup.message.0009": "请选择申请时间",
+    "js.popup.message.0010": "请选择领取方式",
+    "js.popup.message.0011": "请选择领取时间",
+
+
+
 	/* 分组聚合 开始 */
 
 	// 标题
@@ -317,6 +376,7 @@ const zh_CN = {
 	"js.group.search.sel.0002": "请选择",
 	"js.group.search.sel.0003": "性别",
 	"js.group.search.sel.0004": "补贴类别",
+
 	"js.group.search.0001": "员工编号",
 	"js.group.search.0002": "模糊查询",
 	"js.group.search.0003": "员工姓名",
@@ -351,15 +411,40 @@ const zh_CN = {
 	"js.group.table1.0015": "领取方式",
 	"js.group.table1.0016": "领取时间",
 	"js.group.table1.0017": "备注",
-	
-
-
-
-	// 
-
-
 
 	/* 分组聚合 结束 */
+
+
+	/* 树表 开始 */
+
+	// 标题
+	"ht.tree.head.0001": "B1左树右表示例",
+
+	// 左树
+	"js.tree.ltree.0001": "组织机构",
+	"js.tree.ltree.0002": "未查询到相关数据",
+
+	// 按钮
+	"js.tree.btn.0001": "新增",
+	"js.tree.btn.0002": "修改",
+	"js.tree.btn.0003": "详情",
+	"js.tree.btn.0004": "删除",
+	"js.tree.btn.0005": "导出",
+
+	// 表格
+	"js.tree.table.0001": "姓名",
+	"js.tree.table.0002": "性别",
+	"js.tree.table.0003": "年龄",
+	"js.tree.table.0004": "员工姓名",
+	"js.tree.table.0005": "员工性别",
+
+	// 提示信息
+	"js.tree.prompt.0001": "请选择单条表数据",
+	"js.tree.prompt.0002": "请选择表数据",
+	"js.tree.prompt.0003": "请选择表数据所属树节点",
+	"js.tree.prompt.0004": "是否要删除 ?",
+
+	/* 树表 结束 */
 
 }
 export default zh_CN;
