@@ -436,6 +436,8 @@ const zh_TW = {
 	"js.tree.btn.0003": "詳情",
 	"js.tree.btn.0004": "删除",
 	"js.tree.btn.0005": "匯出",
+	"js.tree.btn.0006": "確定",
+	"js.tree.btn.0007": "取消",
 
 	// 表格
 	"js.tree.table.0001": "姓名",
