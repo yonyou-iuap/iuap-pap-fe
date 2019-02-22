@@ -439,6 +439,8 @@ const zh_CN = {
 	"js.tree.btn.0003": "详情",
 	"js.tree.btn.0004": "删除",
 	"js.tree.btn.0005": "导出",
+	"js.tree.btn.0006": "确定",
+	"js.tree.btn.0007": "取消",
 
 	// 表格
 	"js.tree.table.0001": "姓名",

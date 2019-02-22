@@ -436,6 +436,8 @@ const zh_TW = {
 	"js.tree.btn.0003": "詳情",
 	"js.tree.btn.0004": "删除",
 	"js.tree.btn.0005": "匯出",
+	"js.tree.btn.0006": "確定",
+	"js.tree.btn.0007": "取消",
 
 	// 表格
 	"js.tree.table.0001": "姓名",
@@ -449,7 +451,7 @@ const zh_TW = {
 	"js.tree.prompt.0002": "請選擇錶數據",
 	"js.tree.prompt.0003": "請選擇錶數據所屬樹節點",
 	"js.tree.prompt.0004": "是否要删除 ?",
-
+	
 	/* 树表 结束 */
 }
 export default zh_TW;
