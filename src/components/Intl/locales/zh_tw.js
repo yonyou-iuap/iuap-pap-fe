@@ -369,6 +369,70 @@ const zh_TW = {
 
 
 
+	/* 分組聚合 開始 */
 
+	// 標題
+	"ht.group.title.0001": "C1單表分組聚合示例",
+	// 分組條件
+	"js.group.search.sel.0001": "分組條件",
+	"js.group.search.sel.0002": "請選擇",
+	"js.group.search.sel.0003": "性別",
+	"js.group.search.sel.0004": "補貼類別",
+	"js.group.search.0001":"員工編號",
+	"js.group.search.0002":"模糊查詢",
+	"js.group.search.0003":"員工姓名",
+	"js.group.search.0004":"模糊查詢",
+	"js.group.search.0005":"月份",
+	"js.group.search.0006":"年份",
+	"js.group.search.0007":"選擇年份",
+	
+	
+	
+	// 是否超標
+	"js.group.search.sel1.0001": "是否超標",
+	"js.group.search.sel1.0002": "請選擇",
+	"js.group.search.sel1.0003": "未超標",
+	"js.group.search.sel1.0004": "超標",
+
+	
+	
+	
+
+	// 
+	
+	
+
+	/* 分組聚合 結束 */
+
+	/* 树表 开始 */
+
+	// 标题
+	"ht.tree.head.0001": "B1左樹右錶示例",
+
+	// 左树
+	"js.tree.ltree.0001": "組織機構",
+	"js.tree.ltree.0002": "未査詢到相關資料",
+
+	// 按钮
+	"js.tree.btn.0001": "新增",
+	"js.tree.btn.0002": "修改",
+	"js.tree.btn.0003": "詳情",
+	"js.tree.btn.0004": "删除",
+	"js.tree.btn.0005": "匯出",
+
+	// 表格
+	"js.tree.table.0001": "姓名",
+	"js.tree.table.0002": "性别",
+	"js.tree.table.0003": "年齡",
+	"js.tree.table.0004": "員工姓名",
+	"js.tree.table.0005": "員工性別",
+
+	// 提示信息
+	"js.tree.prompt.0001": "請選擇單條錶數據",
+	"js.tree.prompt.0002": "請選擇錶數據",
+	"js.tree.prompt.0003": "請選擇錶數據所屬樹節點",
+	"js.tree.prompt.0004": "是否要删除 ?",
+
+	/* 树表 结束 */
 }
 export default zh_TW;

@@ -5,9 +5,13 @@ import { Row, Col, Label, FormControl } from 'tinper-bee';
 import Select from 'bee-select';
 import Pagination from 'bee-pagination';
 import Form from 'bee-form';
+import { FormattedMessage} from 'react-intl';
 import Grid from 'components/Grid';
 import Table from 'bee-table';
-
+import DatePicker from 'bee-datepicker';
+//日期样式引用
+import 'bee-datepicker/build/DatePicker.css';
+import zhCN from "rc-calendar/lib/locale/zh_CN";
 import Header from "components/Header";
 import SearchPanel from 'components/SearchPanel';
 import SelectMonth from 'components/SelectMonth';
@@ -16,13 +20,10 @@ import Button from 'components/Button';
 import 'bee-pagination/build/Pagination.css';
 import './index.less';
 
-
+const { YearPicker } = DatePicker;
 const FormItem = Form.FormItem;
 const { Option } = Select;
-const groupItem = [
-    { 'value_cn': '性别', 'value_en': 'sex' },
-    { 'value_cn': '补贴类别', 'value_en': 'allowanceType' }
-];
+
 
 class SingleTableGrouping extends Component {
     constructor(props) {
@@ -76,7 +77,7 @@ class SingleTableGrouping extends Component {
                 dataIndex: "year",
                 key: "year",
                 width: 100,
-                render(text,record,index){
+                render(text, record, index) {
                     return <div>{moment(text).format('YYYY')}</div>
                 }
             },
@@ -143,10 +144,10 @@ class SingleTableGrouping extends Component {
                 key: "code",
                 width: 120,
                 render: (value, record, index) => {
-                    let {queryParam: {groupParams}} = this.props;
-                    let str  = ""
-                    if(Array.isArray(groupParams) && groupParams.length) {
-                        for(let item of groupParams) {
+                    let { queryParam: { groupParams } } = this.props;
+                    let str = ""
+                    if (Array.isArray(groupParams) && groupParams.length) {
+                        for (let item of groupParams) {
                             let temp = record[`${item}EnumValue`];
                             str += `【${temp}】 `;
                         }
@@ -383,6 +384,9 @@ class SingleTableGrouping extends Component {
      */
     onSearch = (error, values) => {
         let _this = this;
+        if (values.year) {
+            values.year = values.year.format('YYYY');
+        }
         let { queryParam } = _this.props,
             groupArray = [],
             resultArray = [];
@@ -449,7 +453,7 @@ class SingleTableGrouping extends Component {
         actions.grouping.loadMasterTableList(queryParam);
     }
     render() {
-        let { masterTableList, masterTableLoading, form, pageIndex, pageSize, totalPages, total, queryParam: { groupParams } } = this.props;
+        let { intl, masterTableList, masterTableLoading, form, pageIndex, pageSize, totalPages, total, queryParam: { groupParams } } = this.props;
         const { getFieldProps, getFieldError } = this.props.form;
         let tableAttr = {}
         tableAttr['columns'] = this.masterNornalColumn;
@@ -461,22 +465,22 @@ class SingleTableGrouping extends Component {
         }
         return (
             <div className='grouping u-grid'>
-                <Header title="C1单表分组聚合示例" />
+                <Header title={this.props.intl.formatMessage({ id: "ht.group.title.0001", defaultMessage: "C1单表分组聚合示例" })} />
                 <SearchPanel
                     className='grouping-form'
                     searchOpen={true}
                     form={form}
                     reset={() => this.props.form.resetFields()}
+                    intl={intl}
                     search={this.onSearch}>
                     <Row className='form-panel'>
                         <Col md={4} xs={6}>
                             <FormItem>
-                                <Label>分组条件</Label>
+                                <Label>{<FormattedMessage id="js.group.search.sel.0001" defaultMessage="分组条件" />}</Label>
                                 <Select multiple {...getFieldProps('group')}>
-                                    {groupItem.map((item) => {
-                                        const { value_cn, value_en } = item;
-                                        return <Option key={value_en}>{value_cn}</Option>
-                                    })}
+                                    <Option disabled value="">{<FormattedMessage id="js.group.search.sel.0002" defaultMessage="请选择" />}</Option>
+                                    <Option value="sex">{<FormattedMessage id="js.group.search.sel.0003" defaultMessage="性别" />}</Option>
+                                    <Option value="allowanceType">{<FormattedMessage id="js.group.search.sel.0004" defaultMessage="补贴类别" />}</Option>
                                 </Select>
                             </FormItem>
                         </Col>
@@ -484,23 +488,29 @@ class SingleTableGrouping extends Component {
                     <Row className='form-panel'>
                         <Col md={4} xs={6}>
                             <FormItem>
-                                <Label>员工编号</Label>
-                                <FormControl{...getFieldProps('code', { initialValue: '' })} />
+                                <Label>{<FormattedMessage id="js.group.search.0001" defaultMessage="员工编号" />}</Label>
+                                <FormControl
+                                    placeholder={this.props.intl.formatMessage({id:"js.group.search.0002", defaultMessage:'模糊查询'})}
+                                    {...getFieldProps('code', { initialValue: '' })} 
+                                />
                             </FormItem>
                         </Col>
                         <Col md={4} xs={6}>
                             <FormItem>
-                                <Label>员工姓名</Label>
-                                <FormControl {...getFieldProps('name', { initialValue: "" })} />
+                                <Label>{<FormattedMessage id="js.group.search.0003" defaultMessage="员工姓名" />}</Label>
+                                <FormControl
+                                    placeholder={this.props.intl.formatMessage({id:"js.group.search.0004", defaultMessage:'模糊查询'})}
+                                    {...getFieldProps('name', { initialValue: "" })} 
+                                />
                             </FormItem>
                         </Col>
                         <Col md={4} xs={6}>
                             <FormItem>
-                                <Label>是否超标</Label>
+                                <Label>{<FormattedMessage id="js.group.search.sel1.0001" defaultMessage="是否超标" />}</Label>
                                 <Select {...getFieldProps('exdeeds', { initialValue: "" })}>
-                                    <Option value="">请选择</Option>
-                                    <Option value="0">未超标</Option>
-                                    <Option value="1">超标</Option>
+                                    <Option disabled value="">{<FormattedMessage id="js.group.search.sel1.0002" defaultMessage="请选择" />}</Option>
+                                    <Option value="0">{<FormattedMessage id="js.group.search.sel1.0003" defaultMessage="未超标" />}</Option>
+                                    <Option value="1">{<FormattedMessage id="js.group.search.sel1.0004" defaultMessage="超标" />}</Option>
                                 </Select>
                             </FormItem>
                         </Col>
@@ -508,14 +518,19 @@ class SingleTableGrouping extends Component {
                     <Row className='form-panel'>
                         <Col md={4} xs={6}>
                             <FormItem>
-                                <Label>月份</Label>
+                                <Label>{<FormattedMessage id="js.group.search.0005" defaultMessage="月份" />}</Label>
                                 <SelectMonth  {...getFieldProps('month', { initialValue: "" })}></SelectMonth>
                             </FormItem>
                         </Col>
                         <Col md={4} xs={6}>
-                            <FormItem>
-                                <Label>年份</Label>
-                                <FormControl {...getFieldProps('year', { initialValue: '' })} />
+                            <FormItem className='time'>
+                                <Label>{<FormattedMessage id="js.group.search.0006" defaultMessage="年份" />}</Label>
+                                <YearPicker
+                                    format={'YYYY'}
+                                    locale={zhCN}
+                                    placeholder={this.props.intl.formatMessage({id:"js.group.search.0007", defaultMessage:'选择年份'})}
+                                    {...getFieldProps('year', { initialValue: '' })}
+                                />
                             </FormItem>
                         </Col>
                     </Row>
