@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import PopDialog from 'components/Pop';
+
+// 第三方工具类
+import { FormattedMessage, injectIntl } from 'react-intl';
+
 import './style.less';
 
 
@@ -57,15 +61,16 @@ class AlertDialog extends Component {
 
     render() {
         let { context, children } = this.props;
+        console.log('this.props', this.props);
         //按钮组
         let btns = [
             {
-                label: '确定',
+                label: <FormattedMessage id="js.tree.btn.0006" defaultMessage='确定' />,
                 fun: this.confirmFn,
                 icon: "uf-correct"
             },
             {
-                label: '取消',
+                label: <FormattedMessage id="js.tree.btn.0007" defaultMessage='取消' />,
                 fun: this.cancelFn,
                 icon: "uf-back"
             }
@@ -90,4 +95,4 @@ class AlertDialog extends Component {
 
 AlertDialog.propTypes = propTypes;
 AlertDialog.defaultProps = defaultProps;
-export default AlertDialog;
+export default injectIntl(AlertDialog);
