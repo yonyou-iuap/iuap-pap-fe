@@ -336,6 +336,35 @@ const zh_TW = {
 
 	/* 分組聚合 結束 */
 
+	/* 树表 开始 */
 
+	// 标题
+	"ht.tree.head.0001": "B1左樹右錶示例",
+
+	// 左树
+	"js.tree.ltree.0001": "組織機構",
+	"js.tree.ltree.0002": "未査詢到相關資料",
+
+	// 按钮
+	"js.tree.btn.0001": "新增",
+	"js.tree.btn.0002": "修改",
+	"js.tree.btn.0003": "詳情",
+	"js.tree.btn.0004": "删除",
+	"js.tree.btn.0005": "匯出",
+
+	// 表格
+	"js.tree.table.0001": "姓名",
+	"js.tree.table.0002": "性别",
+	"js.tree.table.0003": "年齡",
+	"js.tree.table.0004": "員工姓名",
+	"js.tree.table.0005": "員工性別",
+
+	// 提示信息
+	"js.tree.prompt.0001": "請選擇單條錶數據",
+	"js.tree.prompt.0002": "請選擇錶數據",
+	"js.tree.prompt.0003": "請選擇錶數據所屬樹節點",
+	"js.tree.prompt.0004": "是否要删除 ?",
+
+	/* 树表 结束 */
 }
 export default zh_TW;

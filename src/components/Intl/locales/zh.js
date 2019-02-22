@@ -343,5 +343,36 @@ const zh_CN = {
 
 	/* 分组聚合 结束 */
 
+
+	/* 树表 开始 */
+
+	// 标题
+	"ht.tree.head.0001": "B1左树右表示例",
+
+	// 左树
+	"js.tree.ltree.0001": "组织机构",
+	"js.tree.ltree.0002": "未查询到相关数据",
+
+	// 按钮
+	"js.tree.btn.0001": "新增",
+	"js.tree.btn.0002": "修改",
+	"js.tree.btn.0003": "详情",
+	"js.tree.btn.0004": "删除",
+	"js.tree.btn.0004": "导出",
+
+	// 表格
+	"js.tree.table.0001": "姓名",
+	"js.tree.table.0002": "性别",
+	"js.tree.table.0003": "年龄",
+	"js.tree.table.0004": "员工姓名",
+	"js.tree.table.0005": "员工性别",
+
+	// 提示信息
+	"js.tree.prompt.0001": "请选择单条表数据",
+	"js.tree.prompt.0002": "请选择表数据",
+	"js.tree.prompt.0003": "请选择表数据所属树节点",
+	"js.tree.prompt.0004": "是否要删除 ?",
+	
+	/* 树表 结束 */
 }
 export default zh_CN;
