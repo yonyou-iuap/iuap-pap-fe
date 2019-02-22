@@ -204,7 +204,7 @@ class SearchArea extends Component {
                         </FormItem>
                     </Col>
                 </Row>
-                <Alert show={this.state.show} context="数据未保存，确定查询 ?" confirmFn={this.onClickGo} cancelFn={this.onClickCancel} />
+                <Alert show={this.state.show} context={this.props.intl.formatMessage({id:"js.inline.alert.0006", defaultMessage:'数据未保存，确定查询 ?'})} confirmFn={this.onClickGo} cancelFn={this.onClickCancel} />
             </SearchPanel>
         )
     }

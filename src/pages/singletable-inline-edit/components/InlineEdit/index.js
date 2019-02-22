@@ -19,6 +19,7 @@ import {
     filterListId, filterChecked, isVerifyData,
     filterSelectedById, filterSelectedListById
 } from "utils";
+//多语
 import { FormattedMessage } from 'react-intl';
 
 //Grid组件
@@ -68,13 +69,13 @@ class InlineEdit extends Component {
     //定义Grid的Column
     column = [
         {
-            title: "员工编号",
+            title: <FormattedMessage id="js.inline.table.0001" defaultMessage="员工编号" />,
             dataIndex: "code",
             key: "code",
             width: 150
         },
         {
-            title: "员工姓名",
+            title: <FormattedMessage id="js.inline.table.0002" defaultMessage="员工姓名" />,
             dataIndex: "name",
             key: "name",
             width: 120,
@@ -92,7 +93,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "员工性别",
+            title: <FormattedMessage id="js.inline.table.0003" defaultMessage="员工性别" />,
             dataIndex: "sexEnumValue",
             key: "sexEnumValue",
             width: 120,
@@ -110,7 +111,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "所属部门",
+            title: <FormattedMessage id="js.inline.table.0004" defaultMessage="所属部门" />,
             dataIndex: "deptName",
             key: "deptName",
             width: 120,
@@ -127,7 +128,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "职级",
+            title: <FormattedMessage id="js.inline.table.0005" defaultMessage="职级" />,
             dataIndex: "levelName",
             key: "levelName",
             width: 120,
@@ -144,7 +145,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "工龄",
+            title: <FormattedMessage id="js.inline.table.0006" defaultMessage="工龄" />,
             dataIndex: "serviceYears",
             key: "serviceYears",
             width: 130,
@@ -163,7 +164,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "司龄",
+            title: <FormattedMessage id="js.inline.table.0007" defaultMessage="司龄" />,
             dataIndex: "serviceYearsCompany",
             key: "serviceYearsCompany",
             width: 130,
@@ -182,7 +183,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "年份",
+            title: <FormattedMessage id="js.inline.table.0008" defaultMessage="年份" />,
             dataIndex: "year",
             key: "year",
             width: 100,
@@ -201,7 +202,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "月份",
+            title: <FormattedMessage id="js.inline.table.0009" defaultMessage="月份" />,
             dataIndex: "monthEnumValue",
             key: "monthEnumValue",
             width: 120,
@@ -219,7 +220,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "补贴类别",
+            title: <FormattedMessage id="js.inline.table.0010" defaultMessage="补贴类别" />,
             dataIndex: "allowanceTypeEnumValue",
             key: "allowanceTypeEnumValue",
             width: 120,
@@ -237,7 +238,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "补贴标准",
+            title: <FormattedMessage id="js.inline.table.0011" defaultMessage="补贴标准" />,
             dataIndex: "allowanceStandard",
             key: "allowanceStandard",
             width: 120,
@@ -256,7 +257,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "实际补贴",
+            title: <FormattedMessage id="js.inline.table.0012" defaultMessage="实际补贴" />,
             dataIndex: "allowanceActual",
             key: "allowanceActual",
             width: 120,
@@ -275,7 +276,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "是否超标",
+            title: <FormattedMessage id="js.inline.table.0013" defaultMessage="是否超标" />,
             dataIndex: "exdeedsEnumValue",
             key: "exdeedsEnumValue",
             width: 120,
@@ -293,7 +294,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "申请时间",
+            title: <FormattedMessage id="js.inline.table.0014" defaultMessage="申请时间" />,
             dataIndex: "applyTime",
             key: "applyTime",
             width: 200,
@@ -306,7 +307,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "领取方式",
+            title: <FormattedMessage id="js.inline.table.0015" defaultMessage="领取方式" />,
             dataIndex: "pickTypeEnumValue",
             key: "pickTypeEnumValue",
             width: 120,
@@ -324,7 +325,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "领取时间",
+            title: <FormattedMessage id="js.inline.table.0016" defaultMessage="领取时间" />,
             dataIndex: "pickTime",
             key: "pickTime",
             width: 200,
@@ -337,7 +338,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: "备注",
+            title: <FormattedMessage id="js.inline.table.0017" defaultMessage="备注" />,
             dataIndex: "remark",
             key: "remark",
             width: 100,
@@ -593,7 +594,7 @@ class InlineEdit extends Component {
                 if (isVerifyData(filterChecked(deepClone(this.oldData), this.props.list))) {
                     let vals = filterChecked(this.oldData, this.props.list);
                     if (vals.length == 0) {
-                        Info('请勾选数据后再新增');
+                        Info(this.props.intl.formatMessage({id:"js.inline.alert.0002", defaultMessage:'请勾选数据后再新增'}));
                     } else {
                         let newResult = await actions.inlineEdit.adds(vals);
                         if (newResult) {
@@ -614,7 +615,7 @@ class InlineEdit extends Component {
                 //检查是否验证通过
                 if (isVerifyData(data)) {
                     if (data.length == 0) {
-                        Info('请勾选数据后再修改');
+                        Info(this.props.intl.formatMessage({id:"js.inline.alert.0003", defaultMessage:'请勾选数据后再修改'}));
                     } else {
                         let editResult = await actions.inlineEdit.updates(data);
                         if (editResult) {
@@ -639,7 +640,7 @@ class InlineEdit extends Component {
                 showPop: true
             });
         } else {
-            Info('请勾选数据后再删除');
+            Info(this.props.intl.formatMessage({id:"js.inline.alert.0003", defaultMessage:'请勾选数据后再删除'}));
         }
     }
     /**
@@ -752,7 +753,6 @@ class InlineEdit extends Component {
                 <div className='table-header'>
                     <ButtonRoleGroup
                         funcCode="singletable-inlineEdit"
-                        onComplete={() => console.log('按钮权限加载完成')}
                     >
                         <Button role="add"
                             iconType="uf-plus"
@@ -760,7 +760,7 @@ class InlineEdit extends Component {
                             className="ml8"
                             onClick={this.handlerNew}
                         >
-                            {<FormattedMessage id="js.inline.btn.0001" defaultMessage="新增"/>}
+                            {<FormattedMessage id="js.inline.btn.0001" defaultMessage="新增" />}
                         </Button>
                         <Button
                             role="update"
@@ -768,7 +768,7 @@ class InlineEdit extends Component {
                             disabled={getButtonStatus('edit', status)}
                             className="ml8" onClick={this.onClickUpdate}
                         >
-                            修改
+                            {<FormattedMessage id="js.inline.btn.0002" defaultMessage="修改" />}
                         </Button>
                         <Button
                             role="delete"
@@ -777,11 +777,11 @@ class InlineEdit extends Component {
                             className="ml8"
                             onClick={this.onClickDelConfirm}
                         >
-                            删除
-                          </Button>
+                            {<FormattedMessage id="js.inline.btn.0003" defaultMessage="删除" />}
+                        </Button>
                         <Alert
                             show={showPop}
-                            context="是否要删除 ?"
+                            context={this.props.intl.formatMessage({id:"js.inline.alert.0005", defaultMessage:'是否要删除 ?'})}
                             confirmFn={this.onClickDel}
                             cancelFn={this.onClickPopCancel}
                         />
@@ -791,42 +791,42 @@ class InlineEdit extends Component {
                             className="ml8"
                             onClick={this.onClickDownloadTemplate}
                         >
-                            下载模板
-                     </Button>
+                            {<FormattedMessage id="js.inline.btn.0004" defaultMessage="下载模板" />}
+                        </Button>
                         <Button
                             iconType="uf-import"
                             disabled={getButtonStatus('import', status)}
                             className="ml8"
                         >
-                            导入
-                    </Button>
+                            {<FormattedMessage id="js.inline.btn.0005" defaultMessage="导入" />}
+                        </Button>
                         <Button
                             iconType="uf-export"
                             disabled={getButtonStatus('export', status)}
                             className="ml8"
                             onClick={this.onClickExport}
                         >
-                            导出
-                     </Button>
+                            {<FormattedMessage id="js.inline.btn.0006" defaultMessage="导出" />}
+                        </Button>
                         <Button
                             iconType="uf-save"
                             disabled={getButtonStatus('save', status)}
                             className="ml8"
                             onClick={this.onClickSave}
                         >
-                            保存
-                    </Button>
+                            {<FormattedMessage id="js.inline.btn.0007" defaultMessage="保存" />}
+                        </Button>
                         <Button
                             iconType="uf-back"
                             disabled={getButtonStatus('cancel', status)}
                             className="ml8"
                             onClick={this.onClickCancel}
                         >
-                            取消
-                    </Button>
+                            {<FormattedMessage id="js.inline.btn.0008" defaultMessage="取消" />}
+                        </Button>
                         <Alert
                             show={showPopCancel}
-                            context="数据未保存，确定离开 ?"
+                            context={this.props.intl.formatMessage({ id: "js.inline.alert.0001", defaultMessage: "数据未保存，确定离开 ?" })}
                             confirmFn={this.onClickPopUnSaveOK}
                             cancelFn={this.onClickPopUnSaveCancel}
                         />

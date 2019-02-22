@@ -59,9 +59,11 @@ const zh_CN = {
 	"js.search.panel.0004": "收起",
 	"js.search.panel.0005": "展开",
 
-	// 行编辑多语 开始
+	/* 行编辑多语 开始 */
+
 	// 标题
 	"ht.inline.title.0001": "A2单表行内编辑示例",
+
 	//搜索字段
 	"js.inline.search.0001": "员工编号",
 	"js.inline.search.0002": "员工姓名",
@@ -69,6 +71,7 @@ const zh_CN = {
 	"js.inline.search.0004": "年份",
 	"js.inline.search.0005": "月份",
 	"js.inline.search.0006": "是否超标",
+
 	// 搜索字段输入提示
 	"js.inline.search.placeholder.0001": "精确查询",
 	"js.inline.search.placeholder.0002": "模糊查询",
@@ -76,10 +79,12 @@ const zh_CN = {
 	"js.inline.search.placeholder.0004": "选择年",
 	"js.inline.search.placeholder.0005": "请选择",
 	"js.inline.search.placeholder.0006": "请选择",
+
 	// 搜索下拉
 	"js.inline.search.sel.0001": "请选择",
 	"js.inline.search.sel.0002": "未超标",
 	"js.inline.search.sel.0003": "超标",
+
 	// 按钮
 	"js.inline.btn.0001": "新增",
 	"js.inline.btn.0002": "修改",
@@ -90,8 +95,34 @@ const zh_CN = {
 	"js.inline.btn.0007": "保存",
 	"js.inline.btn.0008": "取消",
 
+	// 弹出层
+	"js.inline.alert.0001": "数据未保存，确定离开 ?",
+	"js.inline.alert.0002": "请勾选数据后再新增",
+	"js.inline.alert.0003": "请勾选数据后再修改",
+	"js.inline.alert.0004": "请勾选数据后再删除",
+	"js.inline.alert.0005": "是否要删除 ?",
+	"js.inline.alert.0006": "数据未保存，确定查询 ?",
 	
 	
-	// 行编辑多语 结束
+	// 表格字段
+	"js.inline.table.0001": "员工编号",
+	"js.inline.table.0002": "员工姓名",
+	"js.inline.table.0003": "员工性别",
+	"js.inline.table.0004": "所属部门",
+	"js.inline.table.0005": "职级",
+	"js.inline.table.0006": "工龄",
+	"js.inline.table.0007": "司龄",
+	"js.inline.table.0008": "年份",
+	"js.inline.table.0009": "月份",
+	"js.inline.table.0010": "补贴类别",
+	"js.inline.table.0011": "补贴标准",
+	"js.inline.table.0012": "实际补贴",
+	"js.inline.table.0013": "是否超标",
+	"js.inline.table.0014": "申请时间",
+	"js.inline.table.0015": "领取方式",
+	"js.inline.table.0016": "领取时间",
+	"js.inline.table.0017": "备注",
+
+	/* 行编辑多语 结束 */
 }
 export default zh_CN;
