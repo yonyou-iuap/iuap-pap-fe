@@ -191,7 +191,7 @@ class CommonPop extends Component {
 						</Col>
 						<Col md={6} xs={12} sm={10}>
 							<FormItem>
-								<Label className="mast">员工性别</Label>
+								<Label className="mast"><FormattedMessage id="js.tree.table.0005" defaultMessage="员工性别" /></Label>
 								<Select
 									disabled = {btnFlag == 2}
 									{...getFieldProps('sex', {
@@ -209,7 +209,7 @@ class CommonPop extends Component {
 						</Col>
 						<Col md={6} xs={12} sm={10} >
 							<FormItem className='time'>
-								<Label className="mast">年龄</Label>
+								<Label className="mast"><FormattedMessage id="js.tree.table.0003" defaultMessage="年龄" /></Label>
 								<InputNumber iconStyle="one" min={0} step={1}  max={99}
 									disabled = {btnFlag == 2}
 									{...getFieldProps('age', {
