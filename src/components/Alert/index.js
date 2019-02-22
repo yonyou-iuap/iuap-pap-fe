@@ -17,7 +17,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    title: "温馨提示",
+    title: <FormattedMessage id="js.tree.prompt.0007" defaultMessage="温馨提示" />,
     confirmFn: PropTypes.func,
     context: "确认要删除吗 ?",
     show: false

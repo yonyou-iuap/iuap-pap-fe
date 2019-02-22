@@ -459,6 +459,8 @@ const zh_TW = {
 	"js.tree.prompt.0004": "是否要删除 ?",
 	"js.tree.prompt.0005": "請輸入員工姓名",
 	"js.tree.prompt.0006": "請選擇員工性別",
+	"js.tree.prompt.0007": "溫馨提示",
+	"js.tree.prompt.0008": "請選擇樹節點",
 
 	/* 树表 结束 */
 }

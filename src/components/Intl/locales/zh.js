@@ -458,6 +458,8 @@ const zh_CN = {
 	"js.tree.prompt.0004": "是否要删除 ?",
 	"js.tree.prompt.0005": "请输入员工姓名",
 	"js.tree.prompt.0006": "请选择员工性别",
+	"js.tree.prompt.0007": "温馨提示",
+	"js.tree.prompt.0008": "请选择树节点",
 
 	/* 树表 结束 */
 

@@ -77,7 +77,7 @@ class CommonPop extends Component {
                     actions.walsinTree.updateState({
                         showLoading : false,
                     });
-                    Error('请选择树节点');
+                    Error(this.props.intl.formatMessage({id:"js.tree.prompt.0008", defaultMessage:"请选择树节点"}));
                     return ;
                 }
 
