@@ -1,6 +1,8 @@
 const zh_CN = {
+	// 单边查询 开始
+	
 	"ht.table.query.0001": "A1单表查询示例",
-
+	// column字段
 	"js.table.query.0001": "数据",
 	"js.table.query.0002": "员工编号",
 	"js.table.query.0003": "员工姓名",
@@ -19,24 +21,24 @@ const zh_CN = {
 	"js.table.query.0016": "领取方式",
 	"js.table.query.0017": "领取时间",
 	"js.table.query.0018": "备注",
-
+	// 按钮
 	"js.query.btn.0001": "导出",
-
+	// 数据列菜单
 	"js.query.menu.0001": "模态弹出",
 	"js.query.menu.0002": "链接跳转",
 	"js.query.menu.0003": "打开新页",
-
+	// 弹出框
 	"js.query.pop.0001": "员工编号：",
 	"js.query.pop.0002": "员工姓名：",
 	"js.query.pop.0003": "员工性別：",
 	"js.query.pop.0004": "职级：",
-
+	// 搜索面板下拉选择项
 	"js.search.sel.0001": "请选择",
 	"js.search.sel.0002": "未超标",
 	"js.search.sel.0003": "超标",
-
+	// 年份选择
 	"js.search.sel1.0001": "选择年",
-
+	// 月份选择
 	"js.search.sel2.0001": "一月",
 	"js.search.sel2.0002": "二月",
 	"js.search.sel2.0003": "三月",
@@ -49,18 +51,21 @@ const zh_CN = {
 	"js.search.sel2.0010": "十月",
 	"js.search.sel2.0011": "十一月",
 	"js.search.sel2.0012": "十二月",
-
+	// 搜索面板查询预置值
 	"js.search.prompt.0001": "精确查询",
 	"js.search.prompt.0002": "模糊查询",
-
+	// 搜索面板组件
 	"js.search.panel.0001": "查询与筛选",
 	"js.search.panel.0002": "清除查询",
 	"js.search.panel.0003": "查询",
 	"js.search.panel.0004": "收起",
 	"js.search.panel.0005": "展开",
 
-	/* 行编辑多语 开始 */
+	// 单表查询结束
 
+
+	/* 行编辑多语 开始 */
+	
 	// 标题
 	"ht.inline.title.0001": "A2单表行内编辑示例",
 
