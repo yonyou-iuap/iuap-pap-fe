@@ -6,6 +6,7 @@ import Select from 'bee-select';
 import SearchPanel from 'components/SearchPanel';
 
 import './index.less'
+import {FormattedMessage} from "react-intl";
 
 const {FormItem} = Form;
 const {Option} = Select;
@@ -34,10 +35,11 @@ class SearchArea extends Component {
     }
 
     render() {
-        const {form} = this.props;
+        const {form,intl} = this.props;
         const {getFieldProps} = form;
         return (
             <SearchPanel
+                intl = {intl}
                 className='Passenger-form'
                 form={form}
                 reset={this.reset}
@@ -45,36 +47,65 @@ class SearchArea extends Component {
                 <Row>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>编号</Label>
-                            <FormControl placeholder='模糊查询' {...getFieldProps('search_orderCode', {initialValue: '',})}/>
+                            <Label>
+                                <FormattedMessage id="js.one.search.0001" defaultMessage="编号"/>
+                            </Label>
+                            <FormControl placeholder={this.props.intl.formatMessage({id:"js.one.search.prompt.0002", defaultMessage:'模糊查询'})}
+                                         {...getFieldProps('search_orderCode', {initialValue: '',})}/>
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>名称</Label>
-                            <FormControl placeholder='模糊查询' {...getFieldProps('search_orderName', {initialValue: '',})}/>
+                            <Label>
+                                <FormattedMessage id="js.one.search.0002" defaultMessage="名称"/>
+                            </Label>
+                            <FormControl
+                                placeholder={this.props.intl.formatMessage({id:"js.one.search.prompt.0002", defaultMessage:'模糊查询'})}
+                                {...getFieldProps('search_orderName', {initialValue: '',})}/>
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>类型</Label>
+                            <Label>
+                                <FormattedMessage id="js.one.search.0003" defaultMessage="类型"/>
+                                </Label>
                             <Select {...getFieldProps('search_orderType', {initialValue: ''})}>
-                                <Option value="">请选择</Option>
-                                <Option value="1">普通采购</Option>
-                                <Option value="2">委托代销</Option>
-                                <Option value="3">直运采购</Option>
+                                <Option value="">
+                                    <FormattedMessage id="js.one.option.0001" defaultMessage="请选择"/>
+                                </Option>
+                                <Option value="1">
+                                    <FormattedMessage id="js.one.option.0002" defaultMessage="普通采购"/>
+                                    </Option>
+                                <Option value="2">
+                                    <FormattedMessage id="js.one.option.0003" defaultMessage="委托代销"/>
+                                    </Option>
+                                <Option value="3">
+                                    <FormattedMessage id="js.one.option.0004" defaultMessage="直运采购"/>
+                                    </Option>
                             </Select>
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>流程状态</Label>
+                            <Label>
+                                <FormattedMessage id="js.one.search.0004" defaultMessage="流程状态"/>
+                                </Label>
                             <Select {...getFieldProps('search_bpmState', {initialValue: ''})}>
-                                <Option value="">全部</Option>
-                                <Option value={0}>待确认</Option>
-                                <Option value={1}>执行中</Option>
-                                <Option value={2}>已办结</Option>
-                                <Option value={3}>终止</Option>
+                                <Option value="">
+                                    <FormattedMessage id="js.one.option.0005" defaultMessage="全部"/>
+                                    </Option>
+                                <Option value={0}>
+                                    <FormattedMessage id="js.one.option.0006" defaultMessage="待确认"/>
+                                    </Option>
+                                <Option value={1}>
+                                    <FormattedMessage id="js.one.option.0007" defaultMessage="执行中"/>
+                                    </Option>
+                                <Option value={2}>
+                                    <FormattedMessage id="js.one.option.0008" defaultMessage="已办结"/>
+                                    </Option>
+                                <Option value={3}>
+                                    <FormattedMessage id="js.one.option.0009" defaultMessage="终止"/>
+                                    </Option>
                             </Select>
                         </FormItem>
                     </Col>

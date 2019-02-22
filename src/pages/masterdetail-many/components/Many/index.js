@@ -8,11 +8,14 @@ import Alert from 'components/Alert';
 import moment from 'moment';
 import ButtonRoleGroup from 'components/ButtonRoleGroup';
 import AcAttachment from 'ac-attachment';
+import { FormattedMessage } from 'react-intl';
+
 
 import SearchArea from '../SearchArea/index';
 import Passenger from '../PassengerModal/index';
 import Emergency from '../EmergencyModal/index';
 import Traveling from '../BookModal/index';
+
 
 
 import {deepClone, Warning, getPageParam} from "utils";
@@ -237,39 +240,39 @@ export default class Many extends Component {
 
     passengerColumn = [
         {
-            title: "乘客编号",
+            title: <FormattedMessage id="js.many.table.0001" defaultMessage="乘客编号"/>,
             dataIndex: "code",
             key: "code",
             // fixed: "left",
             width: 180,
         },
         {
-            title: "乘客姓名",
+            title: <FormattedMessage id="js.many.table.0003" defaultMessage="乘客姓名"/>,
             dataIndex: "name",
             key: "name",
             width: 120,
         },
         {
-            title: "乘客性别",
+            title: <FormattedMessage id="js.many.table.0004" defaultMessage="乘客性别"/>,
             dataIndex: "sexEnumValue",
             key: "sexEnumValue",
             width: 120,
 
         },
         {
-            title: "所属部门",
+            title: <FormattedMessage id="js.many.table.0005" defaultMessage="所属部门"/>,
             dataIndex: "deptName",
             key: "deptName",
             width: 120,
         },
         {
-            title: "手机号",
+            title:  <FormattedMessage id="js.many.table.0006" defaultMessage="手机号"/>,
             dataIndex: "phone",
             key: "phone",
             width: 120,
         },
         {
-            title: "是否会员",
+            title: <FormattedMessage id="js.many.table.0006" defaultMessage="是否会员"/>,
             dataIndex: "isVip",
             key: "isVip",
             width: 120,
@@ -279,13 +282,13 @@ export default class Many extends Component {
 
         },
         {
-            title: "会员等级",
+            title: <FormattedMessage id="js.many.table.0007" defaultMessage="会员等级"/>,
             dataIndex: "gradeEnumValue",
             key: "gradeEnumValue",
             width: 120,
         },
         {
-            title: "会员到期日期",
+            title: <FormattedMessage id="js.many.table.0008" defaultMessage="会员到期日期"/>,
             dataIndex: "expirationDate",
             key: "expirationDate",
             render: (text, record, index) => {
@@ -299,25 +302,25 @@ export default class Many extends Component {
 
     emergencyColumn = [
         {
-            title: "联系人姓名",
+            title: <FormattedMessage id="js.many.table.0009" defaultMessage="联系人姓名"/>,
             dataIndex: "contactName",
             key: "contactName",
             width: 180,
         },
         {
-            title: "联系人电话",
+            title: <FormattedMessage id="js.many.table.0010" defaultMessage="联系人电话"/>,
             dataIndex: "contactPhone",
             key: "contactPhone",
             width: 180,
         },
         {
-            title: "与乘客关系",
+            title: <FormattedMessage id="js.many.table.0011" defaultMessage="与乘客关系"/>,
             dataIndex: "contactRelation",
             key: "contactRelation",
             width: 180,
         },
         {
-            title: "备注",
+            title: <FormattedMessage id="js.many.table.0012" defaultMessage="备注"/>,
             dataIndex: "remark",
             key: "remark",
             width: 120,
@@ -326,25 +329,25 @@ export default class Many extends Component {
 
     travelingColumn = [
         {
-            title: "乘车路线",
+            title: <FormattedMessage id="js.many.table.0013" defaultMessage="乘车路线"/>,
             dataIndex: "line",
             key: "line",
             width: 120,
         },
         {
-            title: "上车站点",
+            title: <FormattedMessage id="js.many.table.0014" defaultMessage="上车站点"/>,
             dataIndex: "stationBegin",
             key: "stationBegin",
             width: 120,
         },
         {
-            title: "下车站点",
+            title: <FormattedMessage id="js.many.table.0015" defaultMessage="下车站点"/>,
             dataIndex: "stationEnd",
             key: "stationEnd",
             width: 120,
         },
         {
-            title: "费用",
+            title: <FormattedMessage id="js.many.table.0016" defaultMessage="费用"/>,
             dataIndex: "cost",
             key: "cost",
             width: 120,
@@ -354,12 +357,12 @@ export default class Many extends Component {
             }
         },
         {
-            title: "支付状态",
+            title: <FormattedMessage id="js.many.table.0017" defaultMessage="支付状态"/>,
             dataIndex: "payStatusEnumValue",
             key: "payStatusEnumValue",
             width: 120,
         }, {
-            title: "备注",
+            title: <FormattedMessage id="js.many.table.0012" defaultMessage="备注"/>,
             dataIndex: "remark",
             key: "remark",
             width: 120,
@@ -415,7 +418,7 @@ export default class Many extends Component {
         const _this = this;
         const {
             passengerObj, emergencyObj, travelingObj, showLoading,
-            showTravelingLoading, showEmergencyLoading, tabKey, passengerIndex
+            showTravelingLoading, showEmergencyLoading, tabKey, passengerIndex,intl
         } = this.props;
         const {
             delModalVisible, modalVisible, flag, checkTable,
@@ -429,36 +432,49 @@ export default class Many extends Component {
         const travelingForbid = travelingObj.list.length > 0 ? false : true;
         return (
             <div className='master-detail-many'>
-                <Header title='B3 一主多子示例'/>
-                <SearchArea passengerObj={passengerObj} onRef={this.onRef}/>
+                <Header title={this.props.intl.formatMessage({id: "ht.many.0000", defaultMessage: "B3 一主多子示例"})}/>
+                <SearchArea
+                    passengerObj={passengerObj}
+                    onRef={this.onRef}
+                    intl={intl}
+                />
                 <div className='table-header'>
                     <ButtonRoleGroup funcCode="masterdetail-many">
                         <Button iconType="uf-plus" className="ml8"
                                 role="add"
                                 onClick={() => this.onShowModal('passenger', 0)}
-                        >新增</Button>
+                        >
+                            {<FormattedMessage id="js.many.btn.0001" defaultMessage="新增"/>}
+                            </Button>
                         <Button iconType="uf-pencil" className="ml8"
                                 role="update"
                                 disabled={passengerForbid}
                                 onClick={() => _this.onShowModal("passenger", 1)}
-                        >修改</Button>
+                        >
+                            {<FormattedMessage id="js.many.btn.0002" defaultMessage="修改"/>}
+                            </Button>
                         <Button iconType="uf-list-s-o" className="ml8"
                                 disabled={passengerForbid}
                                 onClick={() => _this.onShowModal("passenger", 2)}
-                        >详情</Button>
+                        >
+                            {<FormattedMessage id="js.many.btn.0003" defaultMessage="详情"/>}
+                            </Button>
                         <Button iconType="uf-del" className="ml8"
                                 role="delete"
                                 disabled={passengerForbid}
                                 onClick={() => _this.onClickDel("passenger")}
-                        >删除</Button>
+                        >
+                            {<FormattedMessage id="js.many.btn.0004" defaultMessage="删除"/>}
+                            </Button>
                         <Button iconType="uf-export" className="ml8"
                                 onClick={() => _this.export("passenger")}
-                        >导出</Button>
+                        >
+                            {<FormattedMessage id="js.many.btn.0005" defaultMessage="导出"/>}
+                            </Button>
                         <Button iconType="uf-print" className="ml8"
                                 disabled={passengerForbid}
                                 onClick={_this.onPrint}
-                        >
-                            打印
+                        >{<FormattedMessage id="js.many.btn.0006" defaultMessage="打印"/>}
                         </Button>
                     </ButtonRoleGroup>
                 </div>
@@ -509,30 +525,43 @@ export default class Many extends Component {
                         defaultActiveKey={tabKey}
                         onChange={this.onChangeTab}
                     >
-                        <TabPane tab='紧急联系人' key="emergency">
+                        <TabPane tab={<FormattedMessage id="js.many.tab.0001" defaultMessage="紧急联系人"/>} key="emergency">
                             <div className='table-header-child'>
                                 <ButtonRoleGroup funcCode="masterdetail-many">
                                     <Button iconType="uf-plus" className="ml8" role="add_em"
                                             disabled={passengerForbid}
                                             onClick={() => _this.onShowModal('emergency', 0)}
-                                    >新增</Button>
+                                    >
+                                        {<FormattedMessage id="js.many.btn.0001" defaultMessage="新增"/>}
+                                    </Button>
                                     <Button iconType="uf-pencil" className="ml8" role="update_em"
                                             disabled={emergencyForbid}
                                             onClick={() => {
                                                 _this.onShowModal("emergency", 1);
                                             }}
-                                    >修改</Button>
+                                    >
+                                        {<FormattedMessage id="js.many.btn.0002" defaultMessage="修改"/>}
+                                    </Button>
                                     <Button iconType="uf-list-s-o" className="ml8"
                                             disabled={emergencyForbid}
                                             onClick={() => _this.onShowModal("emergency", 2)}
-                                    >详情</Button>
+                                    >
+                                        {<FormattedMessage id="js.many.btn.0003" defaultMessage="详情"/>}
+
+                                    </Button>
                                     <Button iconType="uf-del" className="ml8" role="delete_em"
                                             disabled={emergencyForbid}
                                             onClick={() => _this.onClickDel("emergency")}
-                                    >删除</Button>
+                                    >
+                                        {<FormattedMessage id="js.many.btn.0004" defaultMessage="删除"/>}
+
+                                    </Button>
                                     <Button iconType="uf-export" className="ml8"
                                             onClick={() => _this.export("emergency")}
-                                    >导出</Button>
+                                    >
+                                        {<FormattedMessage id="js.many.btn.0005" defaultMessage="导出"/>}
+
+                                    </Button>
                                 </ButtonRoleGroup>
                             </div>
                             <div style={{marginBottom: 24}}>
@@ -572,31 +601,45 @@ export default class Many extends Component {
                                 />
                             </div>
                         </TabPane>
-                        <TabPane tab='订票信息' key="traveling">
+                        <TabPane tab={<FormattedMessage id="js.many.tab.0002" defaultMessage="订票信息"/>} key="traveling">
                             <div className='table-header-child'>
                                 <ButtonRoleGroup funcCode="masterdetail-many">
                                     <Button iconType="uf-plus" className="ml8" role="add_tr"
                                             disabled={passengerForbid}
                                             onClick={() => this.onShowModal('traveling', 0)}
-                                    >新增</Button>
+                                    >
+                                        {<FormattedMessage id="js.many.btn.0001" defaultMessage="新增"/>}
+                                        </Button>
                                     <Button iconType="uf-pencil" className="ml8" role="update_tr"
                                             disabled={travelingForbid}
                                             onClick={() => _this.onShowModal("traveling", 1)}
-                                    >修改</Button>
+                                    >
+                                        {<FormattedMessage id="js.many.btn.0002" defaultMessage="修改"/>}
+
+                                    </Button>
                                     <Button iconType="uf-list-s-o" className="ml8"
                                             disabled={travelingForbid}
                                             onClick={() => _this.onShowModal("traveling", 2)}
-                                    >详情</Button>
+                                    >
+                                        {<FormattedMessage id="js.many.btn.0003" defaultMessage="详情"/>}
+
+                                    </Button>
                                     <Button iconType="uf-del" className="ml8" role="delete_tr"
                                             disabled={travelingForbid}
                                             onClick={() => _this.onClickDel("traveling")}
-                                    >删除</Button>
+                                    >
+                                        {<FormattedMessage id="js.many.btn.0004" defaultMessage="删除"/>}
+
+                                    </Button>
                                     <Button iconType="uf-export" className="ml8"
                                             onClick={() => _this.export("traveling")}
-                                    >导出</Button>
+                                    >
+                                        {<FormattedMessage id="js.many.btn.0005" defaultMessage="导出"/>}
+
+                                    </Button>
                                 </ButtonRoleGroup>
                             </div>
-                            <div className="total">费用小计：{_this.getTotalCost(travelingObj.list)}元</div>
+                            <div className="total">{<FormattedMessage id="ht.many.0001" defaultMessage="费用小计"/>}：{_this.getTotalCost(travelingObj.list)}元</div>
                             <div style={{marginBottom: 24}}>
                                 <Grid
                                     ref="traveling"
@@ -634,7 +677,7 @@ export default class Many extends Component {
                                 />
                             </div>
                         </TabPane>
-                        <TabPane tab='附件管理' key="uploadFill">
+                        <TabPane tab={<FormattedMessage id="js.many.tab.0003" defaultMessage="附件管理"/>} key="uploadFill">
                             <div className='table-header-child'>
                                 <AcAttachment
                                     disabled={passengerForbid}
@@ -652,6 +695,7 @@ export default class Many extends Component {
 
                 {/*添加乘客乘客信息modal*/}
                 <Passenger
+                    intl = {intl}
                     passengerObj={passengerObj}
                     // 1.少写变量modalVisible， 2.减少bug 永远只有一个弹框
                     modalVisible={modalVisible && checkTable === "passenger" && flag !== -1}
@@ -662,6 +706,7 @@ export default class Many extends Component {
                 />
                 {/*添加紧急联系人信息modal*/}
                 <Emergency
+                    intl = {intl}
                     emergencyObj={emergencyObj}
                     passengerIndex={passengerIndex}
                     passengerObj={passengerObj}
@@ -674,6 +719,7 @@ export default class Many extends Component {
                 />
                 {/*添加紧急联系人信息modal*/}
                 <Traveling
+                    intl = {intl}
                     travelingObj={travelingObj}
                     passengerIndex={passengerIndex}
                     passengerObj={passengerObj}
@@ -692,13 +738,13 @@ export default class Many extends Component {
                 />
                 <Alert
                     show={delModalVisible}
-                    context="确定删除这条记录吗 ?"
+                    context={<FormattedMessage id="ht.many.0002" defaultMessage="确定删除这条记录吗?"/>}
                     confirmFn={() => _this.confirmGoBack(1)}
                     cancelFn={() => _this.confirmGoBack(2)}/>
 
                 <Alert
                     show={delPicModalVisible}
-                    context="确定删除文件吗 ?"
+                    context={<FormattedMessage id="ht.many.0003" defaultMessage="确定删除文件吗?"/>}
                     confirmFn={() => _this.confirmDelPic(1)}
                     cancelFn={() => _this.confirmDelPic(2)}/>
             </div>

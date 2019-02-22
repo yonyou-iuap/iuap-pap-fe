@@ -13,6 +13,7 @@ import FormError from 'components/FormError';
 import 'bee-datepicker/build/DatePicker.css';
 import 'ref-tree/dist/index.css';
 import './index.less'
+import {FormattedMessage} from "react-intl";
 
 const {FormItem} = Form;
 const {Option} = Select;
@@ -117,13 +118,13 @@ class AddEditPassenger extends Component {
         let _this = this;
         let btns = [
             {
-                label: '确定',
+                label: <FormattedMessage id="js.many.btn.0007" defaultMessage="确定"/>,
                 fun: _this.onSubmitEdit,
                 icon: 'uf-correct'
             },
 
             {
-                label: '取消',
+                label: <FormattedMessage id="js.many.btn.0008" defaultMessage="取消"/>,
                 fun: this.onCloseEdit,
                 icon: 'uf-back'
             }
@@ -160,7 +161,9 @@ class AddEditPassenger extends Component {
                     <Row className='detail-body form-panel'>
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label>乘客编号</Label>
+                                <Label>
+                                    <FormattedMessage id="js.many.table.0001" defaultMessage="乘客编号" />
+                                </Label>
                                 <FormControl disabled
                                              {...getFieldProps('code', {
                                                  initialValue: code || '',
@@ -171,14 +174,15 @@ class AddEditPassenger extends Component {
 
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label className="mast">乘客姓名</Label>
+                                <Label className="mast">
+                                    <FormattedMessage id="js.many.table.0002" defaultMessage="乘客姓名" />
+                                </Label>
                                 <FormControl disabled={isDisabled}
                                              {...getFieldProps('name', {
                                                  validateTrigger: 'onBlur',
                                                  initialValue: name || '',
                                                  rules: [{
-                                                     required: true, message: '请输入乘客姓名'
-
+                                                     required: true, message: <FormattedMessage id="js.many.message.0005" defaultMessage="请输入乘客姓名" />
                                                  }],
                                              })}
                                 />
@@ -187,7 +191,9 @@ class AddEditPassenger extends Component {
                         </Col>
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label className="mast">部门</Label>
+                                <Label className="mast">
+                                    <FormattedMessage id="js.many.table.0004" defaultMessage="部门" />
+                                </Label>
                                 <RefIuapDept
                                     disabled={btnFlag === 2}
                                     {...getFieldProps('dept', {
@@ -197,7 +203,7 @@ class AddEditPassenger extends Component {
                                             refname: deptName || "",
                                         }),
                                         rules: [{
-                                            message: '请选择部门',
+                                            message: <FormattedMessage id="js.many.message.0006" defaultMessage="请选择部门" />,
                                             pattern: /[^({"refname":"","refpk":""}|{"refpk":"","refname":""})]/,
                                         }],
                                     })}
@@ -208,12 +214,14 @@ class AddEditPassenger extends Component {
 
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label className="mast">乘客性别</Label>
+                                <Label className="mast">
+                                    <FormattedMessage id="js.many.table.0003" defaultMessage="乘客性别" />
+                                </Label>
                                 <Select disabled={isDisabled}
                                         {...getFieldProps('sex', {
                                             initialValue: sex || 1,
                                             rules: [{
-                                                required: true, message: '请选择乘客性别',
+                                                required: true, message: <FormattedMessage id="js.many.message.0007" defaultMessage="请输入乘客性别" />,
                                             }],
                                         })}
                                 >
@@ -226,7 +234,9 @@ class AddEditPassenger extends Component {
 
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label className="mast">手机号</Label>
+                                <Label className="mast">
+                                    <FormattedMessage id="js.many.table.0005" defaultMessage="手机号" />
+                                </Label>
                                 <FormControlPhone disabled={isDisabled}
                                              {...getFieldProps('phone', {
                                                  validateTrigger: 'onBlur',
@@ -234,7 +244,7 @@ class AddEditPassenger extends Component {
                                                  rules: [{
                                                      required: true,
                                                      pattern: /^[1][3,4,5,7,8][0-9]{9}$/,
-                                                     message: '请正确输入手机号',
+                                                     message: <FormattedMessage id="js.many.message.0008" defaultMessage="请正确输入手机号" />,
 
                                                  }],
                                              })}
@@ -244,12 +254,14 @@ class AddEditPassenger extends Component {
                         </Col>
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label>是否会员</Label>
+                                <Label>
+                                    <FormattedMessage id="js.many.table.0006" defaultMessage="是否会员" />
+                                    </Label>
                                 <Switch
                                     disabled={isDisabled}
                                     checked={isVip}
-                                    checkedChildren={"是"}
-                                    unCheckedChildren={"否"}
+                                    checkedChildren={<FormattedMessage id="js.many.switch.0001" defaultMessage="是" />}
+                                    unCheckedChildren={<FormattedMessage id="js.many.switch.0002" defaultMessage="否" />}
                                     onChange={(value) => {
                                         _this.setState({isVip: value});
                                     }}
@@ -260,18 +272,23 @@ class AddEditPassenger extends Component {
                         {isVip && (
                             <Col md={6} xs={12} sm={10}>
                                 <FormItem>
-                                    <Label className="mast">会员等级</Label>
+                                    <Label className="mast">
+
+                                        <FormattedMessage id="js.many.table.0007" defaultMessage="会员等级" />
+                                    </Label>
                                     <Select disabled={isDisabled}
                                             {...getFieldProps('grade', {
                                                 initialValue: grade || 1,
                                                 rules: [{
-                                                    required: true, message: '请选择会员等级',
+                                                    required: true, message: <FormattedMessage id="js.many.message.0005" defaultMessage="请选择会员等级" />,
                                                 }],
                                             })}
                                     >
-                                        <Option value={1}>初级会员</Option>
-                                        <Option value={2}>中级会员</Option>
-                                        <Option value={3}>高级会员</Option>
+                                        <Option value={1}>
+                                            <FormattedMessage id="js.many.option.0003" defaultMessage="初级会员" />
+                                        </Option>
+                                        <Option value={2}><FormattedMessage id="js.many.option.0004" defaultMessage="中级会员" /></Option>
+                                        <Option value={3}><FormattedMessage id="js.many.option.0005" defaultMessage="高级会员" /></Option>
                                     </Select>
                                 </FormItem>
                             </Col>
@@ -279,13 +296,15 @@ class AddEditPassenger extends Component {
                         {isVip && (
                             <Col md={6} xs={12} sm={10}>
                                 <FormItem className='time'>
-                                    <Label className="mast">到期日期</Label>
+                                    <Label className="mast">
+                                        <FormattedMessage id="js.many.table.0008" defaultMessage="到期日期" />
+                                    </Label>
                                     <DatePicker className='form-item' format={format} disabled={isDisabled}
                                                 {...getFieldProps('expirationDate', {
                                                     initialValue: expirationDate ? moment(expirationDate) : moment(),
                                                     validateTrigger: 'onBlur',
                                                     rules: [{
-                                                        required: true, message: '请选择会员到期日期'
+                                                        required: true, message: <FormattedMessage id="js.many.message.0010" defaultMessage="请选择会员到期日期" />
                                                     }],
                                                 })}
                                     />

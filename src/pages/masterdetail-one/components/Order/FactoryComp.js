@@ -4,6 +4,7 @@ import TextField from 'components/RowField/TextField';
 import NumberField from 'components/RowField/NumberField';
 import DateField from 'components/RowField/DateField';
 import moment from "moment";
+import { injectIntl } from 'react-intl';
 
 class FactoryComp extends Component {
     /**
@@ -51,7 +52,7 @@ class FactoryComp extends Component {
                         /> : <div>{value ? moment(value).format("YYYY-MM-DD") : ""}</div>}
                 </div>);
             default:
-                return (<div>组件类型错误</div>)
+                // return (<div>组件类型错误</div>)
         }
     }
     render() {
@@ -61,4 +62,5 @@ class FactoryComp extends Component {
     }
 }
 
+// export default injectIntl(FactoryComp);
 export default FactoryComp;

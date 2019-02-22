@@ -63,7 +63,7 @@ const zh_TW = {
 
 	// 標題
 	"ht.inline.title.0001": "A2單表行內編輯示例",
-	
+
 	//搜索字段
 	"js.inline.search.0001": "員工編號",
 	"js.inline.search.0002": "員工姓名",
@@ -102,7 +102,7 @@ const zh_TW = {
 	"js.inline.alert.0004": "請勾選數據後再刪除",
 	"js.inline.alert.0005": "是否要刪除 ?",
 	"js.inline.alert.0006": "數據未保存，確定查詢 ?",
-	
+
 	// 表格字段
 	"js.inline.table.0001": "員工編號",
 	"js.inline.table.0002": "員工姓名",
@@ -123,6 +123,144 @@ const zh_TW = {
 	"js.inline.table.0017": "備注",
 
 	/* 行編輯多語 結束 */
+
+
+
+    "ht.many.0000": "B3 壹主多子示例",
+    "ht.many.0001": "費用小計",
+    "ht.many.0002": "確定刪除這條記錄嗎？",
+    "ht.many.0003": "確定刪除文件嗎？",
+
+    "js.many.search.0001": "乘客編號",
+    "js.many.search.0002": "乘客姓名",
+    "js.many.search.0003": "手機號",
+    "js.many.search.0004": "聯系人姓名",
+    "js.many.search.0005": "聯系人電話",
+    "js.many.search.0006": "與乘客關系",
+
+    "js.many.btn.0001": "新增",
+    "js.many.btn.0002": "修改",
+    "js.many.btn.0003": "詳情",
+    "js.many.btn.0004": "刪除",
+    "js.many.btn.0005": "匯出",
+    "js.many.btn.0006": "打印",
+    "js.many.btn.0007": "確定",
+    "js.many.btn.0008": "取消",
+
+    "js.many.table.0001": "乘客編號",
+    "js.many.table.0002": "乘客姓名",
+    "js.many.table.0003": "乘客性别",
+    "js.many.table.0004": "所屬部門",
+    "js.many.table.0005": "手機號",
+    "js.many.table.0006": "是否會員",
+    "js.many.table.0007": "會員等級",
+    "js.many.table.0008": "會員到期日期",
+
+    "js.many.table.0009": "聯系人姓名",
+    "js.many.table.0010": "聯系人電話",
+    "js.many.table.0011": "與乘客關系",
+    "js.many.table.0012": "備注",
+    "js.many.table.0013": "乘車路線",
+    "js.many.table.0014": "上車站點",
+    "js.many.table.0015": "下車站點",
+    "js.many.table.0016": "費用",
+    "js.many.table.0017": "支付狀態",
+
+    "js.many.tab.0001": "緊急聯系人",
+    "js.many.tab.0002": "訂票信息",
+
+    "js.many.message.0001": "請輸入乘車路線",
+    "js.many.message.0002": "請輸入上車站點",
+    "js.many.message.0003": "請輸入下車站點",
+    "js.many.message.0004": "請選擇支付狀態",
+
+    "js.many.message.0005": "請選擇支付狀態",
+    "js.many.message.0006": "請選擇部門",
+    "js.many.message.0007": "請選擇乘客性別",
+    "js.many.message.0008": "請正確輸入手機號",
+    "js.many.message.0009": "請選擇會員等級",
+    "js.many.message.0010": "請選擇會員到期日期",
+
+    "js.many.message.0011": "請輸入聯系人姓名",
+    "js.many.message.0012": "請輸入聯系人電話",
+    "js.many.message.0013": "請輸入與乘客關系",
+
+    "js.many.switch.0001": "是",
+    "js.many.switch.0002": "否",
+
+    "js.many.option.0001": "未支付",
+    "js.many.option.0002": "已支付",
+    "js.many.option.0003": "初級會員",
+    "js.many.option.0004": "中級會員",
+    "js.many.option.0005": "高級會員",
+
+    "ht.one.0001": "B2 壹主壹子示例",
+    "ht.one.0002": "是否要刪除 ?",
+    "ht.one.0003": "未獲取到單據信息",
+    "ht.one.0004": "警告",
+    "ht.one.0005": "數據未保存，確定離開 ?",
+    "ht.one.0006": "流程圖",
+
+    "js.one.btn.0001": "新增",
+    "js.one.btn.0002": "修改",
+    "js.one.btn.0003": "詳情",
+    "js.one.btn.0004": "刪除",
+    "js.one.btn.0005": "匯出",
+    "js.one.btn.0006": "打印",
+    "js.one.btn.0007": "確定",
+    "js.one.btn.0008": "取消",
+    "js.one.btn.0009": "提交",
+    "js.one.btn.0010": "收回",
+    "js.one.btn.0011": "是",
+    "js.one.btn.0012": "保存",
+
+
+    "js.one.search.prompt.0001": "精確查詢",
+    "js.one.search.prompt.0002": "模糊查詢",
+
+    "js.one.search.0001": "編號",
+    "js.one.search.0002": "名稱",
+    "js.one.search.0003": "類型",
+    "js.one.search.0004": "流程狀態",
+    "js.one.search.0005": "部門",
+    "js.one.search.0006": "價格",
+    "js.one.search.0007": "申請人",
+    "js.one.search.0008": "申請日期",
+
+
+    "js.one.option.0001": "請選擇",
+    "js.one.option.0002": "普通采購",
+    "js.one.option.0003": "委托代銷",
+    "js.one.option.0004": "直運采購",
+    "js.one.option.0005": "全部",
+    "js.one.option.0006": "待確認",
+    "js.one.option.0007": "執行中",
+    "js.one.option.0008": "已辦結",
+    "js.one.option.0009": "終止",
+
+    "js.one.table.0001": "編號",
+    "js.one.table.0002": "名稱",
+    "js.one.table.0003": "類型",
+    "js.one.table.0004": "價格",
+    "js.one.table.0005": "申請人",
+    "js.one.table.0006": "申請部門",
+    "js.one.table.0007": "申請日期",
+    "js.one.table.0008": "流程狀態",
+
+    "js.one.table.0009": "物料名稱",
+    "js.one.table.0010": "物料型號",
+    "js.one.table.0011": "物料數量",
+    "js.one.table.0012": "需求日期",
+
+    "js.one.table.0013": "物料名稱",
+    "js.one.table.0014": "物料型號",
+    "js.one.table.0015": "物料數量",
+    "js.one.table.0016": "需求日期",
+
+    "js.one.message.0001": "請輸入名稱",
+    "js.one.message.0002": "請選擇部門",
+    "js.one.message.0003": "請選擇申請日期",
+
 
 }
 export default zh_TW;
