@@ -163,7 +163,7 @@ const zh_TW = {
 
 
 	/* 一主多子多语 开始 */
-	
+
     "ht.many.0000": "B3 壹主多子示例",
     "ht.many.0001": "費用小計",
     "ht.many.0002": "確定刪除這條記錄嗎？",
@@ -300,6 +300,41 @@ const zh_TW = {
 	"js.one.message.0003": "請選擇申請日期",
 	
 	/* 一主多子多语 结束 */
+
+	/* 分組聚合 開始 */
+
+	// 標題
+	"ht.group.title.0001": "C1單表分組聚合示例",
+	// 分組條件
+	"js.group.search.sel.0001": "分組條件",
+	"js.group.search.sel.0002": "請選擇",
+	"js.group.search.sel.0003": "性別",
+	"js.group.search.sel.0004": "補貼類別",
+	"js.group.search.0001":"員工編號",
+	"js.group.search.0002":"模糊查詢",
+	"js.group.search.0003":"員工姓名",
+	"js.group.search.0004":"模糊查詢",
+	"js.group.search.0005":"月份",
+	"js.group.search.0006":"年份",
+	"js.group.search.0007":"選擇年份",
+	
+	
+	
+	// 是否超標
+	"js.group.search.sel1.0001": "是否超標",
+	"js.group.search.sel1.0002": "請選擇",
+	"js.group.search.sel1.0003": "未超標",
+	"js.group.search.sel1.0004": "超標",
+
+	
+	
+	
+
+	// 
+	
+	
+
+	/* 分組聚合 結束 */
 
 
 }
