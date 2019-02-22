@@ -10,6 +10,7 @@ import FormError from 'components/FormError';
 import {getCookie} from "utils";
 
 import './index.less';
+import {FormattedMessage} from "react-intl";
 
 const {Option} = Select;
 const {FormItem} = Form;
@@ -25,7 +26,9 @@ class OrderChild extends Component {
             <Row className='detail-body form-panel order-panel'>
                 <Col md={4} xs={6}>
                     <FormItem>
-                        <Label>编号</Label>
+                        <Label>
+                            <FormattedMessage id="js.one.search.0001" defaultMessage="编号"/>
+                        </Label>
                         <FormControl disabled={true}
                                      {...getFieldProps('orderCode', {
                                          initialValue: orderRow.orderCode || ""
@@ -37,14 +40,16 @@ class OrderChild extends Component {
 
                 <Col md={4} xs={6}>
                     <FormItem>
-                        <Label className="mast">名称</Label>
+                        <Label className="mast">
+                            <FormattedMessage id="js.one.search.0002" defaultMessage="名称"/>
+                        </Label>
                         <FormControl disabled={btnFlag === 2}
                                      {...getFieldProps('orderName', {
                                              validateTrigger: 'onBlur',
                                              initialValue: orderRow.orderName || '',
                                              rules: [{
                                                  required: true,
-                                                 message: '请输入名称',
+                                                 message: <FormattedMessage id="js.one.message.0001" defaultMessage="请输入名称"/>,
                                              }],
                                          }
                                      )}
@@ -54,7 +59,9 @@ class OrderChild extends Component {
                 </Col>
                 <Col md={4} xs={6}>
                     <FormItem>
-                        <Label className="mast">类型</Label>
+                        <Label className="mast">
+                            <FormattedMessage id="js.one.search.0003" defaultMessage="类型"/>
+                        </Label>
                         <Select disabled={btnFlag === 2}
                                 {...getFieldProps('orderType', {
                                     initialValue: orderRow.orderType ? orderRow.orderType.toString() : "1",
@@ -63,9 +70,15 @@ class OrderChild extends Component {
                                     }],
                                 })}
                         >
-                            <Option value="1">普通采购</Option>
-                            <Option value="2">委托代销</Option>
-                            <Option value="3">直运采购</Option>
+                            <Option value="1">
+                                <FormattedMessage id="js.one.option.0002" defaultMessage="普通采购"/>
+                            </Option>
+                            <Option value="2">
+                                <FormattedMessage id="js.one.option.0003" defaultMessage="委托代销"/>
+                                </Option>
+                            <Option value="3">
+                                <FormattedMessage id="js.one.option.0004" defaultMessage="直运采购"/>
+                                </Option>
                         </Select>
                         <FormError errorMsg={getFieldError('orderType')}/>
                     </FormItem>
@@ -74,7 +87,9 @@ class OrderChild extends Component {
 
                 <Col md={4} xs={6}>
                     <FormItem>
-                        <Label className="mast">部门</Label>
+                        <Label className="mast">
+                            <FormattedMessage id="js.one.search.0005" defaultMessage="部门"/>
+                        </Label>
                         <RefIuapDept
                             disabled={btnFlag === 2}
                             {...getFieldProps('orderDept', {
@@ -83,7 +98,7 @@ class OrderChild extends Component {
                                     refpk: orderRow.orderDept || ''
                                 }),
                                 rules: [{
-                                    message: '请选择部门',
+                                    message:  <FormattedMessage id="js.one.message.0002" defaultMessage="请选择部门"/>,
                                     pattern: /[^({"refname":"","refpk":""}|{"refpk":"","refname":""})]/
                                 }],
                             })}
@@ -97,7 +112,9 @@ class OrderChild extends Component {
 
                 <Col md={4} xs={6}>
                     <FormItem className="time">
-                        <Label className="mast">价格</Label>
+                        <Label className="mast">
+                            <FormattedMessage id="js.one.search.0006" defaultMessage="价格"/>
+                        </Label>
                         <InputNumber
                             iconStyle="one"
                             precision={2}
@@ -114,7 +131,10 @@ class OrderChild extends Component {
 
                 <Col md={4} xs={6}>
                     <FormItem>
-                        <Label>申请人</Label>
+                        <Label>
+                            <FormattedMessage id="js.one.search.0007" defaultMessage="申请人"/>
+
+                        </Label>
                         <FormControl disabled={true}
                                      {...getFieldProps('createUserName', {
                                          initialValue: orderRow.orderUserName ? orderRow.orderUserName : decodeURIComponent(getCookie("_A_P_userName")),
@@ -125,14 +145,17 @@ class OrderChild extends Component {
 
                 <Col md={4} xs={6}>
                     <FormItem className="time">
-                        <Label className="datepicker mast">申请日期</Label>
+                        <Label className="datepicker mast">
+                            <FormattedMessage id="js.one.search.0008" defaultMessage="申请日期"/>
+                        </Label>
                         <DatePicker className='form-item' disabled={btnFlag === 2}
                                     format={format}
                                     {...getFieldProps('orderDate', {
                                             initialValue: orderRow.orderDate ? moment(orderRow.orderDate) : moment(),
                                             validateTrigger: 'onBlur',
                                             rules: [{
-                                                required: true, message: '请选择申请日期',
+                                                required: true,
+                                                message:  <FormattedMessage id="js.one.message.0003" defaultMessage="请选择申请日期"/>,
                                             }],
                                         }
                                     )}
@@ -140,8 +163,6 @@ class OrderChild extends Component {
                         <FormError errorMsg={getFieldError('orderDate')}/>
                     </FormItem>
                 </Col>
-
-
             </Row>
 
         )

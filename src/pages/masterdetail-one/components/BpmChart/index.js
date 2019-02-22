@@ -27,7 +27,7 @@ class BpmChart extends Component {
         let { id, processDefinitionId, processInstanceId } = queryString.parse(this.props.location.search);
         return (
             <div className="bpm-chart">
-                <Header title='流程图' back={true}/>
+                <Header title={this.props.intl.formatMessage({id: "ht.one.0006", defaultMessage: "流程图"})} back={true}/>
                 <BpmWrap
 
                     id={id}

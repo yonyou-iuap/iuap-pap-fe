@@ -5,6 +5,8 @@ import Form from 'bee-form';
 import PopDialog from 'components/Pop';
 import FormError from 'components/FormError';
 import FormControlPhone from 'components/FormControlPhone';
+import { FormattedMessage } from 'react-intl';
+
 
 import 'bee-datepicker/build/DatePicker.css';
 import './index.less'
@@ -93,13 +95,13 @@ class AddEditEmergency extends Component {
         let _this = this;
         let btns = [
             {
-                label: '确定',
+                label: <FormattedMessage id="js.many.btn.0007" defaultMessage="确定"/>,
                 fun: _this.onSubmitEdit,
                 icon: 'uf-correct'
             },
 
             {
-                label: '取消',
+                label: <FormattedMessage id="js.many.btn.0008" defaultMessage="取消"/>,
                 fun: this.onCloseEdit,
                 icon: 'uf-back'
             }
@@ -133,7 +135,9 @@ class AddEditEmergency extends Component {
                     <Row className='detail-body form-panel'>
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label className="mast">联系人姓名</Label>
+                                <Label className="mast">
+                                    <FormattedMessage id="js.many.search.0004" defaultMessage="联系人姓名"/>
+                                </Label>
                                 <FormControl disabled={btnFlag > 0}
                                              {...getFieldProps('contactName', {
                                                  validateTrigger: 'onBlur',
@@ -142,7 +146,7 @@ class AddEditEmergency extends Component {
                                                      type: 'string',
                                                      required: true,
                                                      pattern: /\S+/ig,
-                                                     message: '请输入联系人姓名',
+                                                     message: <FormattedMessage id="js.many.message.0011" defaultMessage="请输入联系人姓名"/>,
                                                  }],
                                              })}
                                 />
@@ -151,7 +155,8 @@ class AddEditEmergency extends Component {
                         </Col>
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label className="mast">联系人电话</Label>
+                                <Label className="mast">
+                                    <FormattedMessage id="js.many.search.0005" defaultMessage="联系人电话"/></Label>
                                 <FormControlPhone disabled={btnFlag === 2}
                                              {...getFieldProps('contactPhone', {
                                                  validateTrigger: 'onBlur',
@@ -160,7 +165,7 @@ class AddEditEmergency extends Component {
                                                      type: 'string',
                                                      required: true,
                                                      pattern: /^[1][3,4,5,7,8][0-9]{9}$/,
-                                                     message: '请输入联系人电话',
+                                                     message:  <FormattedMessage id="js.many.message.0012" defaultMessage="请输入联系人电话"/>,
                                                  }],
                                              })}
                                 />
@@ -169,7 +174,7 @@ class AddEditEmergency extends Component {
                         </Col>
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label className="mast">与乘客关系</Label>
+                                <Label className="mast"><FormattedMessage id="js.many.search.0006" defaultMessage="与乘客关系"/></Label>
                                 <FormControl disabled={btnFlag === 2}
                                              {...getFieldProps('contactRelation', {
                                                  validateTrigger: 'onBlur',
@@ -178,7 +183,7 @@ class AddEditEmergency extends Component {
                                                      type: 'string',
                                                      required: true,
                                                      pattern: /\S+/ig,
-                                                     message: '请输入与乘客关系',
+                                                     message:  <FormattedMessage id="js.many.message.0013" defaultMessage="请输入与乘客关系"/>,
                                                  }],
                                              })}
                                 />
@@ -187,7 +192,9 @@ class AddEditEmergency extends Component {
                         </Col>
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label>备注</Label>
+                                <Label>
+                                    <FormattedMessage id="js.many.table.0012" defaultMessage="备注"/>
+                                </Label>
                                 <FormControl disabled={btnFlag === 2}
                                              {...getFieldProps('remark', {
                                                  initialValue: remark || '',

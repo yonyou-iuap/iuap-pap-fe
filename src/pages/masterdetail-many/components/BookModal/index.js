@@ -5,13 +5,18 @@ import Form from 'bee-form';
 import Select from 'bee-select';
 import PopDialog from 'components/Pop';
 import FormError from 'components/FormError';
-
+import { FormattedMessage } from 'react-intl';
 
 import 'bee-datepicker/build/DatePicker.css';
 import './index.less'
 
 const {FormItem} = Form;
-let titleArr = ["新增", "修改", "详情"];
+let titleArr = [
+    '新增','修改','详情',
+    // this.props.intl.formatMessage({id:"js.search.btn.0001", defaultMessage:'新增'}),
+    // this.props.intl.formatMessage({id:"js.search.btn.0002", defaultMessage:'修改'}),
+    // this.props.intl.formatMessage({id:"js.search.btn.0003", defaultMessage:'详情'}),
+];
 
 class AddEditBook extends Component {
 
@@ -92,13 +97,13 @@ class AddEditBook extends Component {
         let _this = this;
         let btns = [
             {
-                label: '确定',
+                label: <FormattedMessage id="js.many.btn.0007" defaultMessage="确定"/>,
                 fun: _this.onSubmitEdit,
                 icon: 'uf-correct'
             },
 
             {
-                label: '取消',
+                label: <FormattedMessage id="js.many.btn.0008" defaultMessage="取消"/>,
                 fun: this.onCloseEdit,
                 icon: 'uf-back'
             }
@@ -134,7 +139,9 @@ class AddEditBook extends Component {
                     <Row className='detail-body form-panel'>
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label className="mast">乘车路线</Label>
+                                <Label className="mast">
+                                    <FormattedMessage id="js.many.table.0013" defaultMessage="乘车路线" />
+                                </Label>
                                 <FormControl disabled={btnFlag === 2}
                                              {...getFieldProps('line', {
                                                  validateTrigger: 'onBlur',
@@ -143,7 +150,7 @@ class AddEditBook extends Component {
                                                      type: 'string',
                                                      required: true,
                                                      pattern: /\S+/ig,
-                                                     message: '请输入乘车路线',
+                                                     message: <FormattedMessage id="js.many.message.0001" defaultMessage="请输入乘车路线" />,
                                                  }],
                                              })}
                                 />
@@ -152,7 +159,9 @@ class AddEditBook extends Component {
                         </Col>
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label className="mast">上车站点</Label>
+                                <Label className="mast">
+                                    <FormattedMessage id="js.many.table.0014" defaultMessage="上车站点" />
+                                    </Label>
                                 <FormControl disabled={btnFlag === 2}
                                              {...getFieldProps('stationBegin', {
                                                  validateTrigger: 'onBlur',
@@ -161,7 +170,7 @@ class AddEditBook extends Component {
                                                      type: 'string',
                                                      required: true,
                                                      pattern: /\S+/ig,
-                                                     message: '请输入上车站点',
+                                                     message: <FormattedMessage id="js.many.message.0002" defaultMessage="请输入上车站点" />,
                                                  }],
                                              })}
                                 />
@@ -170,7 +179,9 @@ class AddEditBook extends Component {
                         </Col>
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label className="mast">下车站点</Label>
+                                <Label className="mast">
+                                    <FormattedMessage id="js.many.table.0015" defaultMessage="下车站点" />
+                                </Label>
                                 <FormControl disabled={btnFlag === 2}
                                              {...getFieldProps('stationEnd', {
                                                  validateTrigger: 'onBlur',
@@ -179,7 +190,7 @@ class AddEditBook extends Component {
                                                      type: 'string',
                                                      required: true,
                                                      pattern: /\S+/ig,
-                                                     message: '请输入下车站点',
+                                                     message: <FormattedMessage id="js.many.message.0003" defaultMessage="请输入下车站点" />,
                                                  }],
                                              })}
                                 />
@@ -190,7 +201,9 @@ class AddEditBook extends Component {
 
                         <Col md={6} xs={12} sm={10} className="inputIntItem">
                             <FormItem className='time'>
-                                <Label className="mast">费用</Label>
+                                <Label className="mast">
+                                    <FormattedMessage id="js.many.table.0016" defaultMessage="费用" />
+                                </Label>
                                 <InputNumber iconStyle="one" min={0} step={1} disabled={btnFlag === 2} max={999999}
                                              {...getFieldProps('cost', {
                                                  initialValue: cost !== undefined ? cost : 1,
@@ -201,17 +214,26 @@ class AddEditBook extends Component {
                         </Col>
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label className="mast">支付状态</Label>
+                                <Label className="mast">
+
+                                    <FormattedMessage id="js.many.table.0017" defaultMessage="支付状态" />
+
+                                </Label>
                                 <Select disabled={btnFlag === 2}
                                         {...getFieldProps('payStatus', {
                                             initialValue: payStatus || 1,
                                             rules: [{
-                                                required: true, message: '请选择支付状态',
+                                                required: true,
+                                                message:<FormattedMessage id="js.many.message.0004" defaultMessage="请选择支付状态" />,
                                             }],
                                         })}
                                 >
-                                    <Option value={1}>未支付</Option>
-                                    <Option value={2}>已支付</Option>
+                                    <Option value={1}>
+                                        <FormattedMessage id="js.many.option.0001" defaultMessage="未支付" />
+                                    </Option>
+                                    <Option value={2}>
+                                        <FormattedMessage id="js.many.option.0002" defaultMessage="已支付" />
+                                    </Option>
                                 </Select>
                                 <FormError errorMsg={getFieldError('payStatus')}/>
                             </FormItem>
@@ -219,7 +241,9 @@ class AddEditBook extends Component {
 
                         <Col md={6} xs={12} sm={10}>
                             <FormItem>
-                                <Label>备注</Label>
+                                <Label>
+                                    <FormattedMessage id="js.many.table.0012" defaultMessage="备注" />
+                                </Label>
                                 <FormControl disabled={btnFlag === 2}
                                              {...getFieldProps('remark', {
                                                  initialValue: remark || '',

@@ -6,6 +6,7 @@ import SearchPanel from 'components/SearchPanel';
 import FormControlPhone from 'components/FormControlPhone';
 
 import './index.less'
+import {FormattedMessage} from "react-intl";
 
 const {FormItem} = Form;
 
@@ -45,10 +46,11 @@ class SearchArea extends Component {
     }
 
     render() {
-        const {form} = this.props;
+        const {form,intl} = this.props;
         const {getFieldProps} = form;
         return (
             <SearchPanel
+                intl = {intl}
                 className="passenger-search"
                 form={form}
                 reset={this.reset}
@@ -57,28 +59,29 @@ class SearchArea extends Component {
                 <Row>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>乘客编号</Label>
-                            <FormControl placeholder="模糊查询" {...getFieldProps('search_code', {initialValue: '',})}/>
+                            <Label>{<FormattedMessage id="js.many.search.0001" defaultMessage="乘客编号"/>}</Label>
+                            <FormControl placeholder={this.props.intl.formatMessage({id:"js.search.prompt.0002", defaultMessage:'模糊查询'})} {...getFieldProps('search_code', {initialValue: '',})}/>
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>乘客姓名</Label>
-                            <FormControl placeholder="模糊查询" {...getFieldProps('search_name', {initialValue: '',})}/>
+                            <Label>{<FormattedMessage id="js.many.search.0002" defaultMessage="乘客姓名"/>}</Label>
+                            <FormControl placeholder={this.props.intl.formatMessage({id:"js.search.prompt.0002", defaultMessage:'模糊查询'})} {...getFieldProps('search_name', {initialValue: '',})}/>
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>手机号</Label>
-                            <FormControlPhone placeholder="模糊查询"
+                            <Label>{<FormattedMessage id="js.many.search.0003" defaultMessage="手机号"/>}</Label>
+                            <FormControlPhone placeholder={this.props.intl.formatMessage({id:"js.search.prompt.0002", defaultMessage:'模糊查询'})}
                                          {...getFieldProps('search_phone', {initialValue: "",})}/>
                         </FormItem>
                     </Col>
                     <Col md={4} xs={6}>
                         <FormItem>
-                            <Label>联系人姓名</Label>
+                            <Label>{<FormattedMessage id="js.many.search.0004" defaultMessage="联系人姓名"/>}</Label>
                             <FormControl
-                                placeholder="精确查询" {...getFieldProps('search_contactName', {initialValue: '',})}/>
+                                placeholder={this.props.intl.formatMessage({id:"js.search.prompt.0001", defaultMessage:'精确查询'})}
+                                {...getFieldProps('search_contactName', {initialValue: '',})}/>
                         </FormItem>
                     </Col>
                 </Row>

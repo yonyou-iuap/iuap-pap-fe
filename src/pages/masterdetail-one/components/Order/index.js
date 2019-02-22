@@ -11,6 +11,8 @@ import Button from 'components/Button';
 import Alert from 'components/Alert';
 import Child from '../OrderChild';
 import FactoryComp from './FactoryComp';
+import {FormattedMessage} from "react-intl";
+
 
 import {uuid, deepClone, getCookie, Info, getPageParam} from "utils";
 
@@ -73,7 +75,7 @@ class Order extends Component {
 
     detailColumn = [
         {
-            title: "物料名称",
+            title: <FormattedMessage id="js.one.table.0013" defaultMessage="物料名称"/>,
             dataIndex: "detailName",
             key: "detailName",
             width: 200,
@@ -91,7 +93,7 @@ class Order extends Component {
             }
         },
         {
-            title: "物料型号",
+            title:<FormattedMessage id="js.one.table.0014" defaultMessage="物料型号"/> ,
             dataIndex: "detailModel",
             key: "detailModel",
             width: 200,
@@ -110,7 +112,7 @@ class Order extends Component {
 
         },
         {
-            title: "物料数量",
+            title: <FormattedMessage id="js.one.table.0015" defaultMessage="物料数量"/>,
             dataIndex: "detailCount",
             key: "detailCount",
             width: 200,
@@ -128,7 +130,7 @@ class Order extends Component {
                 />
             }
         }, {
-            title: "需求日期",
+            title: <FormattedMessage id="js.one.table.0016" defaultMessage="需求日期"/>,
             dataIndex: "detailDate",
             key: "detailDate",
             width: 200,
@@ -592,7 +594,7 @@ class Order extends Component {
                 <Loading showBackDrop={true} loadingType="line" show={showLoading} fullScreen={true}/>
                 <Alert
                     show={showPopBackVisible}
-                    context="数据未保存，确定离开 ?"
+                    context={<FormattedMessage id="ht.one.0005" defaultMessage="数据未保存，确定离开 ?"/>}
                     confirmFn={() => {
                         _this.confirmGoBack(1)
                     }}
@@ -602,9 +604,13 @@ class Order extends Component {
                 <Header title={titleArr[btnFlag]}>
                     <div className='head-btn'>
                         {(btnFlag !== 2) &&
-                        <Button iconType="uf-correct" className="ml8" onClick={_this.onClickSave}>保存</Button>
+                        <Button iconType="uf-correct" className="ml8" onClick={_this.onClickSave}>
+                            <FormattedMessage id="js.one.btn.0012" defaultMessage="保存"/>
+                        </Button>
                         }
-                        <Button iconType="uf-back" className="ml8" onClick={_this.onBack}>取消</Button>
+                        <Button iconType="uf-back" className="ml8" onClick={_this.onBack}>
+                            <FormattedMessage id="js.one.btn.0008" defaultMessage="取消"/>
+                        </Button>
                     </div>
 
                 </Header>
@@ -620,7 +626,7 @@ class Order extends Component {
                         className="ml8"
                         size='sm'
                         onClick={this.handlerNew}>
-                        新增
+                        <FormattedMessage id="js.one.btn.0001" defaultMessage="新增"/>
                     </Button>
                     <Button
                         iconType="uf-pencil"
@@ -628,7 +634,8 @@ class Order extends Component {
                         className="ml8"
                         size='sm'
                         onClick={this.onClickUpdate}>
-                        修改
+                        <FormattedMessage id="js.one.btn.0002" defaultMessage="修改"/>
+
                     </Button>
                     <Button
                         iconType="uf-del"
@@ -636,7 +643,7 @@ class Order extends Component {
                         className="ml8"
                         size='sm'
                         onClick={this.onClickDel}>
-                        删除
+                        <FormattedMessage id="js.one.btn.0004" defaultMessage="删除"/>
                     </Button>
                 </div>
                 <div className='grid-parent'>
@@ -660,15 +667,18 @@ class Order extends Component {
                     show={showModalCover}
                     onHide={this.close}>
                     <Modal.Header>
-                        <Modal.Title>警告</Modal.Title>
+                        <Modal.Title>
+                            <FormattedMessage id="ht.one.0004" defaultMessage="警告"/></Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body>
-                        未获取到单据信息
+                        <FormattedMessage id="ht.one.0003" defaultMessage="未获取到单据信息"/>
                     </Modal.Body>
 
                     <Modal.Footer>
-                        <Button onClick={this.closeModal}>是</Button>
+                        <Button onClick={this.closeModal}>
+                            <FormattedMessage id="js.one.btn.0011" defaultMessage="是"/>
+                        </Button>
                     </Modal.Footer>
                 </Modal>
             </div>
