@@ -7,6 +7,7 @@ import Header from 'components/Header';
 import TreeTable from '../TreeTable';
 
 // 导入工具类
+import { FormattedMessage } from 'react-intl';
 import {deepClone, handleChild} from 'utils';
 
 
@@ -257,7 +258,7 @@ class MultiFuncTree extends Component {
 
 	render() {
 		const _this = this;
-		let { showLoading, content, searchRes, paginationParam} = _this.props,
+		let { showLoading, content, searchRes, paginationParam, intl} = _this.props,
 			{expandedKeys, autoExpandParent} = searchRes;
 		const {reqParam={}}=paginationParam;
 		const {search_treeId}=reqParam;
@@ -285,12 +286,12 @@ class MultiFuncTree extends Component {
 			})
 		return (
 			<div className="tree-example">
-				<Header title="B1左树右表示例" />
+				<Header title={this.props.intl.formatMessage({id:"ht.tree.head.0001", defaultMessage:"B1左树右表示例"})} />
 				<div className="tree-body">
 					<div className = 'tree-wrap'  >
 						<div className = 'tree' >
 							<div className = 'tree-head'>
-								组织机构
+								<FormattedMessage id="js.tree.ltree.0001" defaultMessage="组织机构" />
 							</div>
 							<div className = 'tree-search'>
 								<FormControl
@@ -349,14 +350,14 @@ class MultiFuncTree extends Component {
 									</Tree>
 								) : (
 									<div className = "no-search-container" >
-										<span className="no-search">未查询到相关数据</span>
+										<span className="no-search"><FormattedMessage id="js.tree.ltree.0002" defaultMessage="未查询到相关数据" /></span>
 									</div>
 								)
 							}
 
 						</div>
 						<div className = 'table-wrap'>
-							<TreeTable tableWidth = {tableWidth}/>
+							<TreeTable tableWidth = {tableWidth} intl = {intl}/>
 						</div>
 					</div>
 					<Loading show={showLoading} loadingType="line" fullScreen />
