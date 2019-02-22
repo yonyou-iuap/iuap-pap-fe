@@ -132,13 +132,13 @@ class CommonPop extends Component {
 		let _this = this;
 		let btns = [
 			{
-				label: '确定',
+				label: <FormattedMessage id="js.tree.btn.0006" defaultMessage='确定' />,
 				fun: _this.onSubmitEdit,
 				icon: 'uf-correct'
 			},
 
 			{
-                label: '取消',
+                label: <FormattedMessage id="js.tree.btn.0007" defaultMessage='取消' />,
                 fun: this.onCloseEdit,
                 icon: 'uf-back'
             }
@@ -182,7 +182,7 @@ class CommonPop extends Component {
 											type: 'string',
 											required: true,
 											pattern: /\S+/ig,
-											message: '请输入员工姓名',
+											message: this.props.intl.formatMessage({id:"js.tree.prompt.0005", defaultMessage:'请输入员工姓名'}),
 										}],
 									})}
 								/>
@@ -197,7 +197,7 @@ class CommonPop extends Component {
 									{...getFieldProps('sex', {
 										initialValue: sex || 1,
 										rules: [{
-											required: true, message: '请选择员工性别',
+											required: true, message: this.props.intl.formatMessage({id:"js.tree.prompt.0006", defaultMessage:'请选择员工性别'}),
 										}],
 									})}
 								>
