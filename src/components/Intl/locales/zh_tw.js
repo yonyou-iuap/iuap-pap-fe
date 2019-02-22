@@ -380,13 +380,14 @@ const zh_TW = {
 	"js.group.search.sel.0002": "請選擇",
 	"js.group.search.sel.0003": "性別",
 	"js.group.search.sel.0004": "補貼類別",
-	"js.group.search.0001":"員工編號",
-	"js.group.search.0002":"模糊查詢",
-	"js.group.search.0003":"員工姓名",
-	"js.group.search.0004":"模糊查詢",
-	"js.group.search.0005":"月份",
-	"js.group.search.0006":"年份",
-	"js.group.search.0007":"選擇年份",
+
+	"js.group.search.0001": "員工編號",
+	"js.group.search.0002": "模糊查詢",
+	"js.group.search.0003": "員工姓名",
+	"js.group.search.0004": "模糊查詢",
+	"js.group.search.0005": "月份",
+	"js.group.search.0006": "年份",
+	"js.group.search.0007": "選擇年份",
 
 
 
@@ -395,7 +396,6 @@ const zh_TW = {
 	"js.group.search.sel1.0002": "請選擇",
 	"js.group.search.sel1.0003": "未超標",
 	"js.group.search.sel1.0004": "超標",
-
 
 	// 表格字段
 	"js.group.table1.0001": "員工編號",
@@ -416,12 +416,14 @@ const zh_TW = {
 	"js.group.table1.0016": "領取時間",
 	"js.group.table1.0017": "備注",
 
-
-
-
-	//
-
-
+	// 子表格
+	"js.group.table2.0001": "員工編號",
+	"js.group.table2.0002": "員工姓名",
+	"js.group.table2.0003": "員工性別",
+	"js.group.table2.0004": "所屬部門",
+	"js.group.table2.0005": "職級",
+	"js.group.table2.0006": "工齡",
+	
 
 	/* 分組聚合 結束 */
 
