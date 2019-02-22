@@ -317,29 +317,47 @@ const zh_CN = {
 	"js.group.search.sel.0002": "请选择",
 	"js.group.search.sel.0003": "性别",
 	"js.group.search.sel.0004": "补贴类别",
-	"js.group.search.0001":"员工编号",
-	"js.group.search.0002":"模糊查询",
-	"js.group.search.0003":"员工姓名",
-	"js.group.search.0004":"模糊查询",
-	"js.group.search.0005":"月份",
-	"js.group.search.0006":"年份",
-	"js.group.search.0007":"选择年份",
-	
-	
-	
+	"js.group.search.0001": "员工编号",
+	"js.group.search.0002": "模糊查询",
+	"js.group.search.0003": "员工姓名",
+	"js.group.search.0004": "模糊查询",
+	"js.group.search.0005": "月份",
+	"js.group.search.0006": "年份",
+	"js.group.search.0007": "选择年份",
+
+
+
 	// 是否超标
 	"js.group.search.sel1.0001": "是否超标",
 	"js.group.search.sel1.0002": "请选择",
 	"js.group.search.sel1.0003": "未超标",
 	"js.group.search.sel1.0004": "超标",
 
-	
-	
+	// 表格字段
+	"js.group.table1.0001": "员工编号",
+	"js.group.table1.0002": "员工姓名",
+	"js.group.table1.0003": "员工性别",
+	"js.group.table1.0004": "所属部门",
+	"js.group.table1.0005": "职级",
+	"js.group.table1.0006": "工龄",
+	"js.group.table1.0007": "司龄",
+	"js.group.table1.0008": "年份",
+	"js.group.table1.0009": "月份",
+	"js.group.table1.0010": "补贴类别",
+	"js.group.table1.0011": "补贴标准",
+	"js.group.table1.0012": "实际补贴",
+	"js.group.table1.0013": "是否超标",
+	"js.group.table1.0014": "申请时间",
+	"js.group.table1.0015": "领取方式",
+	"js.group.table1.0016": "领取时间",
+	"js.group.table1.0017": "备注",
 	
 
+
+
 	// 
-	
-	
+
+
 
 	/* 分组聚合 结束 */
 

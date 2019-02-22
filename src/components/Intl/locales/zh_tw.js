@@ -326,7 +326,24 @@ const zh_TW = {
 	"js.group.search.sel1.0003": "未超標",
 	"js.group.search.sel1.0004": "超標",
 
-	
+	// 表格字段
+	"js.group.table1.0001": "員工編號",
+	"js.group.table1.0002": "員工姓名",
+	"js.group.table1.0003": "員工性別",
+	"js.group.table1.0004": "所屬部門",
+	"js.group.table1.0005": "職級",
+	"js.group.table1.0006": "工齡",
+	"js.group.table1.0007": "司齡",
+	"js.group.table1.0008": "年份",
+	"js.group.table1.0009": "月份",
+	"js.group.table1.0010": "補貼類別",
+	"js.group.table1.0011": "補貼標准",
+	"js.group.table1.0012": "實際補貼",
+	"js.group.table1.0013": "是否超標",
+	"js.group.table1.0014": "申請時間",
+	"js.group.table1.0015": "領取方式",
+	"js.group.table1.0016": "領取時間",
+	"js.group.table1.0017": "備注",
 	
 	
 
