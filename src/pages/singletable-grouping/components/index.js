@@ -536,7 +536,7 @@ class SingleTableGrouping extends Component {
                     </Row>
                 </SearchPanel>
                 <div className='table-header'>
-                    <Button iconType="uf-export" colors="primary" className="ml8" size='sm'>导出</Button>
+                    
                 </div>
                 <Pagination
                     first
