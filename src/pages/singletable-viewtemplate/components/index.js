@@ -3,6 +3,7 @@ import { actions } from "mirrorx";
 import classNames from "classnames";
 //UI组件
 import { FormControl, Label, Loading, Tooltip, Icon} from "tinper-bee";
+import { FormattedMessage} from 'react-intl';
 import Select from 'bee-select';
 import Form from "bee-form";
 import Grid from 'components/Grid';
@@ -28,7 +29,7 @@ const Option = Select.Option;
  */
 const defaultColumns = [
   {
-    title: "序号",
+    title: <FormattedMessage id="js.temp.table.0001" defaultMessage="序号" />,
     dataIndex: "index",
     key: "index",
     width: 100,
@@ -37,13 +38,13 @@ const defaultColumns = [
     }
   },
   {
-    title: "员工编号",
+    title: <FormattedMessage id="js.temp.table.0002" defaultMessage="员工编号" />,
     dataIndex: "code",
     key: "code",
     width: 120
   },
   {
-    title: "员工姓名",
+    title: <FormattedMessage id="js.temp.table.0003" defaultMessage="员工姓名" />,
     dataIndex: "name",
     key: "name",
     width: 120,
@@ -60,45 +61,45 @@ const defaultColumns = [
     }
   },
   {
-    title: "员工性别",
+    title: <FormattedMessage id="js.temp.table.0004" defaultMessage="员工性别" />,
     dataIndex: "sexEnumValue",
     key: "sexEnumValue",
     width: 120
   },
   {
-    title: "所属部门",
+    title: <FormattedMessage id="js.temp.table.0005" defaultMessage="所属部门" />,
     dataIndex: "deptName",
     key: "deptName",
     width: 120
   },
   {
-    title: "职级",
+    title: <FormattedMessage id="js.temp.table.0006" defaultMessage="职级" />,
     dataIndex: "levelName",
     key: "levelName",
     width: 140
   },
   {
-    title: "工龄",
+    title: <FormattedMessage id="js.temp.table.0007" defaultMessage="工龄" />,
     dataIndex: "serviceYears",
     key: "serviceYears",
     width: 130,
     sorter: (a, b) => a.serviceYears - b.serviceYears //添加sorter属性代表当前列可以排序
   },
   {
-    title: "司龄",
+    title: <FormattedMessage id="js.temp.table.0008" defaultMessage="司龄" />,
     dataIndex: "serviceYearsCompany",
     key: "serviceYearsCompany",
     width: 130,
     sorter: (a, b) => a.serviceYearsCompany - b.serviceYearsCompany //添加sorter属性代表当前列可以排序
   },
   {
-    title: "年份",
+    title: <FormattedMessage id="js.temp.table.0009" defaultMessage="年份" />,
     dataIndex: "year",
     key: "year",
     width: 100
   },
   {
-    title: "月份",
+    title: <FormattedMessage id="js.temp.table.0010" defaultMessage="月份" />,
     dataIndex: "monthEnumValue",
     key: "monthEnumValue",
     width: 100,
@@ -370,7 +371,8 @@ class Index extends Component {
       queryParam,
       selectOptionDataSource,
       total,
-      form
+      form,
+      intl
     } = this.props;
     const { getFieldProps } = form;
 
@@ -408,26 +410,26 @@ class Index extends Component {
     });
     let btns = [
       {
-        label: "确定",
+        label: this.props.intl.formatMessage({id:"js.temp.alert.btn.0001", defaultMessage:'确定'}),
         fun: this.createTemTable,
         icon: "uf-correct"
       },
       {
-        label: "取消",
+        label: this.props.intl.formatMessage({id:"js.temp.alert.btn.0002", defaultMessage:'取消'}),
         fun: () => this.ifShowModal(false),
         icon: "uf-close"
       }
     ];
     return (
       <div className="view-template">
-        <Header title="C2单表Grid模板示例 " />
-        <SearchArea form={form} queryParam={queryParam} />
+        <Header title={this.props.intl.formatMessage({id:"ht.temp.head.0001", defaultMessage:'C2单表Grid模板示例'})} />
+        <SearchArea intl={intl} form={form} queryParam={queryParam} />
         <div className="table-header">
           <div className="btn-group">
             <Select
               className="select-templ"
               style={{ width: 200 }}
-              placeholder="选则模板"
+              placeholder={this.props.intl.formatMessage({id:"js.temp.sel1.0001", defaultMessage:'选择模板'})}
               onChange={this.handleSelectChange}
               value={selectValue}
             >
@@ -441,18 +443,18 @@ class Index extends Component {
                 this.ifShowModal(true);
               }}
             >
-              保存模板
+              <FormattedMessage id="js.temp.sel1.0002" defaultMessage="保存模板" />
             </Button>
 
             <PopDialog
               className="template-con"
               show={showModal} //默认是否显示
-              title="保存模板"
+              title={this.props.intl.formatMessage({id:"js.temp.alert.btn.0003", defaultMessage:'保存模板'})}
               close={() => this.ifShowModal(false)}
               btns={btns}
               size={"sm"}
             >
-              <Label>模板名称：</Label>
+              <Label><FormattedMessage id="js.temp.alert.btn.0004" defaultMessage="模板名称：" /></Label>
               <FormControl
                 {...getFieldProps("modelName", {
                   validateTrigger: "onBlur",
@@ -462,7 +464,7 @@ class Index extends Component {
                       type: "string",
                       required: true,
                       pattern: /\S+/gi,
-                      message: "请输入模板名称"
+                      message: this.props.intl.formatMessage({id:"js.temp.alert.btn.0005", defaultMessage:'请输入模板名称'})
                     }
                   ]
                 })}
@@ -473,7 +475,7 @@ class Index extends Component {
               className="save-btn"
               onClick={this.export}
             >
-              导出
+              <FormattedMessage id="js.temp.alert.btn.0006" defaultMessage="导出" />
             </Button>
           </div>
         </div>
@@ -493,7 +495,7 @@ class Index extends Component {
             noReplaceColumns={this.noReplaceColumns}
             ref={(el) => this.grid = el}
             sort={sortObj} //后端排序
-            sheetName="demo4 导出模板"
+            sheetName="demo"
             sheetIsRowFilter={true}
             headerHeight={36}
             sheetHeader={{ height: 30, ifshow: false }}
@@ -505,7 +507,7 @@ class Index extends Component {
           show={showDeleteModal} //默认是否显示
           cancelFn={() => this.ifShowDeleteModal(false)}
           confirmFn={this.delTemplate}
-          context="是否删除该模板 ?"
+          context={this.props.intl.formatMessage({id:"js.temp.alert.btn.0007", defaultMessage:'是否删除该模板 ?'})}
         />
       </div>
     );

@@ -463,5 +463,46 @@ const zh_CN = {
 
 	/* 树表 结束 */
 
+
+	/* 模板保存 开始 */
+	// 标题
+	"ht.temp.head.0001": "C2单表Grid模板示例",
+	// 表格字段
+	"js.temp.table.0001": "序号",
+	"js.temp.table.0002": "员工编号",
+	"js.temp.table.0003": "员工姓名",
+	"js.temp.table.0004": "员工性别",
+	"js.temp.table.0005": "所属部门",
+	"js.temp.table.0006": "职级",
+	"js.temp.table.0007": "工龄",
+	"js.temp.table.0008": "司龄",
+	"js.temp.table.0009": "年份",
+	"js.temp.table.0010": "月份",
+	// 提示框
+	"js.temp.alert.btn.0001": "确定",
+	"js.temp.alert.btn.0002": "取消",
+	"js.temp.alert.btn.0003": "保存模板",
+	"js.temp.alert.btn.0004": "模板名称：",
+	"js.temp.alert.btn.0005": "请输入模板名称",
+	"js.temp.alert.btn.0006": "导出",
+	"js.temp.alert.btn.0007": "是否删除该模板 ?",
+	// 模板提示
+	"js.temp.sel1.0001": "选择模板",
+	"js.temp.sel1.0002": "保存模板",
+	// 搜索区
+	"js.temp.search.0001": "员工编号",
+	"js.temp.search.0002": "模糊查询",
+	"js.temp.search.0003": "员工姓名",
+	"js.temp.search.0004": "模糊查询",
+	"js.temp.search.0005": "年份",
+	"js.temp.search.0006": "选择年",
+	"js.temp.search.0007": "月份",
+	"js.temp.search.0008": "是否超标",
+	"js.temp.search.0009": "请选择",
+	"js.temp.search.0010": "未超标",
+	"js.temp.search.0011": "超标",
+	
+	/* 模板保存 结束 */
+
 }
 export default zh_CN;

@@ -463,5 +463,46 @@ const zh_TW = {
 	"js.tree.prompt.0008": "請選擇樹節點",
 
 	/* 树表 结束 */
+
+	
+	/* 模板保存 開始 */
+	// 標題
+	"ht.temp.head.0001": "C2單表Grid模板示例",
+	// 表格字段
+	"js.temp.table.0001": "序號",
+	"js.temp.table.0002": "員工編號",
+	"js.temp.table.0003": "員工姓名",
+	"js.temp.table.0004": "員工性別",
+	"js.temp.table.0005": "所屬部門",
+	"js.temp.table.0006": "職級",
+	"js.temp.table.0007": "工齡",
+	"js.temp.table.0008": "司齡",
+	"js.temp.table.0009": "年份",
+	"js.temp.table.0010": "月份",
+	// 提示框
+	"js.temp.alert.btn.0001": "確定",
+	"js.temp.alert.btn.0002": "取消",
+	"js.temp.alert.btn.0003": "保存模板",
+	"js.temp.alert.btn.0004": "模板名稱：",
+	"js.temp.alert.btn.0005": "請輸入模板名稱",
+	"js.temp.alert.btn.0006": "導出",
+	"js.temp.alert.btn.0007": "是否刪除該模板 ?",
+	// 模板提示
+	"js.temp.sel1.0001": "選擇模板",
+	"js.temp.sel1.0002": "保存模板",
+	// 搜索區
+	"js.temp.search.0001": "員工編號",
+	"js.temp.search.0002": "模糊查詢",
+	"js.temp.search.0003": "員工姓名",
+	"js.temp.search.0004": "模糊查詢",
+	"js.temp.search.0005": "年份",
+	"js.temp.search.0006": "選擇年",
+	"js.temp.search.0007": "月份",
+	"js.temp.search.0008": "是否超標",
+	"js.temp.search.0009": "請選擇",
+	"js.temp.search.0010": "未超標",
+	"js.temp.search.0011": "超標",
+	
+	/* 模板保存 結束 */
 }
 export default zh_TW;

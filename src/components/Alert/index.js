@@ -61,7 +61,7 @@ class AlertDialog extends Component {
 
     render() {
         let { context, children } = this.props;
-        console.log('this.props', this.props);
+        //console.log('this.props', this.props);
         //按钮组
         let btns = [
             {
