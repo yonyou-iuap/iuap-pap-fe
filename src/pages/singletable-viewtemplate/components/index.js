@@ -24,6 +24,15 @@ import 'bee-table/build/Table.css'
 import "./index.less";
 
 const Option = Select.Option;
+const dataNumObj = {
+  '5': 0,
+  '10': 1,
+  '15': 2,
+  '20': 3,
+  '25': 4,
+  '50': 5,
+  'all': 6,
+}
 /**
  * 默认的columns
  */
@@ -155,7 +164,7 @@ class Index extends Component {
     let sortMap = [];
     queryParam["pageParams"] = {
       pageIndex: paginationObj.activePage - 1,
-      pageSize: paginationObj.items
+      pageSize: template['pageParam']['pageSize']
     };
     //保存的columns不可以保存key为function的内容，因此和原始的columns合并下
     trueColumns = selectColumns.map((item, index) => {
@@ -297,10 +306,17 @@ class Index extends Component {
     });
     modelContentTable = Object.assign({}, colsAndTablePros.tablePros);
     modelContentTable.columns = [];
+    let {pageParams:{
+      pageSize
+    }} = this.props.queryParam;
+    console.log('pageSize', pageSize)
     this.props.form.validateFields((err, values) => {
       values.modelContent = JSON.stringify({
         columns: modelContentColumns,
         tablePros: modelContentTable,
+        pageParam:{
+          pageSize: parseInt()
+        } 
       });
       actions.templateModel.saveTemplate(values);
     });
@@ -379,6 +395,8 @@ class Index extends Component {
 
     let { modelName, showModal, showDeleteModal, selectValue } = this.state;
 
+    let {pageParams:{pageSize}} = queryParam;
+
     const paginationObj = {
       // 分页
       activePage: pageIndex, //当前页
@@ -386,6 +404,7 @@ class Index extends Component {
       items: totalPages,
       freshData: this.freshData,
       onDataNumSelect: this.onDataNumSelect,
+      dataNum: dataNumObj[pageSize]
     };
 
     const sortObj = {
@@ -500,6 +519,7 @@ class Index extends Component {
             sheetIsRowFilter={true}
             headerHeight={36}
             sheetHeader={{ height: 30, ifshow: false }}
+
           />
           <Loading show={showLoading} loadingType="line" />
         </div>
