@@ -34,7 +34,7 @@ export default {
             },
             groupParams: [],
             whereParams: [],
-            sortMap: []
+            sortMap: [{"allowanceType":"ASC"}]
         },
         masterTableList: [],//主表数据
         masterTableLoading: false,//主表Loading

@@ -482,9 +482,9 @@ class SingleTableGrouping extends Component {
                         <Col md={4} xs={6}>
                             <FormItem>
                                 <Label>{<FormattedMessage id="js.group.search.sel.0001" defaultMessage="分组条件" />}</Label>
-                                <Select multiple {...getFieldProps('group')}>
+                                <Select placeholder={<FormattedMessage id="js.group.search.sel.0005" defaultMessage="选择分组" />} multiple {...getFieldProps('group')}>
                                     <Option disabled value="">{<FormattedMessage id="js.group.search.sel.0002" defaultMessage="请选择" />}</Option>
-                                    <Option value="sex">{<FormattedMessage id="js.group.search.sel.0003" defaultMessage="性别" />}</Option>
+                                    <Option value="dept">{<FormattedMessage id="js.group.search.sel.0003" defaultMessage="部门" />}</Option>
                                     <Option value="allowanceType">{<FormattedMessage id="js.group.search.sel.0004" defaultMessage="补贴类别" />}</Option>
                                 </Select>
                             </FormItem>
