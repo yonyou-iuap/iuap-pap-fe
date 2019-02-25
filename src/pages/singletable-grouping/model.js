@@ -28,16 +28,20 @@ export default {
         total: 0,
         search: null,
         queryParam: {
-            pageParams: {
-                pageIndex: 0,
-                pageSize: 10
-            },
             groupParams: [],
             whereParams: [],
-            sortMap: [{"allowanceType":"ASC"}]
+            sortMap: []
         },
         masterTableList: [],//主表数据
         masterTableLoading: false,//主表Loading
+        masterQueryParam: {
+            pageParams:{
+                pageIndex: 0,
+                pageSize: 10,
+            },
+            whereParams: [],//字段查询条件
+            sortMap: []//排序条件
+        },//主表查询
         subTableAllData: [],//子表下的数组集合对象
         subTableAllLoading: [],//子表下的数组集合对象Loading
         subTableAllPaging: [],//子表分页
@@ -139,10 +143,10 @@ export default {
                     "condition": "EQ"
                 }
             })
-            console.log('_subTableAllPaging',_subTableAllPaging);
+            console.log('_subTableAllPaging', _subTableAllPaging);
             //与最上方的搜索条件进行组合
             let _pubParamsList = getState().grouping.queryParam.whereParams.slice();
-            console.log('_pubParamsList',_pubParamsList);
+            console.log('_pubParamsList', _pubParamsList);
             _subTableAllPaging[param.record.key].paging.whereParams = _pubParamsList.concat(_subTableAllPaging[param.record.key].paging.whereParams);
 
             await actions.grouping.updateState({ subTableAllLoading: _subTableAllLoading, subTableAllPaging: _subTableAllPaging });

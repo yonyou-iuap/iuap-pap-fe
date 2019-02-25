@@ -153,7 +153,14 @@ class SingleTableGrouping extends Component {
                     let str = ""
                     if (Array.isArray(groupParams) && groupParams.length) {
                         for (let item of groupParams) {
-                            let temp = record[`${item}EnumValue`];
+                            let temp;
+                            if (item == 'allowanceType') {
+                                temp = record[`${item}EnumValue`];
+                            }
+                            if (item == 'dept') {
+                                temp = record[`${item}Name`];
+                            }
+
                             str += `【${temp}】 `;
                         }
                     }
@@ -323,7 +330,7 @@ class SingleTableGrouping extends Component {
 
     componentDidMount() {
         //加载主表数据
-        actions.grouping.loadMasterTableList(this.props.queryParam);
+        actions.grouping.loadMasterTableList(this.props.masterQueryParam);
     }
 
     /**
@@ -392,11 +399,14 @@ class SingleTableGrouping extends Component {
         if (values.year) {
             values.year = values.year.format('YYYY');
         }
-        let { queryParam } = _this.props,
+        // 取出现有的参数
+        let { masterQueryParam } = _this.props,
             groupArray = [],
             resultArray = [];
-
+        // 筛选出所有查询字段
         for (let key in values) {
+            // 找出分组字段单独存放
+            // 否则当作正常字段存放
             if (key == "group") {
                 groupArray = typeof values.group !== 'undefined' && values.group || [];
             } else if (values[key]) {
@@ -407,23 +417,22 @@ class SingleTableGrouping extends Component {
                 })
             }
         }
-
-        let resultObj = Object.assign({}, queryParam, {
-            /* "whereParams": {
-                "whereParamsList": resultArray
-            },
-            "groupParams": {
-                "groupList": groupArray
-            }, */
-            "whereParams": resultArray,
-            "groupParams": groupArray
+        // 参数需要合并-查询字段+分组
+        let resultObj = Object.assign({}, masterQueryParam, {
+            whereParams: resultArray,
+            groupParams: groupArray
         });
+        // 如果查询分组，那么需要单独请求分组接口
+        // 没有使用分组，需要删除该字段不然报错后端
         if (groupArray.length) {
             actions.grouping.loadGroupTableList(resultObj);
         } else {
             delete resultObj.groupParams;
             actions.grouping.loadMasterTableList(resultObj);
         }
+        actions.grouping.updateState({
+            masterQueryParam: resultObj
+        });
         //loadGroupTableList
     }
     /**
@@ -443,8 +452,9 @@ class SingleTableGrouping extends Component {
      */
     onSelectPagination = (value, type) => {
         let _this = this;
-        let { queryParam, queryParam: { pageParams } } = _this.props,
+        let { masterQueryParam, masterQueryParam: { pageParams } } = _this.props,
             searchObj = {};
+        // 如0表示分页-1，1表示正常
         if (type == 0) {
             searchObj = Object.assign({}, pageParams, {
                 pageIndex: value - 1
@@ -454,8 +464,9 @@ class SingleTableGrouping extends Component {
                 pageSize: value
             });
         }
-        queryParam['pageParams'] = searchObj;
-        actions.grouping.loadMasterTableList(queryParam);
+        // 插入get条件
+        masterQueryParam['pageParams'] = searchObj;
+        actions.grouping.loadMasterTableList(masterQueryParam);
     }
     render() {
         let { intl, masterTableList, masterTableLoading, form, pageIndex, pageSize, totalPages, total, queryParam: { groupParams } } = this.props;
