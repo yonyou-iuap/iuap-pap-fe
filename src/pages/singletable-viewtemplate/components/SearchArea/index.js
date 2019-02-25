@@ -22,6 +22,11 @@ const {YearPicker} = DatePicker;
 
 class SearchAreaForm extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+
     /** 查询数据
      * @param {*} error 校验是否成功
      * @param {*} values 表单数据

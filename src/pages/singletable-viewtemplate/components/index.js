@@ -424,7 +424,7 @@ class Index extends Component {
     return (
       <div className="view-template">
         <Header title={this.props.intl.formatMessage({id:"ht.temp.head.0001", defaultMessage:'C2单表Grid模板示例'})} />
-        <SearchArea intl={intl} form={form} queryParam={queryParam} />
+        <SearchArea intl={intl}  queryParam={queryParam} />
         <div className="table-header">
           <div className="btn-group">
             <Select
