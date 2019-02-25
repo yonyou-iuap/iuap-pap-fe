@@ -5,7 +5,7 @@ import { Row, Col, Label, FormControl } from 'tinper-bee';
 import Select from 'bee-select';
 import Pagination from 'bee-pagination';
 import Form from 'bee-form';
-import { FormattedMessage} from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import Grid from 'components/Grid';
 import Table from 'bee-table';
 import DatePicker from 'bee-datepicker';
@@ -55,8 +55,8 @@ class SingleTableGrouping extends Component {
             },
             {
                 title: <FormattedMessage id="js.group.table1.0005" defaultMessage="职级" />,
-                dataIndex: "levelEnumValue",
-                key: "levelEnumValue",
+                dataIndex: "levelName",
+                key: "levelName",
                 width: 140
 
             },
@@ -64,18 +64,21 @@ class SingleTableGrouping extends Component {
                 title: <FormattedMessage id="js.group.table1.0006" defaultMessage="工龄" />,
                 dataIndex: "serviceYears",
                 key: "serviceYears",
+                className: 'column-number-right ', // 靠右对齐
                 width: 130
             },
             {
                 title: <FormattedMessage id="js.group.table1.0007" defaultMessage="司龄" />,
                 dataIndex: "serviceYearsCompany",
                 key: "serviceYearsCompany",
+                className: 'column-number-right ', // 靠右对齐
                 width: 130
             },
             {
                 title: <FormattedMessage id="js.group.table1.0008" defaultMessage="年份" />,
                 dataIndex: "year",
                 key: "year",
+                className: 'column-number-right ', // 靠右对齐
                 width: 100,
                 render(text, record, index) {
                     return <div>{moment(text).format('YYYY')}</div>
@@ -97,12 +100,14 @@ class SingleTableGrouping extends Component {
                 title: <FormattedMessage id="js.group.table1.0011" defaultMessage="补贴标准" />,
                 dataIndex: "allowanceStandard",
                 key: "allowanceStandard",
+                className: 'column-number-right ', // 靠右对齐
                 width: 120,
             },
             {
                 title: <FormattedMessage id="js.group.table1.0012" defaultMessage="实际补贴" />,
                 dataIndex: "allowanceActual",
                 key: "allowanceActual",
+                className: 'column-number-right ', // 靠右对齐
                 width: 120,
             },
             {
@@ -184,8 +189,8 @@ class SingleTableGrouping extends Component {
             },
             {
                 title: <FormattedMessage id="js.group.table1.0005" defaultMessage="职级" />,
-                dataIndex: "levelEnumValue",
-                key: "levelEnumValue",
+                dataIndex: "levelName",
+                key: "levelName",
                 width: 140,
                 render: () => <div></div>
 
@@ -398,7 +403,7 @@ class SingleTableGrouping extends Component {
                 resultArray.push({
                     key,
                     value: values[key],
-                    condition: "EQ"
+                    condition: "LIKE"
                 })
             }
         }
@@ -490,8 +495,8 @@ class SingleTableGrouping extends Component {
                             <FormItem>
                                 <Label>{<FormattedMessage id="js.group.search.0001" defaultMessage="员工编号" />}</Label>
                                 <FormControl
-                                    placeholder={this.props.intl.formatMessage({id:"js.group.search.0002", defaultMessage:'模糊查询'})}
-                                    {...getFieldProps('code', { initialValue: '' })} 
+                                    placeholder={this.props.intl.formatMessage({ id: "js.group.search.0002", defaultMessage: '模糊查询' })}
+                                    {...getFieldProps('code', { initialValue: '' })}
                                 />
                             </FormItem>
                         </Col>
@@ -499,8 +504,8 @@ class SingleTableGrouping extends Component {
                             <FormItem>
                                 <Label>{<FormattedMessage id="js.group.search.0003" defaultMessage="员工姓名" />}</Label>
                                 <FormControl
-                                    placeholder={this.props.intl.formatMessage({id:"js.group.search.0004", defaultMessage:'模糊查询'})}
-                                    {...getFieldProps('name', { initialValue: "" })} 
+                                    placeholder={this.props.intl.formatMessage({ id: "js.group.search.0004", defaultMessage: '模糊查询' })}
+                                    {...getFieldProps('name', { initialValue: "" })}
                                 />
                             </FormItem>
                         </Col>
@@ -528,7 +533,7 @@ class SingleTableGrouping extends Component {
                                 <YearPicker
                                     format={'YYYY'}
                                     locale={zhCN}
-                                    placeholder={this.props.intl.formatMessage({id:"js.group.search.0007", defaultMessage:'选择年份'})}
+                                    placeholder={this.props.intl.formatMessage({ id: "js.group.search.0007", defaultMessage: '选择年份' })}
                                     {...getFieldProps('year', { initialValue: '' })}
                                 />
                             </FormItem>
@@ -536,7 +541,7 @@ class SingleTableGrouping extends Component {
                     </Row>
                 </SearchPanel>
                 <div className='table-header'>
-                    
+
                 </div>
                 <Pagination
                     first
@@ -555,7 +560,6 @@ class SingleTableGrouping extends Component {
                     onDataNumSelect={this.onSelectPaginationSize}//点击跳转页数回调
                 />
                 <Table
-                    emptyText={() => <div>暂无数据</div>}//表格无数据的时候显示的组件
                     bordered//边框
                     loading={{ show: masterTableLoading, loadingType: "line" }}
                     //rowKey={(record, index) => record.key}//渲染需要的Key
