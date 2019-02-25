@@ -315,7 +315,7 @@ class Index extends Component {
         columns: modelContentColumns,
         tablePros: modelContentTable,
         pageParam:{
-          pageSize: parseInt()
+          pageSize: parseInt(pageSize)
         } 
       });
       actions.templateModel.saveTemplate(values);
