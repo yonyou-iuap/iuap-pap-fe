@@ -376,8 +376,9 @@ const zh_CN = {
 	// 分组条件
 	"js.group.search.sel.0001": "分组条件",
 	"js.group.search.sel.0002": "请选择",
-	"js.group.search.sel.0003": "性别",
+	"js.group.search.sel.0003": "部门",
 	"js.group.search.sel.0004": "补贴类别",
+	"js.group.search.sel.0005": "选择分组",
 
 	"js.group.search.0001": "员工编号",
 	"js.group.search.0002": "模糊查询",
@@ -421,7 +422,7 @@ const zh_CN = {
 	"js.group.table2.0004": "所属部门",
 	"js.group.table2.0005": "职级",
 	"js.group.table2.0006": "工龄",
-	
+
 
 	/* 分组聚合 结束 */
 
@@ -501,7 +502,7 @@ const zh_CN = {
 	"js.temp.search.0009": "请选择",
 	"js.temp.search.0010": "未超标",
 	"js.temp.search.0011": "超标",
-	
+
 	/* 模板保存 结束 */
 
 }

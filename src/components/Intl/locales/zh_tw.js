@@ -378,8 +378,9 @@ const zh_TW = {
 	// 分組條件
 	"js.group.search.sel.0001": "分組條件",
 	"js.group.search.sel.0002": "請選擇",
-	"js.group.search.sel.0003": "性別",
+	"js.group.search.sel.0003": "部門",
 	"js.group.search.sel.0004": "補貼類別",
+	"js.group.search.sel.0005": "選擇分組",
 
 	"js.group.search.0001": "員工編號",
 	"js.group.search.0002": "模糊查詢",
