@@ -62,8 +62,9 @@ export default {
          * @param {*} getState
          */
         async loadMasterTableList(param, getState) {
-            actions.grouping.updateState({ masterTableLoading: false });
-            let res = processData(await api.loadMasterTableList(param));
+            actions.grouping.updateState({ masterTableLoading: true });
+            let _res = processData(await api.loadMasterTableList(param));
+            let res = (_res.result.data);
             actions.grouping.updateState({ masterTableLoading: false, queryParam: param });
             if (res) {
                 actions.grouping.updateState({
@@ -82,7 +83,8 @@ export default {
          */
         async loadGroupTableList(param, getState) {
             actions.grouping.updateState({ masterTableLoading: true, masterTableList: [] });
-            let res = processData(await api.loadGroupTableList(param));
+            let _res = processData(await api.loadGroupTableList(param));
+            let res = (_res.result.data);
             actions.grouping.updateState({ masterTableLoading: false, queryParam: param });
             if (res) {
                 actions.grouping.updateState({
@@ -144,7 +146,8 @@ export default {
             _subTableAllPaging[param.record.key].paging.whereParams = _pubParamsList.concat(_subTableAllPaging[param.record.key].paging.whereParams);
 
             await actions.grouping.updateState({ subTableAllLoading: _subTableAllLoading, subTableAllPaging: _subTableAllPaging });
-            let res = processData(await api.loadSubTableList(_subTableAllPaging[param.record.key]['paging']));//返回数据
+            let _res = processData(await api.loadSubTableList(_subTableAllPaging[param.record.key]['paging']));//返回数据
+            let res = (_res.result.data);
             let _subTableAllData = getState().grouping.subTableAllData.slice();
             if (res) {
                 _subTableAllData[param.record.key] = resultDataAdditional(res.content);//处理缺少key的数据，保存store
