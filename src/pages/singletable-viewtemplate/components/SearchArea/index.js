@@ -67,7 +67,6 @@ class SearchAreaForm extends Component {
 
     render() {
         const {form,intl} = this.props;
-        console.log("props",this.props);
         const {getFieldProps} = form;
 
         return (

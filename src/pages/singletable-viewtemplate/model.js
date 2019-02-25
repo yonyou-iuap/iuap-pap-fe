@@ -52,7 +52,9 @@ export default {
             // 正在加载数据，显示加载 Loading 图标
             actions.templateModel.updateState({showLoading: true})
             // 调用 getList 请求数据
-            let res = processData(await api.getList(param));
+            let {result} = processData(await api.getList(param));
+            let {data: res} = result;
+
             actions.templateModel.updateState({showLoading: false});
             if (res) {
                 actions.templateModel.updateState({
@@ -71,13 +73,14 @@ export default {
          */
         async saveTemplate(param, getState) {
              // 正在加载数据，显示加载 Loading 图标
-             actions.templateModel.updateState({showLoading: true})
+            actions.templateModel.updateState({showLoading: true})
             let result = processData(await api.saveTemplate(param),'保存成功');
+            let {data: res} = result;
             actions.templateModel.updateState({
                 showModal:false,
                 showLoading: false
             });
-            actions.templateModel.loadTemplateList();
+            await actions.templateModel.loadTemplateList();
             return result;
         },
         /**
@@ -100,7 +103,9 @@ export default {
          */
         async loadTemplateList(param, getState) {
             // 调用 getList 请求数据
-            let res = processData(await api.getTemplateList(param));
+            let {result} = processData(await api.getTemplateList(param));
+            let {data: res} = result;
+            console.log('res', res);
             if (res) {
                 let selectOptionDataSource = [{ key: "默认模板", value: 0 }];
                

@@ -166,7 +166,9 @@ class Index extends Component {
         if (property.includes("EnumValue")) {
             property = property.replace("EnumValue", ''); //去掉枚举尾标记，前后端约定
         }
-        sortMap[property] = direction;
+        let tempObj = {};
+        tempObj[property] = direction
+        sortMap.push(tempObj);
         
       }
 
@@ -295,11 +297,10 @@ class Index extends Component {
     });
     modelContentTable = Object.assign({}, colsAndTablePros.tablePros);
     modelContentTable.columns = [];
-
     this.props.form.validateFields((err, values) => {
       values.modelContent = JSON.stringify({
         columns: modelContentColumns,
-        tablePros: modelContentTable
+        tablePros: modelContentTable,
       });
       actions.templateModel.saveTemplate(values);
     });

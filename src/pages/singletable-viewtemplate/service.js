@@ -4,14 +4,14 @@ import { deepClone } from 'utils';
 //定义接口地址
 const URL = {
     // 查询接口
-    "GET_LIST": `${GROBAL_HTTP_CTX}/group_allowances/list`,
+    "GET_LIST": `${GROBAL_HTTP_CTX}/query_allowances/list`,
     "GET_TEMPLATE_LIST": `${GROBAL_HTTP_CTX}/origin_model/list`,
     // 删除
     "DELETE_TEMPLATE":`${GROBAL_HTTP_CTX}/origin_model/deleteBatch`,
     // 新增
     "SAVE_TEMPLATE":`${GROBAL_HTTP_CTX}/origin_model/insertSelective`,
     // 修改
-    "SAVE_TEMPLATE":`${GROBAL_HTTP_CTX}/origin_model/updateSelective`,
+    "UPDATE_TEMPLATE":`${GROBAL_HTTP_CTX}/origin_model/updateSelective`,
 }
 
 /**
@@ -22,6 +22,7 @@ export const getList = (param) => {
     let newParam = Object.assign({},param),
     pageParams = deepClone(newParam.pageParams);
     delete newParam.pageParams;
+    console.log("newParam", newParam);
     return request(URL.GET_LIST, {
         method: "post",
         data : newParam,
