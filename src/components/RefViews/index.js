@@ -23,6 +23,7 @@ import { Icon } from 'tinper-bee'
 
 
 function RefIuapDept(props){
+
     return (
         <RefWithInput
             style={{
@@ -44,7 +45,7 @@ function RefIuapDept(props){
             filterUrl='/newref/rest/iref_ctr/filterRefJSON'
             {...props}
         >
-            <RefTree />
+            <RefTree className = {props.className} emptyBut={true}/>
         </RefWithInput>
     )
 }
@@ -73,7 +74,7 @@ function RefWalsinLevel(props){
 
 function RefWalsinComboLevel(props){
     return (
-        <RefComboBox 
+        <RefComboBox
             displayField={'{refname}-{refcode}'}
             valueField={'refpk'}
             onClickItem={(record) =>{
@@ -83,13 +84,13 @@ function RefWalsinComboLevel(props){
             filterUrl = '/iuap-pap-training-be/common-ref/filterRefJSON'
             { ...props }
         >
-            <ComboStore 
+            <ComboStore
                 ajax = {{
                     url: '/iuap-pap-training-be/common-ref/blobRefTreeGrid',
                     params: {
                         refCode: 'post_level'
                     },
-                    
+
                 }}
                 strictMode = {true}
                 displayField={(record)=>{

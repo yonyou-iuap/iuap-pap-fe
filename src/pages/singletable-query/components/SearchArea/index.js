@@ -136,7 +136,7 @@ class SearchAreaForm extends Component {
                     <Col md={4} xs={6}>
                         <FormItem>
                             <Label>{<FormattedMessage id="js.table.query.0005" defaultMessage="部门"/>}</Label>
-                            <RefIuapDept {...getFieldProps('dept', {initialValue: ''})}/>
+                            <RefIuapDept {...getFieldProps('dept', {initialValue: ''})} className='ref-walsin-modal'/>
                         </FormItem>
                     </Col>
 
