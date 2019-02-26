@@ -33,3 +33,15 @@ export const getListByCol = (param) => {
         data: param
     });
 }
+
+/**
+ *  导出数据
+ *   @param {*} params
+ */
+export const exportAll = (param) => {
+    return request(URL.GET_LIST, {
+        method: "post",
+        param,
+        data:{}
+    });
+}

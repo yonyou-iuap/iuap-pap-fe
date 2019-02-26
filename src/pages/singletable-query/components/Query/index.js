@@ -26,6 +26,7 @@ const beginFormat = "YYYY-MM-DD 00:00:00";
 const endFormat = "YYYY-MM-DD 23:59:59";
 
 let locale_serial = "";
+
 class Query extends Component {
     constructor(props) {
         super(props);
@@ -38,6 +39,7 @@ class Query extends Component {
             filterable: false,
             showModal: false,
             record: {}, // 存储关联数据信息
+            exportData: []
         }
     }
 
@@ -233,7 +235,14 @@ class Query extends Component {
      * 导出excel
      */
     export = () => {
-        this.grid.exportExcel();
+        let exportData = this.props.queryObj.list;
+        this.setState({
+            exportData
+        }, function(){
+            this.grid.exportExcel();
+        })
+        console.log("导出当前页", exportData);
+        
     }
     /**
      * 重置表格高度计算回调
@@ -252,19 +261,29 @@ class Query extends Component {
         this.setState({ tableHeight });
     }
 
-    afterFilter = (optData, columns)=>{
-        console.log("---this.optData---",optData );
-
-        console.log("---this.columns---",this.columns );
-
-        console.log("---columns---",columns );
+    /**
+     * @description 导出全部数据
+     * 
+     */
+    exportAll = async () => {
+        let exportData = await actions.query.exportAll({
+            pageSize: 1,
+            pageIndex: 0
+        });
+        this.setState({
+            exportData: exportData.content
+        },function(){
+            this.grid.exportExcel();
+        })
+        console.log("exportData", exportData);
+        
     }
 
     render() {
         const _this = this;
         const {queryObj, showLoading, queryParam, intl} = _this.props;
         const {pageIndex, total, totalPages} = queryObj;
-        const {filterable, record, tableHeight} = _this.state;
+        const {filterable, record, tableHeight, exportData} = _this.state;
 
         const paginationObj = {   // 分页
             activePage: pageIndex,//当前页
@@ -495,7 +514,6 @@ class Query extends Component {
                 width: 100,
             }
         ];
-
         return (
             <div className='single-table-query'>
                 <Loading showBackDrop={true} loadingType="line" show={showLoading} fullScreen={true}/>
@@ -509,6 +527,9 @@ class Query extends Component {
                 <div className='table-header'>
                     <Button iconType="uf-export" className="ml8" onClick={_this.export}>
                         <FormattedMessage id="js.query.btn.0001" defaultMessage="导出" />
+                    </Button>
+                    <Button iconType="uf-export" className="ml8" onClick={_this.exportAll}>
+                        <FormattedMessage id="js.query.btn.0002" defaultMessage="全部导出" />
                     </Button>
                 </div>
                 <div className="gird-parent">
@@ -526,7 +547,7 @@ class Query extends Component {
                         afterRowFilter={_this.afterRowFilter} //控制栏位的显示/隐藏
                         sort={sortObj} //排序属性设置
                         scroll={{y: tableHeight}}
-
+                        exportData = {exportData}
                         sheetHeader={{height: 30, ifshow: false}} //设置excel导出的表头的样式、支持height、ifshow
                     />
                 </div>

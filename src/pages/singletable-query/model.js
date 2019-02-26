@@ -83,5 +83,11 @@ export default {
             actions.query.updateState({['colFilterSelect' + column]: selectValList});
         },
 
+        async exportAll(param, getState) {
+            const {result} = processData(await api.exportAll(param));
+            const {data=[]} = result;
+            return data;
+        }
+
     }
 };
