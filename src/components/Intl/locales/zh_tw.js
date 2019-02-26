@@ -26,6 +26,7 @@ const zh_TW = {
 	"js.table.query.0018": "備註",
 
 	"js.query.btn.0001": "匯出",
+	"js.query.btn.0002": "全部匯出",
 
 	"js.query.menu.0001": "模態彈出",
 	"js.query.menu.0002": "鏈接跳轉",

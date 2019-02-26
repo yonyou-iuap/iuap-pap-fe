@@ -28,6 +28,7 @@ const zh_CN = {
 	"js.table.query.0018": "备注",
 
 	"js.query.btn.0001": "导出",
+	"js.query.btn.0002": "全部导出",
 
 	"js.query.menu.0001": "模态弹出",
 	"js.query.menu.0002": "链接跳转",
