@@ -33,88 +33,7 @@ const dataNumObj = {
   '50': 5,
   'all': 6,
 }
-/**
- * 默认的columns
- */
-const defaultColumns = [
-  {
-    title: <FormattedMessage id="js.temp.table.0001" defaultMessage="序号" />,
-    dataIndex: "index",
-    key: "index",
-    width: 100,
-    render(record, text, index) {
-      return index + 1;
-    }
-  },
-  {
-    title: <FormattedMessage id="js.temp.table.0002" defaultMessage="员工编号" />,
-    dataIndex: "code",
-    key: "code",
-    width: 120
-  },
-  {
-    title: <FormattedMessage id="js.temp.table.0003" defaultMessage="员工姓名" />,
-    dataIndex: "name",
-    key: "name",
-    width: 120,
-    filterType: "text",
-    filterDropdown: "show",
-    render: (text, record, index) => {
-      return (
-        <Tooltip inverse overlay={text}>
-          <span tootip={text} className="popTip">
-            {text}
-          </span>
-        </Tooltip>
-      );
-    }
-  },
-  {
-    title: <FormattedMessage id="js.temp.table.0004" defaultMessage="员工性别" />,
-    dataIndex: "sexEnumValue",
-    key: "sexEnumValue",
-    width: 120
-  },
-  {
-    title: <FormattedMessage id="js.temp.table.0005" defaultMessage="所属部门" />,
-    dataIndex: "deptName",
-    key: "deptName",
-    width: 120
-  },
-  {
-    title: <FormattedMessage id="js.temp.table.0006" defaultMessage="职级" />,
-    dataIndex: "levelName",
-    key: "levelName",
-    width: 140
-  },
-  {
-    title: <FormattedMessage id="js.temp.table.0007" defaultMessage="工龄" />,
-    dataIndex: "serviceYears",
-    key: "serviceYears",
-    width: 130,
-    sorter: (a, b) => a.serviceYears - b.serviceYears //添加sorter属性代表当前列可以排序
-  },
-  {
-    title: <FormattedMessage id="js.temp.table.0008" defaultMessage="司龄" />,
-    dataIndex: "serviceYearsCompany",
-    key: "serviceYearsCompany",
-    width: 130,
-    sorter: (a, b) => a.serviceYearsCompany - b.serviceYearsCompany //添加sorter属性代表当前列可以排序
-  },
-  {
-    title: <FormattedMessage id="js.temp.table.0009" defaultMessage="年份" />,
-    dataIndex: "year",
-    key: "year",
-    width: 100
-  },
-  {
-    title: <FormattedMessage id="js.temp.table.0010" defaultMessage="月份" />,
-    dataIndex: "monthEnumValue",
-    key: "monthEnumValue",
-    width: 100,
-    sorter: (a, b) => a.month - b.month ////添加sorter属性代表当前列可以排序
-  }
-];
+
 
 class Index extends Component {
   constructor(props) {
@@ -124,7 +43,7 @@ class Index extends Component {
       selectValue: 0,
       modelName: "",
       showDeleteModal: false,
-      columns: defaultColumns.slice()
+      columns: this.defaultColumns.slice()
     };
   }
 
@@ -150,12 +69,95 @@ class Index extends Component {
   }
 
   /**
+   * 默认的columns
+   */
+  defaultColumns = [
+    {
+      title: this.props.intl.formatMessage({id:"js.temp.table.0001", defaultMessage:"序号"}),
+      dataIndex: "index",
+      key: "index",
+      width: 100,
+      render(record, text, index) {
+        return index + 1;
+      }
+    },
+    {
+      title: this.props.intl.formatMessage({id:"js.temp.table.0002", defaultMessage:"员工编号"}),
+      dataIndex: "code",
+      key: "code",
+      width: 120
+    },
+    {
+      title: this.props.intl.formatMessage({id:"js.temp.table.0003", defaultMessage:"员工姓名"}),
+      dataIndex: "name",
+      key: "name",
+      width: 120,
+      filterType: "text",
+      filterDropdown: "show",
+      render: (text, record, index) => {
+        return (
+          <Tooltip inverse overlay={text}>
+            <span tootip={text} className="popTip">
+              {text}
+            </span>
+          </Tooltip>
+        );
+      }
+    },
+    {
+      title: this.props.intl.formatMessage({id:"js.temp.table.0004", defaultMessage:"员工性别"}),
+      dataIndex: "sexEnumValue",
+      key: "sexEnumValue",
+      width: 120
+    },
+    {
+      title: this.props.intl.formatMessage({id:"js.temp.table.0005", defaultMessage:"所属部门"}),
+      dataIndex: "deptName",
+      key: "deptName",
+      width: 120
+    },
+    {
+      title: this.props.intl.formatMessage({id:"js.temp.table.0006", defaultMessage:"职级"}),
+      dataIndex: "levelName",
+      key: "levelName",
+      width: 140
+    },
+    {
+      title: this.props.intl.formatMessage({id:"js.temp.table.0007", defaultMessage:"工龄"}),
+      dataIndex: "serviceYears",
+      key: "serviceYears",
+      width: 130,
+      sorter: (a, b) => a.serviceYears - b.serviceYears //添加sorter属性代表当前列可以排序
+    },
+    {
+      title: this.props.intl.formatMessage({id:"js.temp.table.0008", defaultMessage:"司龄"}),
+      dataIndex: "serviceYearsCompany",
+      key: "serviceYearsCompany",
+      width: 130,
+      sorter: (a, b) => a.serviceYearsCompany - b.serviceYearsCompany //添加sorter属性代表当前列可以排序
+    },
+    {
+      title: this.props.intl.formatMessage({id:"js.temp.table.0009", defaultMessage:"年份"}),
+      dataIndex: "year",
+      key: "year",
+      width: 100
+    },
+    {
+      title: this.props.intl.formatMessage({id:"js.temp.table.0010", defaultMessage:"月份"}),
+      dataIndex: "monthEnumValue",
+      key: "monthEnumValue",
+      width: 100,
+      sorter: (a, b) => a.month - b.month ////添加sorter属性代表当前列可以排序
+    }
+  ];
+
+  /**
    *
    * 获取查询参数和选中columns
    *  @param {*} template 模板对象
    */
   getQueryParamAndColumns = template => {
-    let trueColumns = defaultColumns.map(item => {
+    let trueColumns = this.defaultColumns.map(item => {
       return Object.assign({}, item);
     });
     const { queryParam } = this.props;
@@ -274,7 +276,7 @@ class Index extends Component {
       const selectTemplate = selectOptionDataSource.find(item=>item.value == value);
       queryParamAndColumns = this.getQueryParamAndColumns(selectTemplate.trueValue);
     }else{
-      queryParamAndColumns.columns = defaultColumns.slice()
+      queryParamAndColumns.columns = this.defaultColumns.slice()
     }
     this.setState({ selectValue: value, columns: queryParamAndColumns.columns }, () => {
       actions.templateModel.loadList(queryParamAndColumns.queryParam);
