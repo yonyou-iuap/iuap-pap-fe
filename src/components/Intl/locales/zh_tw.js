@@ -486,7 +486,7 @@ const zh_TW = {
 	"js.temp.alert.btn.0003": "保存模板",
 	"js.temp.alert.btn.0004": "模板名稱：",
 	"js.temp.alert.btn.0005": "請輸入模板名稱",
-	"js.temp.alert.btn.0006": "導出",
+	"js.temp.alert.btn.0006": "匯出",
 	"js.temp.alert.btn.0007": "是否刪除該模板 ?",
 	// 模板提示
 	"js.temp.sel1.0001": "選擇模板",
