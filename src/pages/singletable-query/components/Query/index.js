@@ -252,6 +252,14 @@ class Query extends Component {
         this.setState({ tableHeight });
     }
 
+    afterFilter = (optData, columns)=>{
+        console.log("---this.optData---",optData );
+
+        console.log("---this.columns---",this.columns );
+
+        console.log("---columns---",columns );
+    }
+
     render() {
         const _this = this;
         const {queryObj, showLoading, queryParam, intl} = _this.props;
@@ -274,7 +282,8 @@ class Query extends Component {
 
         const column = [
             {
-                title: <FormattedMessage id="js.table.query.0001" defaultMessage="数据" />,
+                title: this.props.intl.formatMessage({id:"js.table.query.0001", defaultMessage:"数据"}),
+                exportTitle:"数据",
                 width: 80,
                 dataIndex: "k",
                 key: "k",
@@ -306,13 +315,15 @@ class Query extends Component {
                 }
             },
             {
-                title: <FormattedMessage id="js.table.query.0002" defaultMessage="员工编号"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0002", defaultMessage:"员工编号"}),
+                exportTitle:"员工编号",
                 dataIndex: "code",
                 key: "code",
                 width: 160,
             },
             {
-                title: <FormattedMessage id="js.table.query.0003" defaultMessage="员工姓名"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0003", defaultMessage:"员工姓名"}),
+                exportTitle:"员工姓名",
                 dataIndex: `name${locale_serial}`,
                 key: "name",
                 width: 120,
@@ -329,7 +340,7 @@ class Query extends Component {
                 }
             },
             {
-                title: <FormattedMessage id="js.table.query.0004" defaultMessage="员工性别"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0004", defaultMessage:"员工性别"}),
                 dataIndex: "sex",
                 key: "sex",
                 exportKey: 'sexEnumValue',
@@ -344,7 +355,7 @@ class Query extends Component {
 
             },
             {
-                title: <FormattedMessage id="js.table.query.0005" defaultMessage="部门"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0005", defaultMessage:"部门"}),
                 dataIndex: "dept",
                 key: "dept",
                 exportKey: "deptName",
@@ -367,13 +378,13 @@ class Query extends Component {
                 }
             },
             {
-                title: <FormattedMessage id="js.table.query.0006" defaultMessage="职级"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0006", defaultMessage:"职级"}),
                 dataIndex: "levelName",
                 key: "levelName",
                 width: 120,
             },
             {
-                title: <FormattedMessage id="js.table.query.0007" defaultMessage="工龄"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0007", defaultMessage:"工龄"}),
                 dataIndex: "serviceYears",
                 key: "serviceYears",
                 width: 180,
@@ -390,7 +401,7 @@ class Query extends Component {
                 sorter: (a, b) => a.serviceYears - b.serviceYears,
             },
             {
-                title: <FormattedMessage id="js.table.query.0008" defaultMessage="司龄"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0008", defaultMessage:"司龄"}),
                 dataIndex: "serviceYearsCompany",
                 key: "serviceYearsCompany",
                 width: 130,
@@ -398,7 +409,7 @@ class Query extends Component {
                 sorter: (a, b) => a.serviceYearsCompany - b.serviceYearsCompany,
             },
             {
-                title: <FormattedMessage id="js.table.query.0009" defaultMessage="年份"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0009", defaultMessage:"年份"}),
                 dataIndex: "year",
                 key: "year",
                 width: 100,
@@ -408,7 +419,7 @@ class Query extends Component {
                 }
             },
             {
-                title: <FormattedMessage id="js.table.query.0010" defaultMessage="月份"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0010", defaultMessage:"月份"}),
                 dataIndex: "monthEnumValue",
                 key: "monthEnumValue",
                 width: 100,
@@ -416,13 +427,13 @@ class Query extends Component {
                 sorter: (a, b) => a.month - b.month,
             },
             {
-                title: <FormattedMessage id="js.table.query.0011" defaultMessage="补贴类别"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0011", defaultMessage:"补贴类别"}),
                 dataIndex: "allowanceTypeEnumValue",
                 key: "allowanceTypeEnumValue",
                 width: 120,
             },
             {
-                title: <FormattedMessage id="js.table.query.0012" defaultMessage="补贴标准"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0012", defaultMessage:"补贴标准"}),
                 dataIndex: "allowanceStandard",
                 key: "allowanceStandard",
                 width: 120,
@@ -433,7 +444,7 @@ class Query extends Component {
 
             },
             {
-                title: <FormattedMessage id="js.table.query.0013" defaultMessage="实际补贴"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0013", defaultMessage:"实际补贴"}),
                 dataIndex: "allowanceActual",
                 key: "allowanceActual",
                 width: 120,
@@ -444,13 +455,13 @@ class Query extends Component {
 
             },
             {
-                title: <FormattedMessage id="js.table.query.0014" defaultMessage="是否超标"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0014", defaultMessage:"是否超标"}),
                 dataIndex: "exdeedsEnumValue",
                 key: "exdeedsEnumValue",
                 width: 120,
             },
             {
-                title: <FormattedMessage id="js.table.query.0015" defaultMessage="申请时间"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0015", defaultMessage:"申请时间"}),
                 dataIndex: "applyTime",
                 key: "applyTime",
                 width: 300,
@@ -463,13 +474,13 @@ class Query extends Component {
                 }
             },
             {
-                title: <FormattedMessage id="js.table.query.0016" defaultMessage="领取方式"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0016", defaultMessage:"领取方式"}),
                 dataIndex: "pickTypeEnumValue",
                 key: "pickTypeEnumValue",
                 width: 120,
             },
             {
-                title: <FormattedMessage id="js.table.query.0017" defaultMessage="领取时间"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0017", defaultMessage:"领取时间"}),
                 dataIndex: "pickTime",
                 key: "pickTime",
                 width: 150,
@@ -478,7 +489,7 @@ class Query extends Component {
                 }
             },
             {
-                title: <FormattedMessage id="js.table.query.0018" defaultMessage="备注"/>,
+                title: this.props.intl.formatMessage({id:"js.table.query.0018", defaultMessage:"备注"}),
                 dataIndex: "remark",
                 key: "remark",
                 width: 100,
