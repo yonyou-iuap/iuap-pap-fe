@@ -840,7 +840,7 @@ class InlineEdit extends Component {
                         columns={this.column}//定义列
                         paginationObj={paginationObj}//分页数据
                         columnFilterAble={rowEditStatus}//是否显示右侧隐藏行
-                        showHeaderMenu={rowEditStatus}//是否显示菜单
+                        showHeaderMenu={true}//是否显示菜单
                         dragborder={rowEditStatus}//是否调整列宽
                         draggable={rowEditStatus}//是否拖拽
                         syncHover={rowEditStatus}//是否同步状态

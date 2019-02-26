@@ -13,7 +13,7 @@ import Form from 'bee-form';
 //下拉
 import Select from 'bee-select';
 //日期
-import DatePicker from "tinper-bee/lib/Datepicker";
+import DatePicker from "bee-datepicker";
 //日期本地化
 import zhCN from "rc-calendar/lib/locale/zh_CN";
 

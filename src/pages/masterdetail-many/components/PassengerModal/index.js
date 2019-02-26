@@ -4,7 +4,7 @@ import {Col, Row,  FormControl, Label, Switch} from "tinper-bee";
 import Form from 'bee-form';
 import Select from 'bee-select';
 import moment from "moment";
-import DatePicker from "tinper-bee/lib/Datepicker";
+import DatePicker from "bee-datepicker";
 import {RefIuapDept} from 'components/RefViews';
 import PopDialog from 'components/Pop';
 import FormControlPhone from 'components/FormControlPhone';

@@ -5,7 +5,7 @@ import {Col, Row, FormControl, Label} from "tinper-bee";
 import Form from 'bee-form';
 import Select from 'bee-select';
 import { FormattedMessage} from 'react-intl';
-import DatePicker from "tinper-bee/lib/Datepicker";
+import DatePicker from "bee-datepicker";
 import SearchPanel from 'components/SearchPanel';
 import SelectMonth from 'components/SelectMonth';
 import zhCN from "rc-calendar/lib/locale/zh_CN";
