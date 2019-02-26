@@ -451,18 +451,30 @@ class SingleTableGrouping extends Component {
      * 底层兼容分页方法
      */
     onSelectPagination = (value, type) => {
+        console.log(value, type)
         let _this = this;
         let { masterQueryParam, masterQueryParam: { pageParams } } = _this.props,
             searchObj = {};
         // 如0表示分页-1，1表示正常
         if (type == 0) {
             searchObj = Object.assign({}, pageParams, {
+                pageIndex: 1
+            });
+            searchObj = Object.assign({}, pageParams, {
                 pageIndex: value - 1
             });
+
         } else {
-            searchObj = Object.assign({}, pageParams, {
-                pageSize: value
-            });
+            if (value == 'ALL') {
+                searchObj = Object.assign({}, pageParams, {
+                    pageSize: 1
+                });
+            } else {
+                searchObj = Object.assign({}, pageParams, {
+                    pageSize: value
+                });
+            }
+
         }
         // 插入get条件
         masterQueryParam['pageParams'] = searchObj;
