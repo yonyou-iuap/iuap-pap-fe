@@ -417,6 +417,8 @@ class SingleTableGrouping extends Component {
                 })
             }
         }
+        // 每次查询的时候避免分页显示不准，故设置第一页
+        masterQueryParam.pageParams.pageIndex = 0;
         // 参数需要合并-查询字段+分组
         let resultObj = Object.assign({}, masterQueryParam, {
             whereParams: resultArray,
@@ -433,7 +435,6 @@ class SingleTableGrouping extends Component {
         actions.grouping.updateState({
             masterQueryParam: resultObj
         });
-        //loadGroupTableList
     }
     /**
      * 点击分页按钮回调
@@ -451,7 +452,6 @@ class SingleTableGrouping extends Component {
      * 底层兼容分页方法
      */
     onSelectPagination = (value, type) => {
-        console.log(value, type)
         let _this = this;
         let { masterQueryParam, masterQueryParam: { pageParams } } = _this.props,
             searchObj = {};
@@ -465,6 +465,7 @@ class SingleTableGrouping extends Component {
             });
 
         } else {
+            // 支持下拉选择全部ALL
             if (value == 'ALL') {
                 searchObj = Object.assign({}, pageParams, {
                     pageSize: 1
@@ -478,7 +479,15 @@ class SingleTableGrouping extends Component {
         }
         // 插入get条件
         masterQueryParam['pageParams'] = searchObj;
-        actions.grouping.loadMasterTableList(masterQueryParam);
+        // 判断是普通表格还是分组的表格
+        if(Array.isArray(masterQueryParam.groupParams)){
+            // 使用了分组查询
+            actions.grouping.loadGroupTableList(masterQueryParam);
+        }else{
+            // 没有使用分组
+            actions.grouping.loadMasterTableList(masterQueryParam);
+        }
+        
     }
     render() {
         let { intl, masterTableList, masterTableLoading, form, pageIndex, pageSize, totalPages, total, queryParam: { groupParams } } = this.props;
