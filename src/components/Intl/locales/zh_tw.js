@@ -321,7 +321,7 @@ const zh_TW = {
     "js.popup.btn.0002": "修改",
     "js.popup.btn.0003": "詳情",
     "js.popup.btn.0004": "刪除",
-    "js.popup.btn.0005": "導出",
+    "js.popup.btn.0005": "匯出",
     "js.popup.btn.0006": "確定",
     "js.popup.btn.0007": "取消",
 
@@ -424,7 +424,7 @@ const zh_TW = {
 	"js.group.table2.0004": "所屬部門",
 	"js.group.table2.0005": "職級",
 	"js.group.table2.0006": "工齡",
-	
+
 
 	/* 分組聚合 結束 */
 
@@ -465,7 +465,7 @@ const zh_TW = {
 
 	/* 树表 结束 */
 
-	
+
 	/* 模板保存 開始 */
 	// 標題
 	"ht.temp.head.0001": "C2單表Grid模板示例",
@@ -503,7 +503,7 @@ const zh_TW = {
 	"js.temp.search.0009": "請選擇",
 	"js.temp.search.0010": "未超標",
 	"js.temp.search.0011": "超標",
-	
+
 	/* 模板保存 結束 */
 }
 export default zh_TW;

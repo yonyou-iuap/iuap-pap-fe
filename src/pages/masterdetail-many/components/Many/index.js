@@ -240,39 +240,39 @@ export default class Many extends Component {
 
     passengerColumn = [
         {
-            title: <FormattedMessage id="js.many.table.0001" defaultMessage="乘客编号"/>,
+            title: this.props.intl.formatMessage({id:"js.many.table.0001" ,defaultMessage:"乘客编号"}),
             dataIndex: "code",
             key: "code",
             // fixed: "left",
             width: 180,
         },
         {
-            title: <FormattedMessage id="js.many.table.0003" defaultMessage="乘客姓名"/>,
+            title: this.props.intl.formatMessage({id:"js.many.table.0003" ,defaultMessage:"乘客姓名"}),
             dataIndex: "name",
             key: "name",
             width: 120,
         },
         {
-            title: <FormattedMessage id="js.many.table.0004" defaultMessage="乘客性别"/>,
+            title: this.props.intl.formatMessage({id:"js.many.table.0004" ,defaultMessage:"乘客性别"}),
             dataIndex: "sexEnumValue",
             key: "sexEnumValue",
             width: 120,
 
         },
         {
-            title: <FormattedMessage id="js.many.table.0005" defaultMessage="所属部门"/>,
+            title: this.props.intl.formatMessage({id:"js.many.table.0005" ,defaultMessage:"所属部门"}),
             dataIndex: "deptName",
             key: "deptName",
             width: 120,
         },
         {
-            title:  <FormattedMessage id="js.many.table.0006" defaultMessage="手机号"/>,
+            title:  this.props.intl.formatMessage({id:"js.many.table.0006" ,defaultMessage:"手机号"}),
             dataIndex: "phone",
             key: "phone",
             width: 120,
         },
         {
-            title: <FormattedMessage id="js.many.table.0006" defaultMessage="是否会员"/>,
+            title: this.props.intl.formatMessage({id:"js.many.table.0006" ,defaultMessage:"是否会员"}),
             dataIndex: "isVip",
             key: "isVip",
             width: 120,
@@ -282,13 +282,13 @@ export default class Many extends Component {
 
         },
         {
-            title: <FormattedMessage id="js.many.table.0007" defaultMessage="会员等级"/>,
+            title: this.props.intl.formatMessage({id:"js.many.table.0007" ,defaultMessage:"会员等级"}),
             dataIndex: "gradeEnumValue",
             key: "gradeEnumValue",
             width: 120,
         },
         {
-            title: <FormattedMessage id="js.many.table.0008" defaultMessage="会员到期日期"/>,
+            title: this.props.intl.formatMessage({id:"js.many.table.0008" ,defaultMessage:"会员到期日期"}),
             dataIndex: "expirationDate",
             key: "expirationDate",
             render: (text, record, index) => {
