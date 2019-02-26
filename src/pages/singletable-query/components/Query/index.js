@@ -289,7 +289,7 @@ class Query extends Component {
                 key: "k",
                 fixed: "left",
                 className: 'data-cls ',
-                exportHidden: true, //是否在导出中隐藏此列
+                // exportHidden: true, //是否在导出中隐藏此列
                 render: (text, record, index) => {
 
                     //列注释的右键菜单
