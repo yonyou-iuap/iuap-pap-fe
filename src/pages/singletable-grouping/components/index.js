@@ -1,22 +1,24 @@
+/**
+ * 分组聚合
+ */
+
 import React, { Component } from 'react';
 import { actions } from 'mirrorx';
 import moment from 'moment';
 import { Row, Col, Label, FormControl } from 'tinper-bee';
+import { getHeight } from "utils";
 import Select from 'bee-select';
 import Pagination from 'bee-pagination';
 import Form from 'bee-form';
 import { FormattedMessage } from 'react-intl';
-import Grid from 'components/Grid';
 import Table from 'bee-table';
 import DatePicker from 'bee-datepicker';
-//日期样式引用
-import 'bee-datepicker/build/DatePicker.css';
 import zhCN from "rc-calendar/lib/locale/zh_CN";
 import Header from "components/Header";
 import SearchPanel from 'components/SearchPanel';
 import SelectMonth from 'components/SelectMonth';
-import Button from 'components/Button';
 
+import 'bee-datepicker/build/DatePicker.css';
 import 'bee-pagination/build/Pagination.css';
 import './index.less';
 
@@ -28,6 +30,9 @@ const { Option } = Select;
 class SingleTableGrouping extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            tableHeight: 0
+        }
         this.masterNornalColumn = [
             {
                 title: <FormattedMessage id="js.group.table1.0001" defaultMessage="员工编号" />,
@@ -329,10 +334,27 @@ class SingleTableGrouping extends Component {
     }
 
     componentDidMount() {
+        //计算表格滚动条高度
+        this.resetTableHeight(true);
         //加载主表数据
         actions.grouping.loadMasterTableList(this.props.masterQueryParam);
     }
-
+    /**
+     * 重置表格高度计算回调
+     *
+     * @param {bool} isopen 是否展开
+     */
+    resetTableHeight = (isopen) => {
+        let tableHeight = 0;
+        if (isopen) {
+            //展开的时候并且适配对应页面数值px
+            tableHeight = getHeight() - 420
+        } else {
+            //收起的时候并且适配对应页面数值px
+            tableHeight = getHeight() - 220
+        }
+        this.setState({ tableHeight });
+    }
     /**
      * 子表格下拉分页
      */
@@ -352,7 +374,6 @@ class SingleTableGrouping extends Component {
      */
     expandedRowRender = (record, index, indent) => {
         let { subTableAllData, subTableAllPaging, subTableAllLoading } = this.props;
-        console.log('subTableAllPaging', subTableAllPaging);
         let { pageParams: { pageIndex, total, totalPages } } = subTableAllPaging[record.key];
         return (<div>
             <Table
@@ -480,18 +501,19 @@ class SingleTableGrouping extends Component {
         // 插入get条件
         masterQueryParam['pageParams'] = searchObj;
         // 判断是普通表格还是分组的表格
-        if(Array.isArray(masterQueryParam.groupParams)){
+        if (Array.isArray(masterQueryParam.groupParams)) {
             // 使用了分组查询
             actions.grouping.loadGroupTableList(masterQueryParam);
-        }else{
+        } else {
             // 没有使用分组
             actions.grouping.loadMasterTableList(masterQueryParam);
         }
-        
+
     }
     render() {
         let { intl, masterTableList, masterTableLoading, form, pageIndex, pageSize, totalPages, total, queryParam: { groupParams } } = this.props;
-        const { getFieldProps, getFieldError } = this.props.form;
+        let { tableHeight } = this.state;
+        const { getFieldProps } = this.props.form;
         let tableAttr = {}
         tableAttr['columns'] = this.masterNornalColumn;
         tableAttr['data'] = masterTableList;
@@ -509,6 +531,7 @@ class SingleTableGrouping extends Component {
                     form={form}
                     reset={() => this.props.form.resetFields()}
                     intl={intl}
+                    onCallback={this.resetTableHeight}
                     search={this.onSearch}>
                     <Row className='form-panel'>
                         <Col md={4} xs={6}>
@@ -587,13 +610,15 @@ class SingleTableGrouping extends Component {
                     total={total}
                     items={totalPages}//总记录
                     dataNumSelect={['5', '10', '15', '20', '25', '50', 'ALL']}
-                    dataNum={1}//默认显示下拉位置
+                    dataNum={2}//默认显示下拉位置
                     onSelect={this.onSelectPaginationIndex}//点击分页按钮回调
                     onDataNumSelect={this.onSelectPaginationSize}//点击跳转页数回调
                 />
                 <Table
                     bordered//边框
+                    headerScroll={true}
                     loading={{ show: masterTableLoading, loadingType: "line" }}
+                    //scroll={{ y: tableHeight }}
                     //rowKey={(record, index) => record.key}//渲染需要的Key
                     {...tableAttr}
                 />

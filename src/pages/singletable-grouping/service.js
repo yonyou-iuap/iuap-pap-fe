@@ -12,21 +12,9 @@ const URL = {
  * 获取聚合主列表
  */
 export const loadMasterTableList = (data = {}) => {
-    /*     // 复制请求参数，
-        let commitData = {},
-            {groupParams, whereParams, sortMap} = data;
-        if(!groupParams.length) {
-            commitData = Object.assign({}, {
-                whereParams,
-                sortMap
-            })
-        } else {
-            commitData = data
-        } */
-
     return request(URL.GET_LIST, {
         method: "post",
-        data: data,
+        data,
         param: data.pageParams
     });
 }
@@ -37,7 +25,8 @@ export const loadMasterTableList = (data = {}) => {
 export const loadSubTableList = (data = {}) => {
     return request(URL.GET_LIST, {
         method: "post",
-        data
+        data,
+        param: data.pageParams
     });
 }
 

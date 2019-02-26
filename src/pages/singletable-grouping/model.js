@@ -22,8 +22,8 @@ export default {
     name: "grouping",
     // 设置当前 Model 所需的初始化 state
     initialState: {
-        pageIndex: 1,
-        pageSize: 10,
+        pageIndex: 0,
+        pageSize: 15,
         totalPages: 1,
         total: 0,
         search: null,
@@ -37,7 +37,7 @@ export default {
         masterQueryParam: {
             pageParams:{
                 pageIndex: 0,
-                pageSize: 10,
+                pageSize: 15,
             },
             whereParams: [],//字段查询条件
             sortMap: []//排序条件
@@ -123,7 +123,7 @@ export default {
                             pageIndex: 0,
                             pageSize: 10
                         },
-                        groupParams: [],
+                        //groupParams: [],
                         whereParams: [],
                         sortMap: []
                     },
@@ -143,10 +143,8 @@ export default {
                     "condition": "EQ"
                 }
             })
-            console.log('_subTableAllPaging', _subTableAllPaging);
             //与最上方的搜索条件进行组合
             let _pubParamsList = getState().grouping.queryParam.whereParams.slice();
-            console.log('_pubParamsList', _pubParamsList);
             _subTableAllPaging[param.record.key].paging.whereParams = _pubParamsList.concat(_subTableAllPaging[param.record.key].paging.whereParams);
 
             await actions.grouping.updateState({ subTableAllLoading: _subTableAllLoading, subTableAllPaging: _subTableAllPaging });
