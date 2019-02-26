@@ -26,19 +26,19 @@ class TreeTable extends Component {
 		this.grid = null;
 		this.column = [
 			{
-				title: <FormattedMessage id="js.tree.table.0001" defaultMessage="姓名" />,
+				title: this.props.intl.formatMessage({id:"js.tree.table.0001", defaultMessage:"姓名"}),
 				dataIndex: "name",
 				key: "name",
 				width:200,
 			},
 			{
-				title: <FormattedMessage id="js.tree.table.0002" defaultMessage="性别" />,
+				title: this.props.intl.formatMessage({id:"js.tree.table.0002", defaultMessage:"性别"}),
 				dataIndex: "sexEnumValue",
 				key: "sexEnumValue",
 				width:200,
 			},
 			{
-				title: <FormattedMessage id="js.tree.table.0003" defaultMessage="年龄" />,
+				title: this.props.intl.formatMessage({id:"js.tree.table.0003", defaultMessage:"年龄"}),
 				dataIndex: "age",
 				key: "age",
 				width: 200,
