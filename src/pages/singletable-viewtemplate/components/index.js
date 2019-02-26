@@ -77,6 +77,7 @@ class Index extends Component {
       dataIndex: "index",
       key: "index",
       width: 100,
+      exportHidden: true,
       render(record, text, index) {
         return index + 1;
       }
