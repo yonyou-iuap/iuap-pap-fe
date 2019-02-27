@@ -13,6 +13,8 @@
 多功能树: http://127.0.0.1:3000/iuap-pap-training-fe/tree#/
 一主一子: http://127.0.0.1:3000/iuap-pap-training-fe/masterdetail-one#/
 一主多子: http://127.0.0.1:3000/iuap-pap-training-fe/masterdetail-many#/
+分组聚合: http://127.0.0.1:3000/iuap-pap-training-fe/singletable-grouping#/
+视图模板: http://127.0.0.1:3000/iuap-pap-training-fe/singletable-viewtemplate#/
 ```
 
 ```
