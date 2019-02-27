@@ -343,7 +343,7 @@ class Query extends Component {
             {
                 title: this.props.intl.formatMessage({id:"js.table.query.0003", defaultMessage:"员工姓名"}),
                 exportTitle:"员工姓名",
-                dataIndex: `name${locale_serial}`,
+                dataIndex: "name",
                 key: "name",
                 width: 120,
                 filterType: "text",
