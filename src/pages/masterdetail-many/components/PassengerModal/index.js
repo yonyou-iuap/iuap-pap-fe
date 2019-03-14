@@ -226,14 +226,14 @@ class AddEditPassenger extends Component {
                                 </Label>
                                 <Select disabled={isDisabled}
                                         {...getFieldProps('sex', {
-                                            initialValue: sex || 1,
+                                            initialValue: typeof sex != 'undefined' ? sex : 0,
                                             rules: [{
                                                 required: true, message: <FormattedMessage id="js.many.message.0007" defaultMessage="请输入乘客性别" />,
                                             }],
                                         })}
                                 >
-                                    <Option value={1}>女</Option>
-                                    <Option value={2}>男</Option>
+                                    <Option value={0}>女</Option>
+                                    <Option value={1}>男</Option>
                                 </Select>
                                 <FormError errorMsg={getFieldError('sex')}/>
                             </FormItem>

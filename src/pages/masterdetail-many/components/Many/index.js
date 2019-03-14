@@ -273,12 +273,9 @@ export default class Many extends Component {
         },
         {
             title: this.props.intl.formatMessage({id:"js.many.table.0006" ,defaultMessage:"是否会员"}),
-            dataIndex: "isVip",
-            key: "isVip",
+            dataIndex: "isVipEnumValue",
+            key: "isVipEnumValue",
             width: 120,
-            render(text, record, index) {
-                return text ? "是" : "否";
-            }
 
         },
         {
