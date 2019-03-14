@@ -247,26 +247,26 @@ export default class Many extends Component {
             width: 180,
         },
         {
-            title: this.props.intl.formatMessage({id:"js.many.table.0003" ,defaultMessage:"乘客姓名"}),
+            title: this.props.intl.formatMessage({id:"js.many.table.0002" ,defaultMessage:"乘客姓名"}),
             dataIndex: "name",
             key: "name",
             width: 120,
         },
         {
-            title: this.props.intl.formatMessage({id:"js.many.table.0004" ,defaultMessage:"乘客性别"}),
+            title: this.props.intl.formatMessage({id:"js.many.table.0003" ,defaultMessage:"乘客性别"}),
             dataIndex: "sexEnumValue",
             key: "sexEnumValue",
             width: 120,
 
         },
         {
-            title: this.props.intl.formatMessage({id:"js.many.table.0005" ,defaultMessage:"所属部门"}),
+            title: this.props.intl.formatMessage({id:"js.many.table.0004" ,defaultMessage:"所属部门"}),
             dataIndex: "deptName",
             key: "deptName",
             width: 120,
         },
         {
-            title:  this.props.intl.formatMessage({id:"js.many.table.0006" ,defaultMessage:"手机号"}),
+            title:  this.props.intl.formatMessage({id:"js.many.table.0005" ,defaultMessage:"手机号"}),
             dataIndex: "phone",
             key: "phone",
             width: 120,
