@@ -349,6 +349,8 @@ const en_US = {
 "js.popup.option.0006": "Computer subsidy",
 "js.popup.option.0007": "Accommodation subsidy",
 "js.popup.option.0008": "Transportation Assistance",
+"js.popup.option.0009": "transfer accounts",
+"js.popup.option.0010": "cash",
 
 "js.popup.message.0001": "Please enter the employee name",
 "js.popup.message.0002": "Please select employee gender",

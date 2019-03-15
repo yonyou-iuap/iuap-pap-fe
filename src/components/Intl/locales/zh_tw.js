@@ -352,7 +352,9 @@ const zh_TW = {
     "js.popup.option.0005": "男",
     "js.popup.option.0006": "電腦補助",
     "js.popup.option.0007": "住宿補助",
-    "js.popup.option.0008": "交通補助",
+	"js.popup.option.0008": "交通補助",
+	"js.popup.option.0009": "轉帳",
+	"js.popup.option.0010": "現金",
 
 
     "js.popup.message.0001": "請輸入員工姓名",

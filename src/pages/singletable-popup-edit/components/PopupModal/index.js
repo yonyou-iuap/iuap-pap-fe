@@ -412,10 +412,10 @@ class PopupModal extends Component {
                                         })}
                                 >
                                     <Option value="0">
-                                        <FormattedMessage id="js.popup.option.0001" defaultMessage="未超标" />
+                                        <FormattedMessage id="js.popup.option.0002" defaultMessage="未超标" />
                                     </Option>
                                     <Option value="1">
-                                        <FormattedMessage id="js.popup.option.0002" defaultMessage="超标" />
+                                        <FormattedMessage id="js.popup.option.0003" defaultMessage="超标" />
                                     </Option>
                                 </Select>
                                 <FormError errorMsg={getFieldError('exdeeds')}/>
@@ -453,8 +453,8 @@ class PopupModal extends Component {
                                             }],
                                         })}
                                 >
-                                    <Option value="1">转账</Option>
-                                    <Option value="2">现金</Option>
+                                    <Option value="1"><FormattedMessage id="js.popup.option.0009" defaultMessage="转账" /></Option>
+                                    <Option value="2"><FormattedMessage id="js.popup.option.0010" defaultMessage="现金" /></Option>
                                 </Select>
                                 <FormError errorMsg={getFieldError('pickType')}/>
                             </FormItem>

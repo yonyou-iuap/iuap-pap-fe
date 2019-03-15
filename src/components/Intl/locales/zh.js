@@ -355,6 +355,8 @@ const zh_CN = {
 	"js.popup.option.0006": "电脑补助",
 	"js.popup.option.0007": "住宿补助",
 	"js.popup.option.0008": "交通补助",
+	"js.popup.option.0009": "转账",
+	"js.popup.option.0010": "现金",
 
 	"js.popup.message.0001": "请输入员工姓名",
 	"js.popup.message.0002": "请选择员工性别",
