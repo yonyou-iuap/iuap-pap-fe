@@ -110,15 +110,22 @@ export default {
                 let selectOptionDataSource = [{ key: "默认模板", value: 0 }];
                
                 res.content.forEach((item,index) => {
-                    let  modelContent=JSON.parse(item.modelContent);
-                    if(item.modelName && modelContent){
-                        selectOptionDataSource.push({
-                            key:item.modelName,
-                            value:index + 1,
-                            trueValue: modelContent,
-                            id:item.id,
-                        });
+                    let  modelContent = '';
+                    try{
+                        modelContent = JSON.parse(item.modelContent);
+                        if(item.modelName && modelContent){
+                            selectOptionDataSource.push({
+                                key:item.modelName,
+                                value:index + 1,
+                                trueValue: modelContent,
+                                id:item.id,
+                            });
+                        }
+                    }catch (e){
+                        console.log(e);
                     }
+                    
+                   
                 });
                 actions.templateModel.updateState({
                     selectOptionDataSource

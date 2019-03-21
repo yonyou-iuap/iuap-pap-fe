@@ -56,12 +56,20 @@ class Index extends Component {
       };
       //根据模板数据获取表格的columns、分页
       if (res.content.length > 0) {
-        const modelContent = JSON.parse(res.content[0].modelContent);
-        queryParamAndColumns = this.getQueryParamAndColumns(modelContent);
-        this.setState({
-          selectValue: 1,
-          columns: queryParamAndColumns.columns
-        });
+        let modelContent = '';
+       try {
+          modelContent = JSON.parse(res.content[0].modelContent);
+        }catch(e){
+          console.log(e);
+        }
+        if(modelContent){
+          queryParamAndColumns = this.getQueryParamAndColumns(modelContent);
+          this.setState({
+            selectValue: 1,
+            columns: queryParamAndColumns.columns
+          });
+        }
+       
       }
 
       actions.templateModel.loadList(queryParamAndColumns.queryParam);
