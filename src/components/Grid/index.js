@@ -10,6 +10,7 @@ const defualtPaginationParam = {
   dataNumSelect: ["5", "10", "15", "20", "25", "50", "All"],
   verticalPosition: "top",
   dataNum: 4,
+  noBorder:false
 };
 
 class Grid extends Component {

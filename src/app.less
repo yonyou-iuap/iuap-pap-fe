@@ -215,10 +215,13 @@
             }
             li{
                 a{
-                    padding: 0px 11px;
+                    padding: 0px 8px;
                     line-height: 32px;
                     height: 32px;
                     box-sizing: border-box;
+                    i {
+                        font-size: 12px;
+                    }
                 }
             }
         }
@@ -292,10 +295,45 @@
         padding: 10px 8px;
     }
     .u-table th{
-        word-break: keep-all;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        // word-break: keep-all;
+        // white-space: nowrap;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+    // //     .title-con {
+    // //         i.uf{
+    // //             padding-right: 4px;
+    // //             padding-left: 0px;
+    // //             // float: right;
+    // //         }
+    // //     }
+    // //     .drop-menu{
+
+            
+    // //     }
+    // //     .drop-menu-title {
+    // //         width: calc(100% - 18px) !important;
+    // //         text-overflow: ellipsis;
+    // //         white-space: nowrap;
+    // //         display: inline-block;
+    // //         vertical-align: middle;
+    // //         overflow: hidden;
+    // //    }
+    // //     .cansort {
+    // //         .drop-menu-title {
+    // //             width: calc(100% - 40px) !important;
+    // //         }
+    // //     }
+    //     .bee-table-column-sorter {
+    //         margin-left: 0px;
+    //         margin-top:4px;
+    //         i{
+    //             padding:0px;
+    //         }
+    //     }
+        
+    //     .bee-table-column-sorter>.bee-table-column-sorter-up {
+    //         width: auto;
+    //     }
     }
     .u-table tr.filterable th {
         padding: 0px 2px;
@@ -308,6 +346,11 @@
     .u-table-filter-column-filter-icon {
         right: 15px;
     }
+
+    .u-table-thead th .bee-table-column-sorter>.bee-table-column-sorter-down, .u-table-thead th .bee-table-column-sorter>.bee-table-column-sorter-flat, .u-table-thead th .bee-table-column-sorter>.bee-table-column-sorter-up {
+        width: auto;
+    }
+
 }
 
 // form 布局样式
@@ -714,4 +757,14 @@ td.column-number-right {
 // 修改下拉的动画效果
 .u-select-dropdown {
     animation: none; 
+}
+// 升级2.0复写样式
+
+.u-select-dropdown .u-select-dropdown-menu-item-selected, .u-select-dropdown .u-select-dropdown-menu-item-selected:hover {
+    background-color: #f7f7f7 !important;
+}
+
+.u-select-dropdown .u-select-dropdown-menu-item-active, .u-select-dropdown .u-select-dropdown-menu-item:hover {
+    background-color: #f3f3f3 !important;
+    color: #666 !important;
 }
