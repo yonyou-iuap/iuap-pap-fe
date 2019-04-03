@@ -268,7 +268,10 @@ class Query extends Component {
     exportAll = async () => {
         const {queryParam} = this.props;
         let exportData = await actions.query.exportAll({
-            ...queryParam
+            ...queryParam,pageParams:{
+                pageSize: 1,
+                pageIndex: 0
+            }
         });
         this.setState({
             exportData: exportData.content
