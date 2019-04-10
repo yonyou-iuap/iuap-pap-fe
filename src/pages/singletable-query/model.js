@@ -84,7 +84,7 @@ export default {
         },
 
         async exportAll(param, getState) {
-            const {result} = processData(await api.exportAll(param));
+            const {result} = processData(await api.getList(param));//有查询参数及排序条件导出所有，若无查询参数及排序条件。可调用api.exportAll
             const {data=[]} = result;
             return data;
         }
