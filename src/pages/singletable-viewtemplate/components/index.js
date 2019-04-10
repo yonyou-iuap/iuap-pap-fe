@@ -332,6 +332,7 @@ class Index extends Component {
       actions.templateModel.saveTemplate(values);
     });
     this.setState({
+      selectValue: 1,
       showModal: false
     });
   };
@@ -351,6 +352,17 @@ class Index extends Component {
     });
   };
 
+
+  /**
+   * @description 删除模板
+   * @memberof Index
+   */
+  delTemplate = () => {
+    actions.templateModel.removeTemplate(this.delId);
+    this.ifShowDeleteModal(false);
+    // 重置当前选项
+    this.handleSelectChange(0);
+  };
   /**
    * @description 打开和关闭创建模板模态框
    * @memberof Index
@@ -372,14 +384,6 @@ class Index extends Component {
   };
 
 
-  /**
-   * @description 删除模板
-   * @memberof Index
-   */
-  delTemplate = () => {
-    actions.templateModel.removeTemplate(this.delId);
-    this.ifShowDeleteModal(false);
-  };
 
   /**
    *
@@ -414,8 +418,7 @@ class Index extends Component {
       total: total, //总条数
       items: totalPages,
       freshData: this.freshData,
-      onDataNumSelect: this.onDataNumSelect,
-      dataNum: dataNumObj[pageSize]
+      onDataNumSelect: this.onDataNumSelect
     };
 
     const sortObj = {
