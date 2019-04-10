@@ -418,6 +418,7 @@ class Index extends Component {
       total: total, //总条数
       items: totalPages,
       freshData: this.freshData,
+      dataNum: dataNumObj[pageSize],
       onDataNumSelect: this.onDataNumSelect
     };
 
