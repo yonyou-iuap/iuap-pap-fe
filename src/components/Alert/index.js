@@ -9,7 +9,7 @@ import './style.less';
 
 
 const propTypes = {
-    title: PropTypes.string,
+    title: PropTypes.any,
     confirmFn: PropTypes.func,
     cancelFn: PropTypes.func,
     context: PropTypes.string,
