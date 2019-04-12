@@ -69,13 +69,13 @@ class InlineEdit extends Component {
     //定义Grid的Column
     column = [
         {//{this.props.intl.formatMessage({ id: "ht.inline.title.0001", defaultMessage: "A2单表行内编辑示例" })}
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0001" ,defaultMessage:"员工编号" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0001", defaultMessage: "员工编号" }),
             dataIndex: "code",
             key: "code",
             width: 150
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0002" ,defaultMessage:"员工姓名" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0002", defaultMessage: "员工姓名" }),
             dataIndex: "name",
             key: "name",
             width: 120,
@@ -93,7 +93,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0003" ,defaultMessage:"员工性别" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0003", defaultMessage: "员工性别" }),
             dataIndex: "sexEnumValue",
             key: "sexEnumValue",
             width: 120,
@@ -111,7 +111,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0004" ,defaultMessage:"所属部门" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0004", defaultMessage: "所属部门" }),
             dataIndex: "deptName",
             key: "deptName",
             width: 120,
@@ -128,7 +128,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0005" ,defaultMessage:"职级" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0005", defaultMessage: "职级" }),
             dataIndex: "levelName",
             key: "levelName",
             width: 120,
@@ -145,7 +145,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0006" ,defaultMessage:"工龄" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0006", defaultMessage: "工龄" }),
             dataIndex: "serviceYears",
             key: "serviceYears",
             width: 130,
@@ -164,7 +164,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0007" ,defaultMessage:"司龄" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0007", defaultMessage: "司龄" }),
             dataIndex: "serviceYearsCompany",
             key: "serviceYearsCompany",
             width: 130,
@@ -183,7 +183,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0008" ,defaultMessage:"年份" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0008", defaultMessage: "年份" }),
             dataIndex: "year",
             key: "year",
             width: 100,
@@ -202,7 +202,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0009" ,defaultMessage:"月份" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0009", defaultMessage: "月份" }),
             dataIndex: "monthEnumValue",
             key: "monthEnumValue",
             width: 120,
@@ -220,7 +220,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0010" ,defaultMessage:"补贴类别" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0010", defaultMessage: "补贴类别" }),
             dataIndex: "allowanceTypeEnumValue",
             key: "allowanceTypeEnumValue",
             width: 120,
@@ -238,7 +238,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0011" ,defaultMessage:"补贴标准" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0011", defaultMessage: "补贴标准" }),
             dataIndex: "allowanceStandard",
             key: "allowanceStandard",
             width: 120,
@@ -257,7 +257,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0012" ,defaultMessage:"实际补贴" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0012", defaultMessage: "实际补贴" }),
             dataIndex: "allowanceActual",
             key: "allowanceActual",
             width: 120,
@@ -276,7 +276,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0013" ,defaultMessage:"是否超标" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0013", defaultMessage: "是否超标" }),
             dataIndex: "exdeedsEnumValue",
             key: "exdeedsEnumValue",
             width: 120,
@@ -294,7 +294,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0014" ,defaultMessage:"申请时间" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0014", defaultMessage: "申请时间" }),
             dataIndex: "applyTime",
             key: "applyTime",
             width: 200,
@@ -307,7 +307,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0015" ,defaultMessage:"领取方式" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0015", defaultMessage: "领取方式" }),
             dataIndex: "pickTypeEnumValue",
             key: "pickTypeEnumValue",
             width: 120,
@@ -325,7 +325,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0016" ,defaultMessage:"领取时间" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0016", defaultMessage: "领取时间" }),
             dataIndex: "pickTime",
             key: "pickTime",
             width: 200,
@@ -338,7 +338,7 @@ class InlineEdit extends Component {
             }
         },
         {
-            title: this.props.intl.formatMessage({ id:"js.inline.table.0017" ,defaultMessage:"备注" }),
+            title: this.props.intl.formatMessage({ id: "js.inline.table.0017", defaultMessage: "备注" }),
             dataIndex: "remark",
             key: "remark",
             width: 100,
@@ -562,7 +562,12 @@ class InlineEdit extends Component {
         //同步操作数据
         this.oldData = deepClone(editData);
         //保存处理后的数据，并且切换操作态'编辑'
-        actions.inlineEdit.updateState({ list: editData, status: "edit", rowEditStatus: false });
+        actions.inlineEdit.updateState({
+            list: editData,
+            status: "edit",
+            rowEditStatus: false,
+            selectData:[] // 清空原有选中数据
+        });
     }
 
     /**
@@ -594,7 +599,7 @@ class InlineEdit extends Component {
                 if (isVerifyData(filterChecked(deepClone(this.oldData), this.props.list))) {
                     let vals = filterChecked(this.oldData, this.props.list);
                     if (vals.length == 0) {
-                        Info(this.props.intl.formatMessage({id:"js.inline.alert.0002", defaultMessage:'请勾选数据后再新增'}));
+                        Info(this.props.intl.formatMessage({ id: "js.inline.alert.0002", defaultMessage: '请勾选数据后再新增' }));
                     } else {
                         let newResult = await actions.inlineEdit.adds(vals);
                         if (newResult) {
@@ -615,7 +620,7 @@ class InlineEdit extends Component {
                 //检查是否验证通过
                 if (isVerifyData(data)) {
                     if (data.length == 0) {
-                        Info(this.props.intl.formatMessage({id:"js.inline.alert.0003", defaultMessage:'请勾选数据后再修改'}));
+                        Info(this.props.intl.formatMessage({ id: "js.inline.alert.0003", defaultMessage: '请勾选数据后再修改' }));
                     } else {
                         let editResult = await actions.inlineEdit.updates(data);
                         if (editResult) {
@@ -640,7 +645,7 @@ class InlineEdit extends Component {
                 showPop: true
             });
         } else {
-            Info(this.props.intl.formatMessage({id:"js.inline.alert.0003", defaultMessage:'请勾选数据后再删除'}));
+            Info(this.props.intl.formatMessage({ id: "js.inline.alert.0003", defaultMessage: '请勾选数据后再删除' }));
         }
     }
     /**
@@ -781,7 +786,7 @@ class InlineEdit extends Component {
                         </Button>
                         <Alert
                             show={showPop}
-                            context={this.props.intl.formatMessage({id:"js.inline.alert.0005", defaultMessage:'是否要删除 ?'})}
+                            context={this.props.intl.formatMessage({ id: "js.inline.alert.0005", defaultMessage: '是否要删除 ?' })}
                             confirmFn={this.onClickDel}
                             cancelFn={this.onClickPopCancel}
                         />
