@@ -1,0 +1,54 @@
+.ref-slider{
+    &-panel{
+        position: absolute;
+        box-sizing: border-box;
+        min-width: 400px;
+        transition: height 0.5s;
+        background: white;
+        z-index: 2001;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border: 1px #d8d8d8 solid;
+        padding:0;
+        border-radius: 3px;
+        color: #424242;
+        cursor: pointer;
+        user-select: none;
+    }
+    &-slider-up{
+        min-height: 260px;
+        top: -395px;
+        box-shadow: 1px -1px 2px #bebebe;
+        animation:slider-up .2s infinite;
+        animation-timing-function: ease-out;
+        animation-iteration-count: 1;
+    }
+    &-slider-down{
+        min-height: 260px;
+        top: 38px;
+        box-shadow: 1px 1px 2px #bebebe;
+        animation:slider-down .2s infinite;
+        animation-timing-function: ease-out;
+        animation-iteration-count: 1;
+    }
+}
+
+
+@keyframes slider-up{
+    from {
+        height:0px;
+        top: -8px;
+    }
+    to {
+        height:382px;
+        top: -395px;
+    }
+}
+@keyframes slider-down{
+    from {
+        height:0px;
+    }
+    to {
+        height:382px;
+    }
+}

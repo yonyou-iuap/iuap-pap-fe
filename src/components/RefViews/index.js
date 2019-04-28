@@ -1,105 +1,98 @@
+import React from "react";
+import { Icon } from "tinper-bee";
 
-import React from 'react';
-// import ReactDOM from 'react-dom';
-// import RefWithInput from './RefCoreWithInput';
+// import {RefMultipleTable,RefWithInput } from 'ref-multiple-table';
+import { RefMultipleTable, RefWithInput } from "../CustomedRefTable/index.js";
+import { RefTree } from "../CustomedRefTree/index.js";
 
-// import {RefTree} from 'ref-tree/';
+import "../CustomedRefTable/index.less"; //职级样式
+import "../CustomedRefTree/index.less"; // 部门样式
 
-import {RefMultipleTable,RefWithInput } from 'ref-multiple-table';
+import RefComboBox,{ComboStore} from "../CustomedRefCombobox/index.js";
 
-import 'ref-multiple-table/dist/index.css'; //职级样式
-import 'ref-tree/dist/index.css'; // 部门样式
-
-import {RefTree} from 'ref-tree';
-
-import RefComboBox, {ComboStore} from 'ref-combobox';
-import 'ref-combobox/dist/index.css';
-
-import { Icon } from 'tinper-bee'
-// import {RefMultipleTable} from './ref-multiple-table';
-
-// import './ref-multiple-table/index.css'; //职级样式
-// import './ref-tree/index.css'; // 部门样式
-
-
-function RefIuapDept(props){
-
+function RefIuapDept(props) {
     return (
         <RefWithInput
-            style={{
-            }}
-            title={'部门'}
-            searchable= {true}
-            param= {
-                {"refCode":"newdept"}
-            }
+            style={{}}
+            title={"部门"}
+            searchable={true}
+            param={{ refCode: "newdept" }}
             multiple={false}
             checkStrictly={true}
             disabled={false}
-            displayField='{refname}'
-            valueField='refpk'
-            refModelUrl= {{
-                treeUrl: '/newref/rest/iref_ctr/blobRefTree', //树请求
+            displayField="{refname}"
+            valueField="refpk"
+            refModelUrl={{
+                treeUrl: "/newref/rest/iref_ctr/blobRefTree" //树请求
             }}
-            matchUrl='/newref/rest/iref_ctr/matchPKRefJSON'
-            filterUrl='/newref/rest/iref_ctr/filterRefJSON'
+            matchUrl="/newref/rest/iref_ctr/matchPKRefJSON"
+            filterUrl="/newref/rest/iref_ctr/filterRefJSON"
             {...props}
         >
-            <RefTree className = {props.className} emptyBut={true}/>
+            <RefTree className={props.className} emptyBut={true} />
         </RefWithInput>
-    )
+    );
 }
-function RefWalsinLevel(props){
+function RefWalsinLevel(props) {
     return (
         <RefWithInput
-            title= '职级'
-            backdrop = {false}
-            param = {{//url请求参数
-                    refCode:'post_level',//test_common||test_grid||test_tree||test_treeTable
-                }}
-            refModelUrl = {{
-                tableBodyUrl:'/iuap-pap-training-be/common-ref/blobRefTreeGrid',//表体请求
-                refInfo:'/iuap-pap-training-be/common-ref/refInfo',//表头请求
+            title="职级"
+            backdrop={false}
+            param={{
+                //url请求参数
+                refCode: "post_level" //test_common||test_grid||test_tree||test_treeTable
             }}
-            matchUrl='/iuap-pap-training-be/common-ref/matchPKRefJSON'
-            filterUrl='/iuap-pap-training-be/common-ref/filterRefJSON'
+            refModelUrl={{
+                tableBodyUrl:
+                    "/iuap-pap-training-be/common-ref/blobRefTreeGrid", //表体请求
+                refInfo: "/iuap-pap-training-be/common-ref/refInfo" //表头请求
+            }}
+            matchUrl="/iuap-pap-training-be/common-ref/matchPKRefJSON"
+            filterUrl="/iuap-pap-training-be/common-ref/filterRefJSON"
             valueField="refpk"
             displayField="{refcode}"
             {...props}
         >
             <RefMultipleTable />
         </RefWithInput>
-    )
+    );
 }
 
-function RefWalsinComboLevel(props){
+function RefWalsinComboLevel(props) {
     return (
         <RefComboBox
-            displayField={'{refname}-{refcode}'}
-            valueField={'refpk'}
-            onClickItem={(record) =>{
-                console.log(record)
+            displayField={"{refname}-{refcode}"}
+            valueField={"refpk"}
+            onClickItem={record => {
+                console.log(record);
             }}
-            matchUrl = '/iuap-pap-training-be/common-ref/matchPKRefJSON'
-            filterUrl = '/iuap-pap-training-be/common-ref/filterRefJSON'
-            { ...props }
+            matchUrl="/iuap-pap-training-be/common-ref/matchPKRefJSON"
+            filterUrl="/iuap-pap-training-be/common-ref/filterRefJSON"
+            {...props}
         >
             <ComboStore
-                ajax = {{
-                    url: '/iuap-pap-training-be/common-ref/blobRefTreeGrid',
+                ajax={{
+                    url: "/iuap-pap-training-be/common-ref/blobRefTreeGrid",
                     params: {
-                        refCode: 'post_level'
-                    },
-
+                        refCode: "post_level"
+                    }
                 }}
-                strictMode = {true}
-                displayField={(record)=>{
-                    return <div > <Icon type="uf-personin-o" style={{color: 'red'}}/> {record.refname}-{record.refcode}-{record.type}</div>
+                strictMode={true}
+                displayField={record => {
+                    return (
+                        <div>
+                            {" "}
+                            <Icon
+                                type="uf-personin-o"
+                                style={{ color: "red" }}
+                            />{" "}
+                            {record.refname}-{record.refcode}-{record.type}
+                        </div>
+                    );
                 }}
             />
         </RefComboBox>
-    )
+    );
 }
 
-export {RefIuapDept, RefWalsinLevel, RefWalsinComboLevel};
-
+export { RefIuapDept, RefWalsinLevel, RefWalsinComboLevel };

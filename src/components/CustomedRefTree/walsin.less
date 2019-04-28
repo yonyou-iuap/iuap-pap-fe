@@ -1,0 +1,55 @@
+.ref-walsin-modal{
+	// z-index: 1599;
+	.u-checkbox.is-checked .u-checkbox-label:before{
+        box-shadow: inset 0 0 0 10px #004898;
+        border-color: #004898;
+    }
+    .u-checkbox.u-checkbox-indeterminate .u-checkbox-label:before {
+        box-shadow: inset 0 0 0 10px #004898;
+        border-color: #004898;
+    }
+    .ref-core-button button{
+        border: 1px solid #004898;
+        background-color: #004898 !important;
+    }
+	& .u-modal-body{
+		min-height: 419px;
+	}
+	& .u-modal-footer{
+		& .u-button{
+            background-color: #004898;
+            border-color: #004898;
+            color: #fff;
+            height: 30px;
+            line-height: 1;
+            font-size: 14px;
+            &.ref-core-button-empty{
+                color:#004898;
+            }
+			&:first-child{
+				margin-right: 10px;
+			}
+			&:hover{
+				background-color: #0052CC;
+			}
+		}
+		&-hide{
+            display: none;
+        }
+	}
+	& .u-modal-footer{
+        .ref-core-button{
+            text-align: left;
+        }
+    }
+    
+    & .ref-core-tree{
+        margin-top: 5px;
+        .u-tree-checkbox-checked .u-tree-checkbox-inner{
+            background-color: #004898;
+            border-color: #004898;
+        }
+    }
+    
+}
+
