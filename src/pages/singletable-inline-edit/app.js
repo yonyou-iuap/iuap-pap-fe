@@ -9,7 +9,7 @@ import logger from "redux-logger";
 import mirror, { render,Router } from "mirrorx";
 import Intl from 'components/Intl';
 import Routes from './routes';
-import 'tinper-bee/assets/tinper-bee.css';
+import 'static/font/tinper-bee.css';
 import "src/app.less";
 
 
