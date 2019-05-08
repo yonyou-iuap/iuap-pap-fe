@@ -11,6 +11,7 @@ class RefMultipleTableWithData extends Component {
         this.state = {
             post_level: '',
             type:'',
+            withDataVal:null,
         };
     }
     render() {
@@ -51,9 +52,11 @@ class RefMultipleTableWithData extends Component {
                             }
                            
                         }}
+                        value={this.state.withDataVal}
                     >
                         <RefMultipleTable />
                     </RefWithInput>
+
                 </div>
 
                 <div style={{'padding':'5px 0'}}>
@@ -64,6 +67,8 @@ class RefMultipleTableWithData extends Component {
                     <Label>职级级别：</Label>
                     <FormControl style={{'width':'auto'}} value={this.state.post_level} />
                 </div>
+                <Button onClick={()=>{this.setState({withDataVal:`{refname:'',refpk:${Math.random()}}`,post_level:'',type:''})}}>清空</Button>
+
             </Col>
         );
     }

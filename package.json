@@ -71,7 +71,7 @@
     "react-dom": "16.6.3",
     "react-hot-loader": "^4.8.4",
     "react-intl": "^2.8.0",
-    "ref-combobox": "^2.0.2",
+    "ref-combobox": "^2.0.3",
     "ref-filter-table": "0.0.2-beta.0",
     "ref-multiple-table": "^2.0.1",
     "ref-tree": "^2.0.0",

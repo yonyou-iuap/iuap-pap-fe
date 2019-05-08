@@ -20,10 +20,16 @@ import "./index.less";
 class RefExample extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            tableSingleVal:null,
+            tableMulVal:null,
+            comboboxVal:null,
+        };
     }
 
-    componentDidMount() {}
+    componentDidMount() {
+
+    }
 
     render() {
         return (
@@ -52,9 +58,11 @@ class RefExample extends Component {
                             onSave={record => {
                                 console.log("onSave", record);
                             }}
+                            value={this.state.tableSingleVal}
                         >
                             <RefMultipleTable />
                         </RefWithInput>
+                        <Button onClick={()=>{this.setState({tableSingleVal:`{refname:'',refpk:${Math.random()}}`})}}>清空</Button>
                     </Col>
                     <Col md={4} sm={6}>
                         <h1>表格参照（多选）</h1>
@@ -100,9 +108,13 @@ class RefExample extends Component {
                             //         filterDropdownIncludeKeys: ["LIKE", "ULIKE", "EQ"]
                             //     }
                             // ]}
+                            value={this.state.tableMulVal}
+                            
                         >
                             <RefMultipleTable />
                         </RefWithInput>
+                        <Button onClick={()=>{this.setState({tableMulVal:`{refname:'',refpk:${Math.random()}}`})}}>清空</Button>
+
                     </Col>
                     <RefMultipleTableWithData/>
                     <Col md={4} sm={6}>
@@ -115,6 +127,7 @@ class RefExample extends Component {
                             }}
                             matchUrl="/iuap-pap-training-be/common-ref/matchPKRefJSON"
                             filterUrl="/iuap-pap-training-be/common-ref/filterRefJSON"
+                            value={this.state.comboboxVal}
                         >
                             <ComboStore
                                 ajax={{
@@ -140,6 +153,7 @@ class RefExample extends Component {
                                 }}
                             />
                         </RefComboBox>
+                        <Button onClick={()=>{this.setState({comboboxVal:`{refname:'',refpk:${Math.random()}}`})}}>清空</Button>
                     </Col>
                 </Row>
             </div>
