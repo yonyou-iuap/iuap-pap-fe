@@ -12,6 +12,7 @@ import 'core-js/es6/map';
 import 'core-js/es6/set';
 
 import 'static/font/tinper-bee.css';
+import 'static/font/tinper-bee-theme.css';
 import "src/app.less";
 
 

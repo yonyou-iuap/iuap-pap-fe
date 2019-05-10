@@ -53,6 +53,8 @@ class RefMultipleTableWithData extends Component {
                            
                         }}
                         value={this.state.withDataVal}
+                        theme="ref-blue"
+                        emptyBut={true}	
                     >
                         <RefMultipleTable />
                     </RefWithInput>

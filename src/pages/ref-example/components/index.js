@@ -61,6 +61,8 @@ class RefExample extends Component {
                                 console.log("onSave", record);
                             }}
                             value={this.state.tableSingleVal}
+                            theme="ref-blue"
+                            emptyBut={true}	
                         >
                             <RefMultipleTable />
                         </RefWithInput>
@@ -87,6 +89,8 @@ class RefExample extends Component {
                             valueField="refpk"
                             displayField="{refcode}"
                             fliterColumn={[]}
+                            theme="ref-blue"
+                            emptyBut={true}	
                             // fliterColumn={[
                             //     {
                             //         dataIndex: "code",
