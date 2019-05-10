@@ -10,6 +10,8 @@ import RefComboBox, {ComboStore
 } from "components/CustomedRefCombobox/index.js";
 
 import RefMultipleTableWithData from './RefMultipleTableWithData.js';
+import RefFilterTableWithData from './RefFilterTableWithData.js';
+
 
 // import { RefWalsinComboLevel, RefWalsinLevel } from "components/RefViews";
 // import "components/CustomedRefTable/index.less";
@@ -117,6 +119,7 @@ class RefExample extends Component {
 
                     </Col>
                     <RefMultipleTableWithData/>
+                    <RefFilterTableWithData/>
                     <Col md={4} sm={6}>
                         <h1>下拉参照</h1>
                         <RefComboBox
@@ -130,6 +133,7 @@ class RefExample extends Component {
                             value={this.state.comboboxVal}
                         >
                             <ComboStore
+                                topPagination={true}
                                 ajax={{
                                     url:
                                         "/iuap-pap-training-be/common-ref/blobRefTreeGrid",
