@@ -91,29 +91,6 @@ class RefExample extends Component {
                             fliterColumn={[]}
                             theme="ref-blue"
                             emptyBut={true}	
-                            // fliterColumn={[
-                            //     {
-                            //         dataIndex: "code",
-                            //         filterDropdown: "show",
-                            //         filterDropdownType: "string",
-                            //         filterType: "text",
-                            //         filterDropdownIncludeKeys: ["LIKE", "ULIKE", "EQ"]
-                            //     },
-                            //     {
-                            //         dataIndex: "type",
-                            //         filterDropdown: "show",
-                            //         filterDropdownType: "string",
-                            //         filterType: "text",
-                            //         filterDropdownIncludeKeys: ["LIKE", "ULIKE", "EQ"]
-                            //     },
-                            //     {
-                            //         dataIndex: "post_level",
-                            //         filterDropdown: "show",
-                            //         filterDropdownType: "string",
-                            //         filterType: "dropdown",
-                            //         filterDropdownIncludeKeys: ["LIKE", "ULIKE", "EQ"]
-                            //     }
-                            // ]}
                             value={this.state.tableMulVal}
                             
                         >
@@ -123,7 +100,7 @@ class RefExample extends Component {
 
                     </Col>
                     <RefMultipleTableWithData/>
-                    <RefFilterTableWithData/>
+                    {/* <RefFilterTableWithData/> */}
                     <Col md={4} sm={6}>
                         <h1>下拉参照</h1>
                         <RefComboBox

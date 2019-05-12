@@ -9,7 +9,7 @@ import './index.less';
 function RefMultipleTable(props){
     return (
         <RefCoreGlobal {...props}>
-            <RefMultipleTableBase />
+            <RefMultipleTableBase strictMode={true} />
         </RefCoreGlobal>
     )
 }
