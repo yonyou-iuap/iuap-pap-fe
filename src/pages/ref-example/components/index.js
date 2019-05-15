@@ -28,24 +28,31 @@ class RefExample extends Component {
             tableMulVal: null,
             comboboxVal: null,
             matchData1: [],//表1的选中数据
+            matchData2: [],//表1的选中数据
+
         };
     }
 
     componentDidMount() {
 
     }
+
+    //给表格单选参照添加预设值
     setMatchData1 = () => {
         this.setState({
-            tableSingleVal: `{"refname":"M2","refpk":"level4"}`,
+            tableSingleVal: `{"refname":"M1","refpk":"level2"}`,
             matchData1: [{
-                code: "M2",
-                id: "level4",
-                post_level: "中级",
-                refcode: "M2",
-                refname: "中级",
-                refpk: "level4",
-                type: "管理",
+                refpk: "level2",
             }]
+        })
+    }
+    
+    //给表格多选参照添加预设值
+    setMatchData2 = () => {
+        this.setState({
+            tableMulVal: `{"refname":"M5;M6","refpk":"level8;level9"}`,  
+            matchData2: [{ refpk: "level8" }, 
+            {refpk: "level9"}]
         })
     }
 
@@ -77,7 +84,13 @@ class RefExample extends Component {
                             onSave={record => {
                                 console.log("onSave", record);
                                 this.setState({
-                                    matchData1:record
+                                    matchData1: record
+                                })
+                            }}
+                            onCancel={record => {
+                                console.log("onCancel", record);
+                                this.setState({
+                                    matchData1: record
                                 })
                             }}
                             value={this.state.tableSingleVal}
@@ -107,10 +120,23 @@ class RefExample extends Component {
                                     "/iuap-pap-training-be/common-ref/refInfo" //表头请求
                             }}
                             matchUrl="/iuap-pap-training-be/common-ref/matchPKRefJSON"
+                            matchData={this.state.matchData2}
                             filterUrl="/iuap-pap-training-be/common-ref/filterRefJSON"
                             valueField="refpk"
                             displayField="{refcode}"
                             fliterColumn={[]}
+                            onSave={record => {
+                                console.log("onSave", record);
+                                this.setState({
+                                    matchData2: record
+                                })
+                            }}
+                            onCancel={record => {
+                                console.log("onCancel", record);
+                                this.setState({
+                                    matchData2: record
+                                })
+                            }}
                             theme="ref-blue"
                             emptyBut={true}
                             value={this.state.tableMulVal}
@@ -119,7 +145,7 @@ class RefExample extends Component {
                             <RefMultipleTable />
                         </RefWithInput>
                         <Button onClick={() => { this.setState({ tableMulVal: `{refname:'',refpk:${Math.random()}}` }) }}>清空</Button>
-
+                        <Button onClick={this.setMatchData2}>预设</Button>
                     </Col>
                     <RefMultipleTableWithData />
                     {/* <RefFilterTableWithData/> */}
