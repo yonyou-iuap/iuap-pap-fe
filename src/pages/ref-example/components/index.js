@@ -42,7 +42,7 @@ class RefExample extends Component {
         this.setState({
             tableSingleVal: `{"refname":"M1","refpk":"level2"}`,
             matchData1: [{
-                refpk: "level2",
+                refpk: "level2",refcode: "M1"
             }]
         })
     }
@@ -51,8 +51,8 @@ class RefExample extends Component {
     setMatchData2 = () => {
         this.setState({
             tableMulVal: `{"refname":"M5;M6","refpk":"level8;level9"}`,  
-            matchData2: [{ refpk: "level8" }, 
-            {refpk: "level9"}]
+            matchData2: [{ refpk: "level8",refcode: "M5" }, 
+            {refpk: "level9",refcode: "M6" }]
         })
     }
 
