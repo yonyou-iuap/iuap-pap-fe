@@ -6,7 +6,8 @@ import RefWithInput from "ref-core/lib/refs/RefCoreWithInput.js";
 import { RefMultipleTable } from "components/CustomedRefTable/index.js";
 import { RefTree } from "components/CustomedRefTree/index.js";
 
-import RefComboBox, {ComboStore
+import RefComboBox, {
+    ComboStore
 } from "components/CustomedRefCombobox/index.js";
 
 import RefMultipleTableWithData from './RefMultipleTableWithData.js';
@@ -23,14 +24,29 @@ class RefExample extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tableSingleVal:null,
-            tableMulVal:null,
-            comboboxVal:null,
+            tableSingleVal: null,
+            tableMulVal: null,
+            comboboxVal: null,
+            matchData1: [],//表1的选中数据
         };
     }
 
     componentDidMount() {
 
+    }
+    setMatchData1 = () => {
+        this.setState({
+            tableSingleVal: `{"refname":"M2","refpk":"level4"}`,
+            matchData1: [{
+                code: "M2",
+                id: "level4",
+                post_level: "中级",
+                refcode: "M2",
+                refname: "中级",
+                refpk: "level4",
+                type: "管理",
+            }]
+        })
     }
 
     render() {
@@ -53,20 +69,26 @@ class RefExample extends Component {
                                     "/iuap-pap-training-be/common-ref/refInfo" //表头请求
                             }}
                             matchUrl="/iuap-pap-training-be/common-ref/matchPKRefJSON"
+                            matchData={this.state.matchData1}
                             filterUrl="/iuap-pap-training-be/common-ref/filterRefJSON"
                             valueField="refpk"
                             displayField="{refcode}"
                             fliterColumn={[]}
                             onSave={record => {
                                 console.log("onSave", record);
+                                this.setState({
+                                    matchData1:record
+                                })
                             }}
                             value={this.state.tableSingleVal}
                             theme="ref-blue"
-                            emptyBut={true}	
+                            emptyBut={true}
                         >
                             <RefMultipleTable />
                         </RefWithInput>
-                        <Button onClick={()=>{this.setState({tableSingleVal:`{refname:'',refpk:${Math.random()}}`})}}>清空</Button>
+                        <Button onClick={() => { this.setState({ tableSingleVal: `{refname:'',refpk:${Math.random()}}` }) }}>清空</Button>
+                        <Button onClick={this.setMatchData1}>预设</Button>
+
                     </Col>
                     <Col md={4} sm={6}>
                         <h1>表格参照（多选）</h1>
@@ -90,16 +112,16 @@ class RefExample extends Component {
                             displayField="{refcode}"
                             fliterColumn={[]}
                             theme="ref-blue"
-                            emptyBut={true}	
+                            emptyBut={true}
                             value={this.state.tableMulVal}
-                            
+
                         >
                             <RefMultipleTable />
                         </RefWithInput>
-                        <Button onClick={()=>{this.setState({tableMulVal:`{refname:'',refpk:${Math.random()}}`})}}>清空</Button>
+                        <Button onClick={() => { this.setState({ tableMulVal: `{refname:'',refpk:${Math.random()}}` }) }}>清空</Button>
 
                     </Col>
-                    <RefMultipleTableWithData/>
+                    <RefMultipleTableWithData />
                     {/* <RefFilterTableWithData/> */}
                     <Col md={4} sm={6}>
                         <h1>下拉参照</h1>
@@ -138,7 +160,7 @@ class RefExample extends Component {
                                 }}
                             />
                         </RefComboBox>
-                        <Button onClick={()=>{this.setState({comboboxVal:`{refname:'',refpk:${Math.random()}}`})}}>清空</Button>
+                        <Button onClick={() => { this.setState({ comboboxVal: `{refname:'',refpk:${Math.random()}}` }) }}>清空</Button>
                     </Col>
                 </Row>
             </div>

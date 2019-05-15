@@ -51,8 +51,9 @@ class RefMultipleTableBase extends Component {
 			this.setState({
 				tableIsSelecting: true
 			})
+			let {matchData = []} = nextProps;
 			//内部缓存已选择值，不通过 state 缓存，表格缓存状态自动实现
-			this.checkedArray = Object.assign([],  nextProps.checkedArray || []);
+			this.checkedArray = Object.assign(matchData,  nextProps.checkedArray || []);
 			//内部缓存已选择值，缓存成 Map 便于检索
 			this.checkedMap = {};
 			this.checkedArray.forEach(item=>{
@@ -64,7 +65,7 @@ class RefMultipleTableBase extends Component {
 		this.inited = true;
 		this.pageSize = 10;//每页数据数
 		this.currPageIndex = 1;//激活页码
-		let { jsonp, headers, param, value, matchUrl, onMatchInitValue, valueField = "refpk" } = this.props;
+		let { jsonp, headers, param, value, matchUrl, onMatchInitValue, valueField = "refpk",matchData:propsMatchData } = this.props;
 		let requestList = [
 			this.getTableHeader(),
 			this.getTableData({
@@ -85,13 +86,18 @@ class RefMultipleTableBase extends Component {
 
 			}))
 		};
-
 		Promise.all(requestList).then(([columnsData, bodyData, matchData]) => {
 			if (this.props.onAfterAjax) {
 				this.props.onAfterAjax(bodyData)
 			}
-			if (matchData) {
-				let { data = [] } = matchData;
+			//20190515yw需求，从传入matchData取选中的数据
+			if (matchData|| propsMatchData) {
+				let data = [];
+				if(matchData){
+					 data  = matchData.data;
+				}else{
+					 data = propsMatchData;
+				}
 				this.checkedMap = {};
 				this.checkedArray = data.map(item=>{
 					item.key = item[valueField];
