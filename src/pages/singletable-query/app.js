@@ -11,7 +11,7 @@ import Routes from './routes'
 import 'core-js/es6/map';
 import 'core-js/es6/set';
 
-import 'static/font/tinper-bee.css';
+import '../../../node_modules/tinper-bee/assets/theme/tinper-bee-indigo.css'
 import "src/app.less";
 
 

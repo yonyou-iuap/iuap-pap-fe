@@ -28,6 +28,7 @@ function RefIuapDept(props) {
             matchUrl="/newref/rest/iref_ctr/matchPKRefJSON"
             filterUrl="/newref/rest/iref_ctr/filterRefJSON"
             {...props}
+            theme="indigo"
         >
             <RefTree className={props.className} emptyBut={true} />
         </RefWithInput>

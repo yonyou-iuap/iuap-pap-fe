@@ -8,12 +8,10 @@ import 'core-js/es6/set';
 import logger from "redux-logger";
 import mirror, { render,Router } from "mirrorx";
 import Intl from 'components/Intl/index.js';
-
 import Routes from './routes'
-
-import 'static/font/tinper-bee.css';
+//import 'static/font/tinper-bee.css';
+import '../../../node_modules/tinper-bee/assets/theme/tinper-bee-indigo.css'
 import "src/app.less";
-
 
 const MiddlewareConfig = [];
 

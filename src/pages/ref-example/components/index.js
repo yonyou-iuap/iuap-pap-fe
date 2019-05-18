@@ -94,7 +94,7 @@ class RefExample extends Component {
                                 })
                             }}
                             value={this.state.tableSingleVal}
-                            theme="ref-blue"
+                            theme="indigo"
                             emptyBut={true}
                         >
                             <RefMultipleTable />
@@ -137,7 +137,7 @@ class RefExample extends Component {
                                     matchData2: record
                                 })
                             }}
-                            theme="ref-blue"
+                            theme="indigo"
                             emptyBut={true}
                             value={this.state.tableMulVal}
 

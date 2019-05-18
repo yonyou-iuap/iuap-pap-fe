@@ -75,7 +75,7 @@
     "ref-filter-table": "0.0.2-beta.0",
     "ref-multiple-table": "^2.0.1",
     "ref-tree": "^2.0.0",
-    "tinper-bee": "2.0.9",
+    "tinper-bee": "2.0.11",
     "yyuap-bpm": "0.3.26",
     "yyuap-ref": "1.1.55"
   }
