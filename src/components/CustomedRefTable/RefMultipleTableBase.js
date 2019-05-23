@@ -366,7 +366,7 @@ class RefMultipleTableBase extends Component {
 		const _this = this;
 		let { className, miniSearch = true, title = '', backdrop, size = 'lg', 
 		multiple, showModal, lang = 'zh_CN', value,
-		valueField,emptyBut=false,buttons,theme='ref-red',searchPanelLocale,fliterColumn } = this.props;
+		valueField,emptyBut=false,buttons,theme='indigo',searchPanelLocale,fliterColumn } = this.props;
 		let { showLoading, tableIsSelecting, selectedDataLength, mustRender } = this.state;
 		let { tableData, pageCount, pageSize, currPageIndex, columnsData, totalElements, checkedArray } = _this;
 		

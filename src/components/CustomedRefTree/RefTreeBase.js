@@ -372,7 +372,7 @@ class RefTreeBase extends Component {
 			nodeDisplay = "{refname}",
 			buttons,
 			emptyBut,
-			theme = 'ref-red',
+			theme = 'indigo',
 		} = this.props;
 		const { selectedArray, checkedKeys, multiple, expandedKeys, 
 			checkStrictly, parentNodeDisableCheck, showLoading } = this.state;

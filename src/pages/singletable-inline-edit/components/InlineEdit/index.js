@@ -39,8 +39,10 @@ import SearchArea from '../SearchArea';
 import FactoryComp from './FactoryComp';
 
 //组件样式引用
-import 'ref-tree/dist/index.css';
-import 'ref-multiple-table/dist/index.css';
+// import 'ref-tree/dist/index.css';
+
+
+// import 'ref-multiple-table/dist/index.css';
 import 'bee-datepicker/build/DatePicker.css';
 import 'bee-complex-grid/build/Grid.css';
 import 'bee-table/build/Table.css';

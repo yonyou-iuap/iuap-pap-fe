@@ -11,7 +11,8 @@ import FormControlPhone from 'components/FormControlPhone';
 import FormError from 'components/FormError';
 
 import 'bee-datepicker/build/DatePicker.css';
-import 'ref-tree/dist/index.css';
+// import 'ref-tree/dist/index.css';
+
 import './index.less'
 import {FormattedMessage} from "react-intl";
 

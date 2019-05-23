@@ -53,6 +53,7 @@ function RefWalsinLevel(props) {
             valueField="refpk"
             displayField="{refcode}"
             {...props}
+            
         >
             <RefMultipleTable />
         </RefWithInput>

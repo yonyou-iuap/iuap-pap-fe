@@ -29,7 +29,8 @@ import Alert from 'components/Alert';
 
 //样式导入
 import 'bee-datepicker/build/DatePicker.css';
-import 'ref-tree/dist/index.css';
+// import 'ref-tree/dist/index.css';
+
 
 //所需变量
 const { FormItem } = Form;
