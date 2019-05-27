@@ -387,6 +387,8 @@ class SingleTableGrouping extends Component {
                 data={subTableAllData[record.key]}
                 multiSelect={{type:''}}
                 paginationObj={{verticalPosition:'none',}}
+                showHeaderMenu={false}
+                columnFilterAble={false}
             />
             <Pagination
                 first
@@ -639,6 +641,8 @@ class SingleTableGrouping extends Component {
                     paginationObj={{
                         verticalPosition:'none',
                     }}
+                    showHeaderMenu={false}
+                    columnFilterAble={false}
                     exportFileName="bee-grid-excel" //导出excel的文件名称设置，如果不设置为dowloand
                     exportData={masterTableList}
                     {...tableAttr}
