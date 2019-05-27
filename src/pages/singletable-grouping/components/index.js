@@ -526,6 +526,8 @@ class SingleTableGrouping extends Component {
         let tableAttr = {}
         tableAttr['columns'] = this.masterNornalColumn;
         tableAttr['data'] = masterTableList;
+        tableAttr['expandedRowRender'] = null;
+        tableAttr['onExpand'] = null;
         if (groupParams && groupParams.length) {
             tableAttr['columns'] = this.masterColumn;
             tableAttr['expandedRowRender'] = this.expandedRowRender;
@@ -536,7 +538,7 @@ class SingleTableGrouping extends Component {
             iconType:'uf-export',
             onClick:this.exportExcel
         }]
-        console.log('data',masterTableList,'colums',this.masterNornalColumn)
+        console.log('data',tableAttr)
         return (
             <div className='grouping u-grid'>
                 <Header title={this.props.intl.formatMessage({ id: "ht.group.title.0001", defaultMessage: "C1单表分组聚合示例" })} />
@@ -641,6 +643,7 @@ class SingleTableGrouping extends Component {
                     paginationObj={{
                         verticalPosition:'none',
                     }}
+                    noReplaceColumns={true}
                     showHeaderMenu={false}
                     columnFilterAble={false}
                     exportFileName="bee-grid-excel" //导出excel的文件名称设置，如果不设置为dowloand
