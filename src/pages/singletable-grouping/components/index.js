@@ -422,6 +422,7 @@ class SingleTableGrouping extends Component {
      */
     onSearch = (error, values) => {
         let _this = this;
+        actions.grouping.clearAllSubTable();
         if (values.year) {
             values.year = values.year.format('YYYY');
         }
@@ -520,18 +521,37 @@ class SingleTableGrouping extends Component {
     }
     
     render() {
-        let { intl, masterTableList, masterTableLoading, form, pageIndex, pageSize, totalPages, total, queryParam: { groupParams } } = this.props;
+        let { intl, masterTableList, masterTableLoading, form, pageIndex, pageSize, totalPages, total, queryParam: { groupParams },subTableAllData=[] } = this.props;
         let { tableHeight } = this.state;
         const { getFieldProps } = this.props.form;
         let tableAttr = {}
         tableAttr['columns'] = this.masterNornalColumn;
         tableAttr['data'] = masterTableList;
-        tableAttr['expandedRowRender'] = null;
-        tableAttr['onExpand'] = null;
+        this.exportData = masterTableList;
         if (groupParams && groupParams.length) {
+            let exportData = [];
             tableAttr['columns'] = this.masterColumn;
             tableAttr['expandedRowRender'] = this.expandedRowRender;
             tableAttr['onExpand'] = this.getData;
+            subTableAllData.forEach(element => {
+                element && element.forEach((item,index)=>{
+                    exportData.push(item);
+                    if(index === element.length-1){
+                        //加上小计、合计,目前限制的是两个
+                        masterTableList.forEach(sum=>{
+                            if(sum.dept && groupParams.length === 1 && sum.dept === item.dept ){
+                                exportData.push({code:'合计',deptName:sum.idCount,allowanceActual:sum.allowanceActualSum})
+                            }else if(sum.allowanceType && groupParams.length === 1 && sum.allowanceType === item.allowanceType){
+                                exportData.push({code:'合计',deptName:sum.idCount,allowanceActual:sum.allowanceActualSum})
+                            }else if(groupParams.length === 2 && sum.dept === item.dept && sum.allowanceType === item.allowanceType){
+                                exportData.push({code:'合计',deptName:sum.idCount,allowanceActual:sum.allowanceActualSum})
+                            }
+                        })
+                       
+                    }
+                })
+            });
+            this.exportData = exportData
         }
         const toolBtns = [{
             value:'导出',
@@ -613,7 +633,7 @@ class SingleTableGrouping extends Component {
                     </Row>
                 </SearchPanel>
                 <div className='table-header'>
-
+                <GridToolBar toolBtns={toolBtns}  />
                 </div>
                 <Pagination
                     first
@@ -631,7 +651,7 @@ class SingleTableGrouping extends Component {
                     onSelect={this.onSelectPaginationIndex}//点击分页按钮回调
                     onDataNumSelect={this.onSelectPaginationSize}//点击跳转页数回调
                 />
-                {(!groupParams || !groupParams.length) && <GridToolBar toolBtns={toolBtns}  />}
+                {/* {(!groupParams || !groupParams.length) && <GridToolBar toolBtns={toolBtns}  />} */}
                 <Grid
                     ref="grid"
                     bordered//边框
@@ -647,7 +667,7 @@ class SingleTableGrouping extends Component {
                     showHeaderMenu={false}
                     columnFilterAble={false}
                     exportFileName="bee-grid-excel" //导出excel的文件名称设置，如果不设置为dowloand
-                    exportData={masterTableList}
+                    exportData={this.exportData}
                     {...tableAttr}
                 />
             </div >

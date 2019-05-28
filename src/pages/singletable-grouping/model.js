@@ -171,6 +171,14 @@ export default {
             let _subTableAllData = getState().grouping.subTableAllData.slice();
             _subTableAllData[param.key] = [];
             actions.grouping.updateState({ subTableAllData: _subTableAllData });
+        },
+        /**
+         * 清除所有数据，为了导出excel的数据正常
+         * @param {*} param
+         * @param {*} getState
+         */
+        clearAllSubTable() {
+            actions.grouping.updateState({ subTableAllData: [] });
         }
     }
 };
