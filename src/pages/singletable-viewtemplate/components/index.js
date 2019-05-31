@@ -344,6 +344,9 @@ class Index extends Component {
    * @memberof Index
    */
   beforeDelTemplate = (e, item) => {
+    if(item.value == 0){
+      return;
+    }
     e.stopPropagation();
     e.preventDefault();
     this.delId = item.id;
