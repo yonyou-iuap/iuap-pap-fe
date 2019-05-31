@@ -37,52 +37,60 @@ class SingleTableGrouping extends Component {
         }
         this.masterNornalColumn = [
             {
-                title: <FormattedMessage id="js.group.table1.0001" defaultMessage="员工编号" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0001", defaultMessage:"员工编号" }),
+                exportTitle:"员工编号",
                 dataIndex: "code",
                 key: "code",
                 width: 120,
             },
             {
-                title: <FormattedMessage id="js.group.table1.0002" defaultMessage="员工姓名" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0002", defaultMessage:"员工姓名" }),
+                exportTitle:"员工姓名",
                 dataIndex: "name",
                 key: "name",
                 width: 120,
             },
             {
-                title: <FormattedMessage id="js.group.table1.0003" defaultMessage="员工性别" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0003", defaultMessage:"员工性别" }),
+                exportTitle:'员工性别',
                 dataIndex: "sexEnumValue",
                 key: "sexEnumValue",
                 width: 120
             },
             {
-                title: <FormattedMessage id="js.group.table1.0004" defaultMessage="所属部门" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0004", defaultMessage:"所属部门" }),
+                exportTitle:'所属部门',
                 dataIndex: "deptName",
                 key: "deptName",
                 width: 120
             },
             {
-                title: <FormattedMessage id="js.group.table1.0005" defaultMessage="职级" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0005", defaultMessage:"职级" }),
+                exportTitle:'职级',
                 dataIndex: "levelName",
                 key: "levelName",
                 width: 140
 
             },
             {
-                title: <FormattedMessage id="js.group.table1.0006" defaultMessage="工龄" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0006", defaultMessage:"工龄" }),
+                exportTitle:'工龄',
                 dataIndex: "serviceYears",
                 key: "serviceYears",
                 className: 'column-number-right ', // 靠右对齐
                 width: 130
             },
             {
-                title: <FormattedMessage id="js.group.table1.0007" defaultMessage="司龄" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0007", defaultMessage:"司龄" }),
+                exportTitle:'司龄',
                 dataIndex: "serviceYearsCompany",
                 key: "serviceYearsCompany",
                 className: 'column-number-right ', // 靠右对齐
                 width: 130
             },
             {
-                title: <FormattedMessage id="js.group.table1.0008" defaultMessage="年份" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0008", defaultMessage:"年份" }),
+                exportTitle:'年份',
                 dataIndex: "year",
                 key: "year",
                 className: 'column-number-right ', // 靠右对齐
@@ -92,57 +100,66 @@ class SingleTableGrouping extends Component {
                 }
             },
             {
-                title: <FormattedMessage id="js.group.table1.0009" defaultMessage="月份" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0009", defaultMessage:"月份" }),
+                exportTitle:'月份',
                 dataIndex: "monthEnumValue",
                 key: "monthEnumValue",
                 width: 100
             },
             {
-                title: <FormattedMessage id="js.group.table1.0010" defaultMessage="补贴类别" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0010", defaultMessage:"补贴类别" }),
+                exportTitle:'补贴类别',
                 dataIndex: "allowanceTypeEnumValue",
                 key: "allowanceTypeEnumValue",
                 width: 120,
             },
             {
-                title: <FormattedMessage id="js.group.table1.0011" defaultMessage="补贴标准" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0011", defaultMessage:"补贴标准" }),
+                exportTitle:'补贴标准',
                 dataIndex: "allowanceStandard",
                 key: "allowanceStandard",
                 className: 'column-number-right ', // 靠右对齐
                 width: 120,
             },
             {
-                title: <FormattedMessage id="js.group.table1.0012" defaultMessage="实际补贴" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0012", defaultMessage:"实际补贴" }),
+                exportTitle:'实际补贴',
                 dataIndex: "allowanceActual",
                 key: "allowanceActual",
                 className: 'column-number-right ', // 靠右对齐
                 width: 120,
             },
             {
-                title: <FormattedMessage id="js.group.table1.0013" defaultMessage="是否超标" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0013", defaultMessage:"是否超标" }),
+                exportTitle:'是否超标',
                 dataIndex: "exdeedsEnumValue",
                 key: "exdeedsEnumValue",
                 width: 120,
             },
             {
-                title: <FormattedMessage id="js.group.table1.0014" defaultMessage="申请时间" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0014", defaultMessage:"申请时间" }),
+                exportTitle:'申请时间',
                 dataIndex: "applyTime",
                 key: "applyTime",
                 width: 150,
             },
             {
-                title: <FormattedMessage id="js.group.table1.0015" defaultMessage="领取方式" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0015", defaultMessage:"领取方式" }),
+                exportTitle:'年份',
                 dataIndex: "pickTypeEnumValue",
                 key: "pickTypeEnumValue",
                 width: 120,
             },
             {
-                title: <FormattedMessage id="js.group.table1.0016" defaultMessage="领取时间" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0016", defaultMessage:"领取时间" }),
+                exportTitle:'领取时间',
                 dataIndex: "pickTime",
                 key: "pickTime",
                 width: 150,
             },
             {
-                title: <FormattedMessage id="js.group.table1.0017" defaultMessage="备注" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0017", defaultMessage:"备注" }),
+                exportTitle:'备注',
                 dataIndex: "remark",
                 key: "remark",
                 width: 100,
@@ -151,7 +168,8 @@ class SingleTableGrouping extends Component {
         //分组主表的表头
         this.masterColumn = [
             {
-                title: <FormattedMessage id="js.group.table1.0001" defaultMessage="员工编号" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0001", defaultMessage:"员工编号" }),
+                exportTitle:"员工编号",
                 dataIndex: "code",
                 key: "code",
                 width: 120,
@@ -181,28 +199,32 @@ class SingleTableGrouping extends Component {
                 }
             },
             {
-                title: <FormattedMessage id="js.group.table1.0002" defaultMessage="员工姓名" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0002", defaultMessage:"员工姓名" }),
+                exportTitle:"员工姓名",
                 dataIndex: "name",
                 key: "name",
                 width: 120,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0003" defaultMessage="员工性别" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0003", defaultMessage:"员工性别" }),
+                exportTitle:"员工性别",
                 dataIndex: "sexEnumValue",
                 key: "sexEnumValue",
                 width: 120,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0004" defaultMessage="所属部门" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0004", defaultMessage:"所属部门" }),
+                exportTitle:"所属部门",
                 dataIndex: "deptName",
                 key: "deptName",
                 width: 120,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0005" defaultMessage="职级" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0005", defaultMessage:"职级" }),
+                exportTitle:"职级",
                 dataIndex: "levelName",
                 key: "levelName",
                 width: 140,
@@ -210,84 +232,96 @@ class SingleTableGrouping extends Component {
 
             },
             {
-                title: <FormattedMessage id="js.group.table1.0006" defaultMessage="工龄" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0006", defaultMessage:"工龄" }),
+                exportTitle:"工龄",
                 dataIndex: "serviceYears",
                 key: "serviceYears",
                 width: 130,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0007" defaultMessage="司龄" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0007", defaultMessage:"司龄" }),
+                exportTitle:"司龄",
                 dataIndex: "serviceYearsCompany",
                 key: "serviceYearsCompany",
                 width: 130,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0008" defaultMessage="年份" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0008", defaultMessage:"年份" }),
+                exportTitle:"年份",
                 dataIndex: "year",
                 key: "year",
                 width: 100,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0009" defaultMessage="月份" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0009", defaultMessage:"月份" }),
+                exportTitle:"月份",
                 dataIndex: "monthEnumValue",
                 key: "monthEnumValue",
                 width: 100,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0010" defaultMessage="补贴类别" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0010", defaultMessage:"补贴类别" }),
+                exportTitle:"补贴类别",
                 dataIndex: "allowanceTypeEnumValue",
                 key: "allowanceTypeEnumValue",
                 width: 120,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0011" defaultMessage="补贴标准" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0011", defaultMessage:"补贴标准" }),
+                exportTitle:"补贴标准",
                 dataIndex: "allowanceStandard",
                 key: "allowanceStandard",
                 width: 120,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0012" defaultMessage="实际补贴" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0012", defaultMessage:"实际补贴" }),
+                exportTitle:"实际补贴",
                 dataIndex: "allowanceActual",
                 key: "allowanceActual",
                 width: 120,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0013" defaultMessage="是否超标" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0013", defaultMessage:"是否超标" }),
+                exportTitle:"是否超标",
                 dataIndex: "exdeedsEnumValue",
                 key: "exdeedsEnumValue",
                 width: 120,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0014" defaultMessage="申请时间" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0014", defaultMessage:"申请时间" }),
+                exportTitle:"申请时间",
                 dataIndex: "applyTime",
                 key: "applyTime",
                 width: 150,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0015" defaultMessage="领取方式" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0015", defaultMessage:"领取方式" }),
+                exportTitle:"领取方式",
                 dataIndex: "pickTypeEnumValue",
                 key: "pickTypeEnumValue",
                 width: 120,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0016" defaultMessage="领取时间" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0016", defaultMessage:"领取时间" }),
+                exportTitle:"领取时间",
                 dataIndex: "pickTime",
                 key: "pickTime",
                 width: 150,
                 render: () => <div></div>
             },
             {
-                title: <FormattedMessage id="js.group.table1.0017" defaultMessage="备注" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table1.0017", defaultMessage:"备注" }),
+                exportTitle:"备注",
                 dataIndex: "remark",
                 key: "remark",
                 width: 100,
@@ -297,37 +331,37 @@ class SingleTableGrouping extends Component {
         //子表的表头
         this.subColumn = [
             {
-                title: <FormattedMessage id="js.group.table2.0001" defaultMessage="员工编号" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table2.0001", defaultMessage:"员工编号" }),
                 dataIndex: "code",
                 key: "code",
                 width: 120
             },
             {
-                title: <FormattedMessage id="js.group.table2.0002" defaultMessage="员工姓名" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table2.0002", defaultMessage:"员工姓名" }),
                 dataIndex: "name",
                 key: "name",
                 width: 120
             },
             {
-                title: <FormattedMessage id="js.group.table2.0003" defaultMessage="员工性别" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table2.0003", defaultMessage:"员工性别" }),
                 dataIndex: "sexEnumValue",
                 key: "sexEnumValue",
                 width: 120
             },
             {
-                title: <FormattedMessage id="js.group.table2.0004" defaultMessage="所属部门" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table2.0004", defaultMessage:"所属部门" }),
                 dataIndex: "deptName",
                 key: "deptName",
                 width: 120
             },
             {
-                title: <FormattedMessage id="js.group.table2.0005" defaultMessage="职级" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table2.0005", defaultMessage:"职级" }),
                 dataIndex: "levelEnumValue",
                 key: "levelEnumValue",
                 width: 140
             },
             {
-                title: <FormattedMessage id="js.group.table2.0006" defaultMessage="工龄" />,
+                title: this.props.intl.formatMessage({ id:"js.group.table2.0006", defaultMessage:"工龄" }),
                 dataIndex: "serviceYears",
                 key: "serviceYears",
                 width: 130
@@ -540,7 +574,7 @@ class SingleTableGrouping extends Component {
                         exportData.push(child)
                     })
                 }
-                exportData.push({code:'合计',deptName:sum.idCount,allowanceActual:sum.allowanceActualSum})
+                exportData.push({code:'合计',name:`\t 总记录条数：${sum.idCount}人 \t 金额：${sum.allowanceActualSum}`})
             })
             this.exportData = exportData
         }
