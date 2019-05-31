@@ -10,7 +10,7 @@ import mirror, {render, Router} from "mirrorx";
 import Intl from 'components/Intl/index.js';
 import Routes from './routes'
 
-import 'static/font/tinper-bee.css';
+import '../../../node_modules/tinper-bee/assets/theme/tinper-bee-indigo.css'
 import "src/app.less";
 
 

@@ -14,7 +14,8 @@ import { FormattedMessage } from 'react-intl';
 
 import {deepClone, Info, success,getHeight,getPageParam} from "utils";
 
-import 'ref-tree/dist/index.css';
+// import 'ref-tree/dist/index.css';
+
 import 'bee-complex-grid/build/Grid.css';
 import 'bee-table/build/Table.css';
 import 'bee-pagination/build/Pagination.css';

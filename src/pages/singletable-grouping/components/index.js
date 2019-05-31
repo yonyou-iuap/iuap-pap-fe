@@ -8,10 +8,11 @@ import moment from 'moment';
 import { Row, Col, Label, FormControl } from 'tinper-bee';
 import { getHeight } from "utils";
 import Select from 'bee-select';
-import Pagination from 'bee-pagination';
 import Form from 'bee-form';
 import { FormattedMessage } from 'react-intl';
-import Table from 'bee-table';
+// import Table from 'bee-table';
+import Pagination from 'bee-pagination';
+import Grid,{GridToolBar} from "bee-complex-grid";
 import DatePicker from 'bee-datepicker';
 import zhCN from "rc-calendar/lib/locale/zh_CN";
 import Header from "components/Header";
@@ -376,7 +377,7 @@ class SingleTableGrouping extends Component {
         let { subTableAllData, subTableAllPaging, subTableAllLoading } = this.props;
         let { pageParams: { pageIndex, total, totalPages } } = subTableAllPaging[record.key];
         return (<div>
-            <Table
+            <Grid
                 className="grouping-sub-table"
                 emptyText={() => <div>暂无数据</div>}
                 showHeader={false}
@@ -384,6 +385,10 @@ class SingleTableGrouping extends Component {
                 columns={this.masterNornalColumn}
                 rowKey={(record, index) => record.key}//渲染需要的Key
                 data={subTableAllData[record.key]}
+                multiSelect={{type:''}}
+                paginationObj={{verticalPosition:'none',}}
+                showHeaderMenu={false}
+                columnFilterAble={false}
             />
             <Pagination
                 first
@@ -417,6 +422,7 @@ class SingleTableGrouping extends Component {
      */
     onSearch = (error, values) => {
         let _this = this;
+        actions.grouping.clearAllSubTable();
         if (values.year) {
             values.year = values.year.format('YYYY');
         }
@@ -510,18 +516,49 @@ class SingleTableGrouping extends Component {
         }
 
     }
+    exportExcel = ()=>{
+        this.refs.grid.exportExcel();
+    }
+    
     render() {
-        let { intl, masterTableList, masterTableLoading, form, pageIndex, pageSize, totalPages, total, queryParam: { groupParams } } = this.props;
+        let { intl, masterTableList, masterTableLoading, form, pageIndex, pageSize, totalPages, total, queryParam: { groupParams },subTableAllData=[] } = this.props;
         let { tableHeight } = this.state;
         const { getFieldProps } = this.props.form;
         let tableAttr = {}
         tableAttr['columns'] = this.masterNornalColumn;
         tableAttr['data'] = masterTableList;
+        this.exportData = masterTableList;
         if (groupParams && groupParams.length) {
+            let exportData = [];
             tableAttr['columns'] = this.masterColumn;
             tableAttr['expandedRowRender'] = this.expandedRowRender;
             tableAttr['onExpand'] = this.getData;
+            subTableAllData.forEach(element => {
+                element && element.forEach((item,index)=>{
+                    exportData.push(item);
+                    if(index === element.length-1){
+                        //加上小计、合计,目前限制的是两个
+                        masterTableList.forEach(sum=>{
+                            if(sum.dept && groupParams.length === 1 && sum.dept === item.dept ){
+                                exportData.push({code:'合计',deptName:sum.idCount,allowanceActual:sum.allowanceActualSum})
+                            }else if(sum.allowanceType && groupParams.length === 1 && sum.allowanceType === item.allowanceType){
+                                exportData.push({code:'合计',deptName:sum.idCount,allowanceActual:sum.allowanceActualSum})
+                            }else if(groupParams.length === 2 && sum.dept === item.dept && sum.allowanceType === item.allowanceType){
+                                exportData.push({code:'合计',deptName:sum.idCount,allowanceActual:sum.allowanceActualSum})
+                            }
+                        })
+                       
+                    }
+                })
+            });
+            this.exportData = exportData
         }
+        const toolBtns = [{
+            value:'导出',
+            iconType:'uf-export',
+            onClick:this.exportExcel
+        }]
+        console.log('data',tableAttr)
         return (
             <div className='grouping u-grid'>
                 <Header title={this.props.intl.formatMessage({ id: "ht.group.title.0001", defaultMessage: "C1单表分组聚合示例" })} />
@@ -596,7 +633,7 @@ class SingleTableGrouping extends Component {
                     </Row>
                 </SearchPanel>
                 <div className='table-header'>
-
+                <GridToolBar toolBtns={toolBtns}  />
                 </div>
                 <Pagination
                     first
@@ -614,12 +651,23 @@ class SingleTableGrouping extends Component {
                     onSelect={this.onSelectPaginationIndex}//点击分页按钮回调
                     onDataNumSelect={this.onSelectPaginationSize}//点击跳转页数回调
                 />
-                <Table
+                {/* {(!groupParams || !groupParams.length) && <GridToolBar toolBtns={toolBtns}  />} */}
+                <Grid
+                    ref="grid"
                     bordered//边框
                     headerScroll={true}
                     loading={{ show: masterTableLoading, loadingType: "line" }}
                     //scroll={{ y: tableHeight }}
                     //rowKey={(record, index) => record.key}//渲染需要的Key
+                    multiSelect={{type:''}}
+                    paginationObj={{
+                        verticalPosition:'none',
+                    }}
+                    noReplaceColumns={true}
+                    showHeaderMenu={false}
+                    columnFilterAble={false}
+                    exportFileName="bee-grid-excel" //导出excel的文件名称设置，如果不设置为dowloand
+                    exportData={this.exportData}
                     {...tableAttr}
                 />
             </div >

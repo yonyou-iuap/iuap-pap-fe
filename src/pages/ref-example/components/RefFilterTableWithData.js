@@ -73,7 +73,7 @@ class RefFilterTableWithData extends Component {
 
             }}
             value={this.state.withDataVal}
-            theme="ref-blue"
+            theme="indigo"
             emptyBut={true}	
           />
         </div>
