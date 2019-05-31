@@ -23,6 +23,7 @@ import 'bee-datepicker/build/DatePicker.css';
 import 'bee-pagination/build/Pagination.css';
 import './index.less';
 
+import {fakeData} from './groupData.js';
 const { YearPicker } = DatePicker;
 const FormItem = Form.FormItem;
 const { Option } = Select;
@@ -533,32 +534,22 @@ class SingleTableGrouping extends Component {
             tableAttr['columns'] = this.masterColumn;
             tableAttr['expandedRowRender'] = this.expandedRowRender;
             tableAttr['onExpand'] = this.getData;
-            subTableAllData.forEach(element => {
-                element && element.forEach((item,index)=>{
-                    exportData.push(item);
-                    if(index === element.length-1){
-                        //加上小计、合计,目前限制的是两个
-                        masterTableList.forEach(sum=>{
-                            if(sum.dept && groupParams.length === 1 && sum.dept === item.dept ){
-                                exportData.push({code:'合计',deptName:sum.idCount,allowanceActual:sum.allowanceActualSum})
-                            }else if(sum.allowanceType && groupParams.length === 1 && sum.allowanceType === item.allowanceType){
-                                exportData.push({code:'合计',deptName:sum.idCount,allowanceActual:sum.allowanceActualSum})
-                            }else if(groupParams.length === 2 && sum.dept === item.dept && sum.allowanceType === item.allowanceType){
-                                exportData.push({code:'合计',deptName:sum.idCount,allowanceActual:sum.allowanceActualSum})
-                            }
-                        })
-                       
-                    }
-                })
-            });
+            fakeData.detailMsg.data.content.forEach(sum=>{
+                if(sum.Children){
+                    sum.Children.forEach(child=>{
+                        exportData.push(child)
+                    })
+                }
+                exportData.push({code:'合计',deptName:sum.idCount,allowanceActual:sum.allowanceActualSum})
+            })
             this.exportData = exportData
         }
         const toolBtns = [{
             value:'导出',
-            iconType:'uf-export',
-            onClick:this.exportExcel
+            icontype:'uf-export',
+            onClick:this.exportExcel,
+            key:'export',
         }]
-        console.log('data',tableAttr)
         return (
             <div className='grouping u-grid'>
                 <Header title={this.props.intl.formatMessage({ id: "ht.group.title.0001", defaultMessage: "C1单表分组聚合示例" })} />
