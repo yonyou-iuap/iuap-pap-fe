@@ -423,7 +423,7 @@ class SingleTableGrouping extends Component {
      */
     onSearch = (error, values) => {
         let _this = this;
-        actions.grouping.clearAllSubTable();
+        // actions.grouping.clearAllSubTable();
         if (values.year) {
             values.year = values.year.format('YYYY');
         }

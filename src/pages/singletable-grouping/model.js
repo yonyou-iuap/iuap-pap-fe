@@ -177,8 +177,8 @@ export default {
          * @param {*} param
          * @param {*} getState
          */
-        clearAllSubTable() {
-            actions.grouping.updateState({ subTableAllData: [] });
-        }
+        // clearAllSubTable() {
+        //     actions.grouping.updateState({ subTableAllData: [] });
+        // }
     }
 };
