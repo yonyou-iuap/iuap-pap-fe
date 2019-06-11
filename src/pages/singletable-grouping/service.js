@@ -5,7 +5,8 @@ import { deepClone } from 'utils';
 //定义接口地址
 const URL = {
     "GET_LIST": `${GROBAL_HTTP_CTX}/group_allowances/list`,
-    "GET_LIST_NEW": `${GROBAL_HTTP_CTX}/group_allowances/listByGroup`
+    "GET_LIST_NEW": `${GROBAL_HTTP_CTX}/group_allowances/listByGroup`,
+    "GET_GROUP_EXCEL_DATA": `${GROBAL_HTTP_CTX}/group_allowances/dataForGroupExcel`
 }
 
 /**
@@ -44,6 +45,14 @@ export const loadGroupTableList = (data = {}) => {
     });
 }
 
+//获取分组条件下导出的所有数据
+export const getDataForGroupExcel = (data = {}) => {
+    return request(URL.GET_GROUP_EXCEL_DATA, {
+        method: "post",
+        data: data,
+        param: data.pageParams
+    });
+}
 
 
 
