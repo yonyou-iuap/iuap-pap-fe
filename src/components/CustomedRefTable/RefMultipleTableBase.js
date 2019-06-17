@@ -157,7 +157,7 @@ class RefMultipleTableBase extends Component {
 	 */
 	launchTableHeader = (data) => {
 		if(!data) return;
-		let { multiple ,valueField='refpk'} = this.props;
+		let { multiple ,valueField='refpk',columnsWidth=[]} = this.props;
 		let keyList = data.strFieldCode || [];
 		let titleList = data.strFieldName || [];
 
@@ -176,6 +176,7 @@ class RefMultipleTableBase extends Component {
 				key: item,
 				dataIndex: item,
 				title: titleList[index],
+                width:columnsWidth[index] ? columnsWidth[index] : 200
 				// ...fMap[item]	
 			}
 		});
