@@ -11,7 +11,7 @@ export const success = (msg) => {
 }
 
 export const Error = (msg) => {
-    Message.create({ content: msg, color: 'danger' });
+    Message.create({ content: msg, color: 'danger', duration: 200 });
 }
 
 export const Warning = (msg) => {
