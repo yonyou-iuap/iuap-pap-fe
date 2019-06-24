@@ -55,7 +55,7 @@
     "bee-complex-grid": "^2.0.20",
     "bee-datepicker": "^2.0.37",
     "bee-form": "2.0.6",
-    "bee-input-number": "2.0.9",
+    "bee-input-number": "^2.0.17",
     "bee-locale": "0.0.12",
     "bee-pagination": "^2.0.4",
     "bee-select": "2.0.8",
