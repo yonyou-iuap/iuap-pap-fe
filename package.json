@@ -7,9 +7,10 @@
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development uba server --chunks --homepage=wbalone/pages/login/login.html",
     "test": "cross-env NODE_ENV=production uba server --chunks",
-    "build": "cross-env NODE_ENV=production uba build",
+    "build": "cross-env NODE_ENV=production uba build && node replace.js",
     "ftp": "gulp ftp",
-    "sftp": "gulp sftp"
+    "sftp": "gulp sftp",
+    "replace":"node replace.js"
   },
   "author": "yonyou fed team",
   "license": "MIT",
@@ -30,6 +31,7 @@
     "cssnano": "^4.1.7",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^2.0.0",
+    "fs-extra": "^8.0.1",
     "glob": "^7.1.3",
     "gulp": "^3.9.1",
     "gulp-fez-sftp": "^1.0.1",
