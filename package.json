@@ -78,7 +78,8 @@
     "ref-multiple-table": "~2.0.1",
     "ref-tree": "~2.0.0",
     "tinper-bee": "2.0.11",
-    "yyuap-bpm": "^0.3.26-walsin",
-    "yyuap-ref": "1.1.55"
+    "yyuap-bpm": "0.3.28-walsin",
+    "yyuap-ref": "1.1.55",
+    "pap-refer": "1.0.7"
   }
 }
