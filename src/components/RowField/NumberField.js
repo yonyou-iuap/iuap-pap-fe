@@ -128,6 +128,7 @@ class NumberField extends Component {
             <InputNumber
                 className={className}
                 value={value}
+				toNumber={true}
                 onChange={this.handlerChange}
                 iconStyle={iconStyle}
                 max={max}
